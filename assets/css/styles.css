@@ -1,0 +1,58 @@
+/* Modern styles and animations for LT Software site */
+:root{
+	--brand-1: #0d6efd; /* blue */
+	--brand-2: #20c997; /* green */
+	--muted: #6c757d;
+	--bg: #f4f6f8;
+	--surface: #ffffff;
+	--radius: 12px;
+	--transition: 300ms cubic-bezier(.2,.9,.3,1);
+}
+*{box-sizing:border-box}
+body{
+	background:var(--bg);
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Plus Jakarta Sans', 'Helvetica Neue', Arial;
+	color:#213547;
+	-webkit-font-smoothing:antialiased;
+	scroll-behavior:smooth;
+}
+.jumbotron{
+	background-image: linear-gradient(135deg, rgba(13,110,253,0.9), rgba(32,201,151,0.9));
+	border-radius: var(--radius);
+	color: white;
+}
+.card{ border-radius:10px; box-shadow: 0 6px 20px rgba(17,24,39,0.06); transition: transform var(--transition), box-shadow var(--transition); }
+.card:hover{ transform: translateY(-6px); box-shadow: 0 14px 30px rgba(17,24,39,0.12); }
+.card img{ object-fit:cover; height:220px; border-top-left-radius:10px; border-top-right-radius:10px; }
+
+/* Product highlight */
+.product-badge{ background: linear-gradient(90deg,var(--brand-1),var(--brand-2)); color:#fff; padding:6px 12px; border-radius:999px; font-weight:600; display:inline-block }
+
+/* Team flip cards */
+.team-card{ perspective: 1200px; }
+.team-card .inner{ transition: transform 600ms; transform-style: preserve-3d; position: relative; }
+.team-card:hover .inner{ transform: rotateY(180deg); }
+.team-card .front, .team-card .back{ backface-visibility: hidden; position: absolute; inset:0; border-radius:10px; }
+.team-card .back{ transform: rotateY(180deg); background: linear-gradient(180deg, #fff, #f8fafc); padding:1rem; display:flex; align-items:center; justify-content:center; }
+
+/* Testimonials carousel */
+.testimonials { position: relative; overflow: hidden; }
+.testimonials .slide { display: none; padding: 2rem; min-height: 140px; }
+.testimonials .slide.active { display: block; }
+.testimonials .controls { position: absolute; top:50%; transform: translateY(-50%); left:0; right:0; display:flex; justify-content:space-between; pointer-events:none }
+.testimonials .controls button{ pointer-events:auto }
+
+/* Animations */
+.fade-up{ opacity:0; transform:translateY(20px); transition: opacity 600ms ease, transform 600ms ease; }
+.fade-up.in-view{ opacity:1; transform:translateY(0); }
+
+/* Back to top */
+#back-to-top{ position:fixed; right:18px; bottom:18px; z-index:9999; display:none; background:var(--brand-1); color:#fff; border:none; width:46px; height:46px; border-radius:50%; box-shadow:0 6px 18px rgba(13,110,253,0.18); }
+
+/* Responsive tweaks */
+@media (max-width:768px){ .card img{ height:160px } }
+
+/* Utility for subtle underline CTA */
+.underline-cta{ position:relative; display:inline-block }
+.underline-cta:after{ content:''; position:absolute; left:0; right:0; bottom:-6px; height:3px; background:linear-gradient(90deg,var(--brand-1),var(--brand-2)); border-radius:3px; opacity:0.9 }
+
