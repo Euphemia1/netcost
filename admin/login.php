@@ -5,15 +5,15 @@ include '../includes/db.php';
 $error = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = $_POST['password'];
+    $username = trim($_POST['username'] ?? '');
+    $password = $_POST['password'] ?? '';
     
-    $sql = "SELECT * FROM admin_users WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
-    
-    if ($result && mysqli_num_rows($result) === 1) {
-        $user = mysqli_fetch_assoc($result);
-        if (password_verify($password, $user['password'])) {
+    if ($username && $password) {
+        $stmt = $pdo->prepare('SELECT id, username, password FROM admin_users WHERE username = ?');
+        $stmt->execute([$username]);
+        $user = $stmt->fetch();
+        
+        if ($user && password_verify($password, $user['password'])) {
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_id'] = $user['id'];
             $_SESSION['admin_username'] = $user['username'];

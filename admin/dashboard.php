@@ -11,29 +11,39 @@ include '../includes/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
         if ($_POST['action'] === 'add') {
-            $title = mysqli_real_escape_string($conn, $_POST['title']);
-            $content = mysqli_real_escape_string($conn, $_POST['content']);
-            $sql = "INSERT INTO news (title, content, created_at) VALUES ('$title', '$content', NOW())";
-            mysqli_query($conn, $sql);
+            $title = trim($_POST['title'] ?? '');
+            $content = trim($_POST['content'] ?? '');
+            if ($title && $content) {
+                $stmt = $pdo->prepare('INSERT INTO news (title, content, created_at) VALUES (?, ?, NOW())');
+                $stmt->execute([$title, $content]);
+            }
         } elseif ($_POST['action'] === 'delete') {
-            $id = (int)$_POST['id'];
-            $sql = "DELETE FROM news WHERE id = $id";
-            mysqli_query($conn, $sql);
+            $id = (int)($_POST['id'] ?? 0);
+            if ($id > 0) {
+                $stmt = $pdo->prepare('DELETE FROM news WHERE id = ?');
+                $stmt->execute([$id]);
+            }
         } elseif ($_POST['action'] === 'edit') {
-            $id = (int)$_POST['id'];
-            $title = mysqli_real_escape_string($conn, $_POST['title']);
-            $content = mysqli_real_escape_string($conn, $_POST['content']);
-            $sql = "UPDATE news SET title = '$title', content = '$content' WHERE id = $id";
-            mysqli_query($conn, $sql);
+            $id = (int)($_POST['id'] ?? 0);
+            $title = trim($_POST['title'] ?? '');
+            $content = trim($_POST['content'] ?? '');
+            if ($id > 0 && $title && $content) {
+                $stmt = $pdo->prepare('UPDATE news SET title = ?, content = ? WHERE id = ?');
+                $stmt->execute([$title, $content, $id]);
+            }
         }
     }
 }
 
 // Fetch news
-$news_result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC");
+$stmt = $pdo->prepare('SELECT id, title, content, created_at FROM news ORDER BY created_at DESC');
+$stmt->execute();
+$news_result = $stmt->fetchAll();
 
 // Fetch contacts
-$contacts_result = mysqli_query($conn, "SELECT * FROM contacts ORDER BY created_at DESC LIMIT 10");
+$stmt = $pdo->prepare('SELECT id, name, email, phone, company, message, created_at FROM contacts ORDER BY created_at DESC LIMIT 10');
+$stmt->execute();
+$contacts_result = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +81,7 @@ $contacts_result = mysqli_query($conn, "SELECT * FROM contacts ORDER BY created_
                 </div>
                 
                 <div class="news-grid">
-                    <?php while ($news = mysqli_fetch_assoc($news_result)): ?>
+                    <?php foreach ($news_result as $news): ?>
                         <div class="news-card">
                             <h3><?php echo htmlspecialchars($news['title']); ?></h3>
                             <p><?php echo htmlspecialchars($news['content']); ?></p>
@@ -87,7 +97,7 @@ $contacts_result = mysqli_query($conn, "SELECT * FROM contacts ORDER BY created_
                                 </div>
                             </div>
                         </div>
-                    <?php endwhile; ?>
+                    <?php endforeach; ?>
                 </div>
             </section>
             
@@ -106,7 +116,7 @@ $contacts_result = mysqli_query($conn, "SELECT * FROM contacts ORDER BY created_
                             </tr>
                         </thead>
                         <tbody>
-                            <?php while ($contact = mysqli_fetch_assoc($contacts_result)): ?>
+                            <?php foreach ($contacts_result as $contact): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($contact['name']); ?></td>
                                     <td><?php echo htmlspecialchars($contact['email']); ?></td>
@@ -114,7 +124,7 @@ $contacts_result = mysqli_query($conn, "SELECT * FROM contacts ORDER BY created_
                                     <td><?php echo htmlspecialchars(substr($contact['message'], 0, 50)) . '...'; ?></td>
                                     <td><?php echo date('M d, Y', strtotime($contact['created_at'])); ?></td>
                                 </tr>
-                            <?php endwhile; ?>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
