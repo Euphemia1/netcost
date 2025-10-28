@@ -1,48 +1,58 @@
-/* Lightweight hero animation controller
-   - Auto-rotates feature cards
-   - Accessible previous/next controls
-   - Keeps transitions smooth and subtle to feel like a high-quality hero
-*/
-(function(){
-  const stage = document.getElementById('featureStage');
-  if(!stage) return;
+// News modal functions
+function showAddNewsModal() {
+  const modal = document.getElementById("newsModal")
+  const modalTitle = document.getElementById("modalTitle")
+  const newsForm = document.getElementById("newsForm")
+  const newsAction = document.getElementById("newsAction")
+  const newsId = document.getElementById("newsId")
+  const newsTitle = document.getElementById("newsTitle")
+  const newsContent = document.getElementById("newsContent")
 
-  const cards = Array.from(stage.querySelectorAll('.feature-card'));
-  const titleEl = document.getElementById('featureTitle');
-  const prevBtn = document.getElementById('prevFeature');
-  const nextBtn = document.getElementById('nextFeature');
-  let idx = 0;
-  let timer = null;
-  const delay = 4800;
+  modalTitle.textContent = "Add News"
+  newsAction.value = "add"
+  newsId.value = ""
+  newsTitle.value = ""
+  newsContent.value = ""
+  newsForm.reset()
 
-  function show(i){
-    cards.forEach((c, j)=>{
-      c.classList.toggle('active', j===i);
-    });
-    const t = cards[i].getAttribute('data-title') || '';
-    if(titleEl) titleEl.textContent = t;
-    idx = i;
+  modal.classList.add("active")
+}
+
+function editNews(id, title, content) {
+  const modal = document.getElementById("newsModal")
+  const modalTitle = document.getElementById("modalTitle")
+  const newsAction = document.getElementById("newsAction")
+  const newsId = document.getElementById("newsId")
+  const newsTitle = document.getElementById("newsTitle")
+  const newsContent = document.getElementById("newsContent")
+
+  modalTitle.textContent = "Edit News"
+  newsAction.value = "edit"
+  newsId.value = id
+  newsTitle.value = title
+  newsContent.value = content
+
+  modal.classList.add("active")
+}
+
+function closeNewsModal() {
+  const modal = document.getElementById("newsModal")
+  modal.classList.remove("active")
+}
+
+// Close modal when clicking outside
+document.addEventListener("click", (e) => {
+  const modal = document.getElementById("newsModal")
+  if (modal && e.target === modal) {
+    closeNewsModal()
   }
+})
 
-  function next(){ show((idx+1) % cards.length); }
-  function prev(){ show((idx-1+cards.length) % cards.length); }
+// Escape key to close modal
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeNewsModal()
+  }
+})
 
-  if(nextBtn) nextBtn.addEventListener('click', ()=>{ next(); restart(); });
-  if(prevBtn) prevBtn.addEventListener('click', ()=>{ prev(); restart(); });
-
-  function start(){ timer = setInterval(next, delay); }
-  function stop(){ if(timer) clearInterval(timer); timer = null; }
-  function restart(){ stop(); start(); }
-
-  // init
-  show(0);
-  start();
-
-  // Pause on hover to let user interact
-  stage.addEventListener('mouseenter', stop);
-  stage.addEventListener('mouseleave', start);
-
-  // Respect user motion preference
-  const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if(mq.matches){ stop(); }
-})();
+console.log("[v0] Admin panel initialized")
