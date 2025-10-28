@@ -67,16 +67,127 @@
     </div>
 </section>
 
-<!-- Trusted By Section -->
-<section class="trusted-section">
+<!-- Trusted By Section with Animated Carousel -->
+<section class="partners-section">
     <div class="container">
-        <p class="trusted-label">Trusted by industry leaders</p>
-        <div class="trusted-logos">
-            <div class="logo-item">Turner Construction</div>
-            <div class="logo-item">Bechtel</div>
-            <div class="logo-item">Skanska</div>
-            <div class="logo-item">Kiewit</div>
-            <div class="logo-item">Fluor</div>
+        <div class="partners-header">
+            <h3 class="partners-title">Trusted by Leading Organizations</h3>
+            <p class="partners-subtitle">Proud partners with Zambia's most respected institutions and government bodies</p>
+        </div>
+        
+        <div class="logos-marquee">
+            <div class="marquee-content">
+                <!-- Engineering Institution of Zambia -->
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <circle cx="40" cy="40" r="35" fill="none" stroke="#FF6B00" stroke-width="1" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#FF6B00">EIZ</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">Engineering Institution of Zambia</p>
+                </div>
+
+                <!-- University of Zambia -->
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <path d="M40 15L50 25L50 50L30 50L30 25Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="40" cy="60" r="3" fill="#FF6B00"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">University of Zambia</p>
+                </div>
+
+                <!-- Ministry of Works & Supply -->
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <path d="M40 20L55 35L40 50L25 35Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M40 50V65" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">Ministry of Works & Supply</p>
+                </div>
+
+                <!-- Association of Consulting Engineers -->
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <rect x="25" y="25" width="30" height="30" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <line x1="40" y1="25" x2="40" y2="55" stroke="#FF6B00" stroke-width="1"/>
+                                <line x1="25" y1="40" x2="55" y2="40" stroke="#FF6B00" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">Association of Consulting Engineers</p>
+                </div>
+
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <circle cx="40" cy="40" r="35" fill="none" stroke="#FF6B00" stroke-width="1" opacity="0.5"/>
+                                <text x="40" y="45" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#FF6B00">EIZ</text>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">Engineering Institution of Zambia</p>
+                </div>
+
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <path d="M40 15L50 25L50 50L30 50L30 25Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <circle cx="40" cy="60" r="3" fill="#FF6B00"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">University of Zambia</p>
+                </div>
+
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <path d="M40 20L55 35L40 50L25 35Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M40 50V65" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">Ministry of Works & Supply</p>
+                </div>
+
+                <div class="logo-card">
+                    <div class="logo-wrapper">
+                        <div class="logo-placeholder">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="38" stroke="#FF6B00" stroke-width="2"/>
+                                <rect x="25" y="25" width="30" height="30" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <line x1="40" y1="25" x2="40" y2="55" stroke="#FF6B00" stroke-width="1"/>
+                                <line x1="25" y1="40" x2="55" y2="40" stroke="#FF6B00" stroke-width="1"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p class="logo-name">Association of Consulting Engineers</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
