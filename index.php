@@ -12,16 +12,75 @@ try {
 }
 ?>
 
-<div class="jumbotron p-5 rounded bg-secondary text-white">
-  <div class="container">
-    <h1 class="display-5">LT Software</h1>
-    <p class="lead">Building reliable software solutions for the construction industry and beyond.</p>
-    <p>
-      <a class="btn btn-light btn-lg me-2" href="/services.php">Learn More</a>
-      <a class="btn btn-outline-light btn-lg" href="/contact.php">Contact Us</a>
-    </p>
+<header class="hero-animation">
+  <div class="hero-bg">
+    <!-- Animated gradient + subtle shapes -->
+    <svg class="hero-shapes" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1">
+          <stop offset="0%" stop-color="#0d6efd" stop-opacity="0.95" />
+          <stop offset="100%" stop-color="#20c997" stop-opacity="0.95" />
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="600" fill="url(#g1)"></rect>
+      <g class="floating" fill="rgba(255,255,255,0.08)">
+        <circle cx="120" cy="80" r="60"></circle>
+        <rect x="980" y="40" width="220" height="120" rx="18"></rect>
+        <ellipse cx="600" cy="520" rx="420" ry="60"></ellipse>
+      </g>
+    </svg>
   </div>
-</div>
+
+  <div class="hero-content container">
+    <div class="hero-left">
+      <h1 class="display-5">LT Software</h1>
+      <p class="lead">Smarter estimating, smarter reporting, and seamless integrations for construction teams.</p>
+      <p>
+        <a class="btn btn-light btn-lg me-2" href="/services.php">See Features</a>
+        <a class="btn btn-outline-light btn-lg" href="/contact.php">Get a Demo</a>
+      </p>
+    </div>
+
+    <div class="hero-right" aria-hidden="false">
+      <div class="feature-stage" id="featureStage">
+        <div class="feature-card" data-title="Estimate Faster">
+          <div class="mock-ui">
+            <div class="mock-header">Net Cost Estimator</div>
+            <ul>
+              <li>Quick item entry</li>
+              <li>Auto-cost suggestions</li>
+              <li>Mobile-friendly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="feature-card" data-title="Beautiful Reports">
+          <div class="mock-ui">
+            <div class="mock-header">Net Cost Reporter</div>
+            <div class="report-preview">PDF · CSV · Dashboards</div>
+          </div>
+        </div>
+        <div class="feature-card" data-title="Integrate Everything">
+          <div class="mock-ui">
+            <div class="mock-header">Integrations</div>
+            <div class="integration-logos">ERP · Payroll · Mobile</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-controls">
+        <button id="prevFeature" aria-label="Previous feature">◀</button>
+        <div id="featureTitle" class="feature-title">Estimate Faster</div>
+        <button id="nextFeature" aria-label="Next feature">▶</button>
+      </div>
+    </div>
+  </div>
+
+  <noscript class="container text-white mt-4">
+    <p class="lead">Enable JavaScript for the animated preview. You can also view feature pages directly.</p>
+  </noscript>
+</header>
+
+<script src="/assets/js/hero.js" defer></script>
 
 <section class="my-5">
   <h2>Our Services</h2>
