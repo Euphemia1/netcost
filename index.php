@@ -4,7 +4,7 @@
 <section class="hero-section">
     <div class="video-background">
         <video autoplay muted loop playsinline id="heroVideo">
-            <source src="assets/videos/construction-hero.mp4" type="video/mp4">
+            <source src="https://videos.pexels.com/video-files/3209826/3209826-sd_640_360_30fps.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
