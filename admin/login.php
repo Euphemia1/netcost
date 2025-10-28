@@ -1,76 +1,66 @@
 <?php
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/functions.php';
 session_start();
-$errors = [];
+include '../includes/db.php';
 
-// Simple rate-limiting: check lock
-$lockedFor = is_login_locked();
-if ($lockedFor > 0) {
-  $errors[] = 'Too many failed attempts. Try again in ' . ceil($lockedFor/60) . ' minute(s).';
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Check CSRF
-  if (!verify_csrf_token($_POST['csrf_token'] ?? null)) {
-    $errors[] = 'Invalid request. Please try again.';
-  } else {
-    $username = trim($_POST['username'] ?? '');
-    $password = $_POST['password'] ?? '';
+$error = false;
 
-    if ($username === '' || $password === '') {
-      $errors[] = 'Username and password are required.';
-    } else {
-      $stmt = $pdo->prepare('SELECT id, username, password_hash FROM admins WHERE username = ? LIMIT 1');
-      $stmt->execute([$username]);
-      $admin = $stmt->fetch();
-      if ($admin && password_verify($password, $admin['password_hash'])) {
-        login_attempts_reset();
-        $_SESSION['admin_logged_in'] = true;
-        $_SESSION['admin_id'] = $admin['id'];
-        header('Location: /admin/dashboard.php');
-        exit;
-      } else {
-        login_attempt_failed();
-        $errors[] = 'Invalid credentials.';
-      }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password = $_POST['password'];
+    
+    $sql = "SELECT * FROM admin_users WHERE username = '$username'";
+    $result = mysqli_query($conn, $sql);
+    
+    if ($result && mysqli_num_rows($result) === 1) {
+        $user = mysqli_fetch_assoc($result);
+        if (password_verify($password, $user['password'])) {
+            $_SESSION['admin_logged_in'] = true;
+            $_SESSION['admin_id'] = $user['id'];
+            $_SESSION['admin_username'] = $user['username'];
+            header('Location: dashboard.php');
+            exit;
+        }
     }
-  }
+    
+    $error = true;
 }
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Login - LT Software</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - LT Software</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body class="bg-light">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h3 class="card-title mb-3">Admin Login</h3>
-            <?php if (!empty($errors)): ?>
-              <div class="alert alert-danger"><?php echo htmlspecialchars(implode('<br>', $errors)); ?></div>
+<body class="admin-body">
+    <div class="admin-login-container">
+        <div class="admin-login-card">
+            <div class="admin-logo">
+                <h1>LT Software</h1>
+                <p>Admin Portal</p>
+            </div>
+            
+            <?php if ($error): ?>
+                <div class="alert alert-error">
+                    Invalid username or password
+                </div>
             <?php endif; ?>
-            <form method="post">
-              <?php echo csrf_input(); ?>
-              <div class="mb-3">
-                <label class="form-label">Username</label>
-                <input name="username" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Password</label>
-                <input name="password" type="password" class="form-control" required>
-              </div>
-              <button class="btn btn-primary" type="submit">Login</button>
-              <a class="btn btn-link" href="/">Back to site</a>
+            
+            <form method="POST" class="admin-login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autofocus>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-large">Login</button>
             </form>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </body>
 </html>
