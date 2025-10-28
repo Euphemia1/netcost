@@ -1,7 +1,4 @@
--- Create database
-CREATE DATABASE IF NOT EXISTS lt_software CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
-USE lt_software;
 
 -- Admin users table
 CREATE TABLE IF NOT EXISTS admin_users (
@@ -13,7 +10,7 @@ CREATE TABLE IF NOT EXISTS admin_users (
 
 -- Insert default admin user (password: admin123)
 INSERT INTO admin_users (username, password) VALUES 
-('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('', '');
 
 -- News table
 CREATE TABLE IF NOT EXISTS news (
