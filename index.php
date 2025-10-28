@@ -279,6 +279,87 @@
     </div>
 </section>
 
+<!-- Special Features Section -->
+<section class="special-features-section">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-badge">Our Capabilities</span>
+            <h2 class="section-title">Specialized Solutions for Your Business</h2>
+            <p class="section-description">
+                Beyond cost estimation, we offer comprehensive tools designed for modern business challenges
+            </p>
+        </div>
+        
+        <div class="features-showcase-grid">
+            <div class="feature-showcase-card" data-aos="fade-up">
+                <div class="feature-showcase-number">01</div>
+                <h3>Construction Cost Tracker</h3>
+                <p>Monitor budgets, materials, and labor in real time—built for contractors and site managers.</p>
+                <ul class="feature-list">
+                    <li>Real-time budget monitoring</li>
+                    <li>Material tracking</li>
+                    <li>Labor cost management</li>
+                </ul>
+            </div>
+            
+            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-showcase-number">02</div>
+                <h3>Supplier Vetting Portal</h3>
+                <p>Compare vetted suppliers for industrial equipment, furniture, and PPE with transparent pricing.</p>
+                <ul class="feature-list">
+                    <li>Verified supplier database</li>
+                    <li>Price comparison tools</li>
+                    <li>Quality ratings</li>
+                </ul>
+            </div>
+            
+            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-showcase-number">03</div>
+                <h3>Quotation Builder</h3>
+                <p>Generate compliant, professional quotations for procurement and tenders—fast, accurate, and compliance-ready.</p>
+                <ul class="feature-list">
+                    <li>Automated quotation generation</li>
+                    <li>Compliance templates</li>
+                    <li>Professional formatting</li>
+                </ul>
+            </div>
+            
+            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-showcase-number">04</div>
+                <h3>Compliance Navigator</h3>
+                <p>Simplify registration and licensing for regulatory bodies—step-by-step guidance included.</p>
+                <ul class="feature-list">
+                    <li>Step-by-step guidance</li>
+                    <li>Documentation templates</li>
+                    <li>Status tracking</li>
+                </ul>
+            </div>
+            
+            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-showcase-number">05</div>
+                <h3>Career Path Guidance</h3>
+                <p>Empower individuals with career guidance, job matching, and local training opportunities.</p>
+                <ul class="feature-list">
+                    <li>Career assessments</li>
+                    <li>Job matching engine</li>
+                    <li>Training resources</li>
+                </ul>
+            </div>
+            
+            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-showcase-number">06</div>
+                <h3>Emotional Health Frameworks</h3>
+                <p>Equip users with tools for relationship discernment, emotional resilience, and personal growth.</p>
+                <ul class="feature-list">
+                    <li>Health assessments</li>
+                    <li>Resilience training</li>
+                    <li>Growth resources</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Interactive Demo Section -->
 <section id="demo" class="demo-section">
     <div class="container">
