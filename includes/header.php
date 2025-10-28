@@ -16,7 +16,7 @@
     <header class="site-header">
         <nav class="navbar">
             <div class="container">
-                <a href="/" class="logo">
+                <a href="/netcost/" class="logo">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                         <rect width="32" height="32" rx="6" fill="#FF6B00"/>
                         <path d="M10 22V10L16 7L22 10V22L16 25L10 22Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
@@ -31,13 +31,13 @@
                 </button>
                 
                 <div class="nav-menu" id="navMenu">
-                    <a href="/about.php" class="nav-link">About</a>
-                    <a href="/services.php" class="nav-link">Services</a>
-                    <a href="/index.php#products" class="nav-link">Products</a>
-                    <a href="/team.php" class="nav-link">Team</a>
-                    <a href="/clients.php" class="nav-link">Clients</a>
-                    <a href="/careers.php" class="nav-link">Careers</a>
-                    <a href="/contact.php" class="btn btn-primary btn-small">Contact Us</a>
+                    <a href="/netcost/about.php" class="nav-link">About</a>
+                    <a href="/netcost/services.php" class="nav-link">Services</a>
+                    <a href="/netcost/index.php#products" class="nav-link">Products</a>
+                    <a href="/netcost/team.php" class="nav-link">Team</a>
+                    <a href="/netcost/clients.php" class="nav-link">Clients</a>
+                    <a href="/netcost/careers.php" class="nav-link">Careers</a>
+                    <a href="/netcost/contact.php" class="btn btn-primary btn-small">Contact Us</a>
                 </div>
             </div>
         </nav>
