@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $message = 'Username and password are required.';
     } else {
       $hash = password_hash($password, PASSWORD_DEFAULT);
-      $stmt = $pdo->prepare('INSERT INTO admins (username, password_hash, created_at) VALUES (?, ?, NOW())');
+      $stmt = $pdo->prepare('INSERT INTO admin_users (username, password) VALUES (?, ?)');
       $stmt->execute([$username, $hash]);
       $message = 'Admin created. Please delete this file (admin/create_admin.php) after use.';
     }
