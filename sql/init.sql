@@ -1,7 +1,4 @@
--- Database schema for LT Software site
--- Create the database (if not already created):
--- CREATE DATABASE lt_software CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
--- USE lt_software;
+
 
 CREATE TABLE IF NOT EXISTS admins (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -25,6 +22,3 @@ CREATE TABLE IF NOT EXISTS contacts (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Notes:
--- 1) Use the provided admin/create_admin.php to add an admin account (recommended) and then delete that file.
--- 2) Update includes/db.php with your DB credentials before using the site.

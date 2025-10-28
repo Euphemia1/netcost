@@ -1,9 +1,9 @@
 <?php
 // Database connection using PDO. Edit the variables below with your MySQL credentials.
 $DB_HOST = 'localhost';
-$DB_NAME = 'lt_software';
-$DB_USER = 'db_user';
-$DB_PASS = 'db_pass';
+$DB_NAME = 'netcost';
+$DB_USER = 'root';
+$DB_PASS = '';
 
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
