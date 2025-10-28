@@ -554,13 +554,13 @@
                     </svg>
                 </div>
                 <p class="testimonial-text">
-                    "Net Cost Estimator has completely transformed how we handle project estimates. What used to take days now takes hours. The accuracy is incredible."
+                    "For public infrastructure, compliance is everything. This tool aligns with ZPPA thresholds, includes VAT automatically, and flags inconsistencies. It's now part of our internal checks & balance before approving any supplier quote."
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">JM</div>
+                    <div class="author-avatar">BM</div>
                     <div class="author-info">
-                        <div class="author-name">John Martinez</div>
-                        <div class="author-title">Project Manager, BuildCo</div>
+                        <div class="author-name">Brian Mwamba</div>
+                        <div class="author-title">Public Infrastructure Compliance Officer</div>
                     </div>
                 </div>
             </div>
@@ -584,13 +584,13 @@
                     </svg>
                 </div>
                 <p class="testimonial-text">
-                    "The reporting features are outstanding. Our clients love the professional look of the estimates, and we've closed more deals because of it."
+                    "The Net Cost Estimator replaced our messy spreadsheets with clean, localized cost breakdowns. It's fast, accurate, and reflects real Zambian pricing. We've used it on multiple builds and it's helped us stay within budget and justify every quote."
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">SK</div>
+                    <div class="author-avatar">EM</div>
                     <div class="author-info">
-                        <div class="author-name">Sarah Kim</div>
-                        <div class="author-title">Owner, Kim Construction</div>
+                        <div class="author-name">Ernest Mulenga</div>
+                        <div class="author-title">General Contractor, Multi-Build Projects</div>
                     </div>
                 </div>
             </div>
@@ -614,13 +614,13 @@
                     </svg>
                 </div>
                 <p class="testimonial-text">
-                    "Best investment we've made for our business. The ROI was immediate. We're more efficient, more accurate, and our team loves using it."
+                    "I used the Home Builder module to quote a 3-bedroom house. The breakdown was so clear, the client approved it instantly. It's perfect for small contractors who want to look professional without hiring a full Quantity Surveyors team."
                 </p>
                 <div class="testimonial-author">
-                    <div class="author-avatar">RP</div>
+                    <div class="author-avatar">MN</div>
                     <div class="author-info">
-                        <div class="author-name">Robert Patterson</div>
-                        <div class="author-title">CEO, Patterson Builders</div>
+                        <div class="author-name">Mercy Nambule</div>
+                        <div class="author-title">Independent Home Builder</div>
                     </div>
                 </div>
             </div>
