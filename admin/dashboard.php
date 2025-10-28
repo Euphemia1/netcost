@@ -1,112 +1,156 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/db.php';
-require_once __DIR__ . '/../includes/functions.php';
-session_start();
-
-if (empty($_SESSION['admin_logged_in'])) {
-  header('Location: /admin/login.php');
-  exit;
+if (!isset($_SESSION['admin_logged_in'])) {
+    header('Location: login.php');
+    exit;
 }
 
-// handle add, delete actions with CSRF verification
-$action = $_POST['action'] ?? '';
+include '../includes/db.php';
+
+// Handle news operations
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  if (!verify_csrf_token($_POST['csrf_token'] ?? null)) {
-    // invalid request
-    header('Location: /admin/dashboard.php');
-    exit;
-  }
-  if ($action === 'add') {
-    $title = trim($_POST['title'] ?? '');
-    $content = trim($_POST['content'] ?? '');
-    if ($title !== '' && $content !== '') {
-      $stmt = $pdo->prepare('INSERT INTO news (title, content, created_at) VALUES (?, ?, NOW())');
-      $stmt->execute([$title, $content]);
+    if (isset($_POST['action'])) {
+        if ($_POST['action'] === 'add') {
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
+            $content = mysqli_real_escape_string($conn, $_POST['content']);
+            $sql = "INSERT INTO news (title, content, created_at) VALUES ('$title', '$content', NOW())";
+            mysqli_query($conn, $sql);
+        } elseif ($_POST['action'] === 'delete') {
+            $id = (int)$_POST['id'];
+            $sql = "DELETE FROM news WHERE id = $id";
+            mysqli_query($conn, $sql);
+        } elseif ($_POST['action'] === 'edit') {
+            $id = (int)$_POST['id'];
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
+            $content = mysqli_real_escape_string($conn, $_POST['content']);
+            $sql = "UPDATE news SET title = '$title', content = '$content' WHERE id = $id";
+            mysqli_query($conn, $sql);
+        }
     }
-    header('Location: /admin/dashboard.php');
-    exit;
-  }
-  if ($action === 'delete') {
-    $id = (int)($_POST['id'] ?? 0);
-    if ($id > 0) {
-      $stmt = $pdo->prepare('DELETE FROM news WHERE id = ?');
-      $stmt->execute([$id]);
-    }
-    header('Location: /admin/dashboard.php');
-    exit;
-  }
 }
 
-// fetch all news
-$stmt = $pdo->query('SELECT id, title, content, created_at FROM news ORDER BY created_at DESC');
-$all_news = $stmt->fetchAll();
+// Fetch news
+$news_result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC");
 
+// Fetch contacts
+$contacts_result = mysqli_query($conn, "SELECT * FROM contacts ORDER BY created_at DESC LIMIT 10");
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Admin Dashboard - LT Software</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - LT Software</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
-<body>
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand" href="/">LT Software Admin</a>
-    <div>
-      <a class="btn btn-outline-light btn-sm" href="/">View Site</a>
-      <a class="btn btn-outline-light btn-sm" href="/admin/logout.php">Logout</a>
+<body class="admin-body">
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <div class="admin-logo">
+                <h2>LT Software</h2>
+                <p>Admin Panel</p>
+            </div>
+            
+            <nav class="admin-nav">
+                <a href="#news" class="admin-nav-item active">News Flash</a>
+                <a href="#contacts" class="admin-nav-item">Contact Messages</a>
+                <a href="logout.php" class="admin-nav-item">Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Dashboard</h1>
+                <p>Welcome back, <?php echo htmlspecialchars($_SESSION['admin_username']); ?></p>
+            </header>
+            
+            <section id="news" class="admin-section">
+                <div class="section-header">
+                    <h2>News Flash Management</h2>
+                    <button class="btn btn-primary" onclick="showAddNewsModal()">Add News</button>
+                </div>
+                
+                <div class="news-grid">
+                    <?php while ($news = mysqli_fetch_assoc($news_result)): ?>
+                        <div class="news-card">
+                            <h3><?php echo htmlspecialchars($news['title']); ?></h3>
+                            <p><?php echo htmlspecialchars($news['content']); ?></p>
+                            <div class="news-meta">
+                                <span><?php echo date('M d, Y', strtotime($news['created_at'])); ?></span>
+                                <div class="news-actions">
+                                    <button onclick="editNews(<?php echo $news['id']; ?>, '<?php echo addslashes($news['title']); ?>', '<?php echo addslashes($news['content']); ?>')" class="btn-icon">Edit</button>
+                                    <form method="POST" style="display: inline;">
+                                        <input type="hidden" name="action" value="delete">
+                                        <input type="hidden" name="id" value="<?php echo $news['id']; ?>">
+                                        <button type="submit" class="btn-icon" onclick="return confirm('Delete this news item?')">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endwhile; ?>
+                </div>
+            </section>
+            
+            <section id="contacts" class="admin-section">
+                <h2>Recent Contact Messages</h2>
+                
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Company</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($contact = mysqli_fetch_assoc($contacts_result)): ?>
+                                <tr>
+                                    <td><?php echo htmlspecialchars($contact['name']); ?></td>
+                                    <td><?php echo htmlspecialchars($contact['email']); ?></td>
+                                    <td><?php echo htmlspecialchars($contact['company']); ?></td>
+                                    <td><?php echo htmlspecialchars(substr($contact['message'], 0, 50)) . '...'; ?></td>
+                                    <td><?php echo date('M d, Y', strtotime($contact['created_at'])); ?></td>
+                                </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
     </div>
-  </div>
-</nav>
-<div class="container my-4">
-  <h1>News Flash - Manage</h1>
-
-  <div class="card mb-4">
-    <div class="card-body">
-      <h5 class="card-title">Add News Item</h5>
-      <form method="post">
-        <?php echo csrf_input(); ?>
-        <input type="hidden" name="action" value="add">
-        <div class="mb-3">
-          <label class="form-label">Title</label>
-          <input name="title" class="form-control" required>
+    
+    <!-- Add/Edit News Modal -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add News</h2>
+                <button class="modal-close" onclick="closeNewsModal()">&times;</button>
+            </div>
+            <form method="POST" id="newsForm">
+                <input type="hidden" name="action" id="newsAction" value="add">
+                <input type="hidden" name="id" id="newsId">
+                
+                <div class="form-group">
+                    <label for="newsTitle">Title</label>
+                    <input type="text" id="newsTitle" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newsContent">Content</label>
+                    <textarea id="newsContent" name="content" rows="4" required></textarea>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeNewsModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
         </div>
-        <div class="mb-3">
-          <label class="form-label">Content</label>
-          <textarea name="content" class="form-control" rows="4" required></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">Add</button>
-      </form>
     </div>
-  </div>
-
-  <h2>Existing Items</h2>
-  <?php if (empty($all_news)): ?>
-    <p class="text-muted">No news items found.</p>
-  <?php else: ?>
-    <div class="list-group">
-      <?php foreach ($all_news as $n): ?>
-        <div class="list-group-item">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><?php echo htmlspecialchars($n['title']); ?></h5>
-            <small><?php echo htmlspecialchars($n['created_at']); ?></small>
-          </div>
-          <p class="mb-1"><?php echo nl2br(htmlspecialchars($n['content'])); ?></p>
-          <a class="btn btn-sm btn-secondary me-2" href="/admin/edit_news.php?id=<?php echo (int)$n['id']; ?>">Edit</a>
-          <form method="post" class="d-inline">
-            <?php echo csrf_input(); ?>
-            <input type="hidden" name="action" value="delete">
-            <input type="hidden" name="id" value="<?php echo (int)$n['id']; ?>">
-            <button class="btn btn-sm btn-danger" onclick="return confirm('Delete this item?')">Delete</button>
-          </form>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  <?php endif; ?>
-
-</div>
+    
+    <script src="../assets/js/admin.js"></script>
 </body>
 </html>
