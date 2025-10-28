@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 
+
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!verify_csrf_token($_POST['csrf_token'] ?? null)) {
@@ -21,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 ?>
+
 <!doctype html>
 <html>
 <head>
