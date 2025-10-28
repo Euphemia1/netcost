@@ -81,7 +81,7 @@
                     <!-- Engineering Institution of Zambia -->
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/eiz.png" alt="Engineering Institution of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-eiz.svg'">
+                            <img src="/netcost/assets/media/eiz.png" alt="Engineering Institution of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-eiz.svg'">
                         </div>
                         <p class="logo-name">Engineering Institution<br>of Zambia</p>
                     </div>
@@ -89,7 +89,7 @@
                     <!-- University of Zambia -->
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/unza.png" alt="University of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-unza.svg'">
+                            <img src="/netcost/assets/media/unza.png" alt="University of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-unza.svg'">
                         </div>
                         <p class="logo-name">University of Zambia</p>
                     </div>
@@ -97,7 +97,7 @@
                     <!-- Ministry of Works & Supply -->
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/ministry.png" alt="Ministry of Works & Supply" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-ministry.svg'">
+                            <img src="/netcost/assets/media/ministry.jpeg" alt="Ministry of Works & Supply" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-ministry.svg'">
                         </div>
                         <p class="logo-name">Ministry of Works<br>& Supply</p>
                     </div>
@@ -105,7 +105,7 @@
                     <!-- Association of Consulting Engineers -->
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/acea.png" alt="Association of Consulting Engineers of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-acea.svg'">
+                            <img src="/netcost/assets/media/association.jpeg" alt="Association of Consulting Engineers of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-acea.svg'">
                         </div>
                         <p class="logo-name">Association of<br>Consulting Engineers</p>
                     </div>
@@ -113,28 +113,28 @@
                     <!-- Duplicates for seamless loop -->
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/eiz.png" alt="Engineering Institution of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-eiz.svg'">
+                            <img src="/netcost/assets/media/eiz.png" alt="Engineering Institution of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-eiz.svg'">
                         </div>
                         <p class="logo-name">Engineering Institution<br>of Zambia</p>
                     </div>
 
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/unza.png" alt="University of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-unza.svg'">
+                            <img src="/netcost/assets/media/unza.png" alt="University of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-unza.svg'">
                         </div>
                         <p class="logo-name">University of Zambia</p>
                     </div>
 
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/ministry.png" alt="Ministry of Works & Supply" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-ministry.svg'">
+                            <img src="/netcost/assets/media/ministry.jpeg" alt="Ministry of Works & Supply" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-ministry.svg'">
                         </div>
                         <p class="logo-name">Ministry of Works<br>& Supply</p>
                     </div>
 
                     <div class="logo-card">
                         <div class="logo-wrapper">
-                            <img src="/netcost/assets/images/logos/acea.png" alt="Association of Consulting Engineers of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-acea.svg'">
+                            <img src="/netcost/assets/media/association.jpeg" alt="Association of Consulting Engineers of Zambia" class="logo-image" onerror="this.src='/netcost/assets/images/logos/placeholder-acea.svg'">
                         </div>
                         <p class="logo-name">Association of<br>Consulting Engineers</p>
                     </div>
