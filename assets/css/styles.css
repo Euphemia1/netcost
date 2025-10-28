@@ -468,21 +468,28 @@ body {
 }
 
 /* Marquee Container */
+.logos-marquee-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .logos-marquee {
   position: relative;
   width: 100%;
   overflow: hidden;
   background: white;
-  border-radius: 16px;
-  padding: 40px 0;
-  box-shadow: var(--shadow-md);
+  border-radius: 20px;
+  padding: 50px 0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 107, 0, 0.1);
 }
 
 .marquee-content {
   display: flex;
-  gap: 60px;
-  animation: scroll-left 30s linear infinite;
+  gap: 80px;
+  animation: scroll-left 35s linear infinite;
   padding: 0 40px;
+  will-change: transform;
 }
 
 .marquee-content:hover {
@@ -502,65 +509,83 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   min-width: max-content;
   flex-shrink: 0;
-  transition: transform 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
 .logo-card:hover {
-  transform: scale(1.1);
+  transform: translateY(-12px);
 }
 
 .logo-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
-  background: var(--bg-secondary);
-  border-radius: 16px;
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #ffffff 100%);
+  border-radius: 20px;
   border: 2px solid var(--border);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .logo-card:hover .logo-wrapper {
   border-color: var(--primary);
-  background: rgba(255, 107, 0, 0.05);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, rgba(255, 107, 0, 0.05) 0%, #ffffff 100%);
+  box-shadow: 0 12px 30px rgba(255, 107, 0, 0.15);
+  transform: scale(1.08);
 }
 
-.logo-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logo-card:hover .logo-wrapper::before {
+  opacity: 1;
+}
+
+.logo-image {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  padding: 15px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  filter: brightness(0.95);
 }
 
-.logo-placeholder svg {
-  width: 80px;
-  height: 80px;
-  transition: transform 0.3s ease;
-}
-
-.logo-card:hover .logo-placeholder svg {
-  transform: rotate(5deg) scale(1.1);
+.logo-card:hover .logo-image {
+  transform: scale(1.12) rotate(2deg);
+  filter: brightness(1.1) drop-shadow(0 8px 16px rgba(255, 107, 0, 0.2));
 }
 
 .logo-name {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-secondary);
   text-align: center;
-  max-width: 120px;
-  line-height: 1.3;
-  transition: color 0.3s ease;
+  max-width: 140px;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .logo-card:hover .logo-name {
   color: var(--primary);
+  font-weight: 700;
 }
 
 /* Smooth fade at edges */
@@ -570,10 +595,11 @@ body {
   left: 0;
   top: 0;
   bottom: 0;
-  width: 100px;
+  width: 120px;
   background: linear-gradient(90deg, white 0%, transparent 100%);
   z-index: 10;
   pointer-events: none;
+  border-radius: 20px 0 0 20px;
 }
 
 .logos-marquee::after {
@@ -582,10 +608,11 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
-  width: 100px;
+  width: 120px;
   background: linear-gradient(270deg, white 0%, transparent 100%);
   z-index: 10;
   pointer-events: none;
+  border-radius: 0 20px 20px 0;
 }
 
 /* Features Showcase */
@@ -1483,9 +1510,8 @@ body {
     height: 100px;
   }
 
-  .logo-placeholder svg {
-    width: 60px;
-    height: 60px;
+  .logo-image {
+    padding: 10px;
   }
 
   .logo-name {
@@ -1496,6 +1522,10 @@ body {
   .logos-marquee::before,
   .logos-marquee::after {
     width: 60px;
+  }
+
+  .logos-marquee {
+    padding: 40px 0;
   }
 }
 
