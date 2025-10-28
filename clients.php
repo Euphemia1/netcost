@@ -1,25 +1,85 @@
-<?php
-include __DIR__ . '/includes/header.php';
-?>
+<?php include 'includes/header.php'; ?>
 
-<h1>Clients & Partners</h1>
-<p>We've partnered with leading firms in construction and engineering. Below are a few of our clients.</p>
-<div class="row">
-  <div class="col-md-3 text-center mb-3">
-    <img src="/assets/images/client1.png" alt="Client 1" class="img-fluid" style="max-height:60px;">
-  </div>
-  <div class="col-md-3 text-center mb-3">
-    <img src="/assets/images/client2.png" alt="Client 2" class="img-fluid" style="max-height:60px;">
-  </div>
-  <div class="col-md-3 text-center mb-3">
-    <img src="/assets/images/client3.png" alt="Client 3" class="img-fluid" style="max-height:60px;">
-  </div>
-  <div class="col-md-3 text-center mb-3">
-    <img src="/assets/images/client4.png" alt="Client 4" class="img-fluid" style="max-height:60px;">
-  </div>
-</div>
+<section class="page-hero">
+    <div class="container">
+        <span class="page-badge">Clients & Partners</span>
+        <h1 class="page-title">Trusted by Industry Leaders</h1>
+        <p class="page-description">
+            We're proud to work with some of the most respected names in construction.
+        </p>
+    </div>
+</section>
 
-<h2 class="mt-4">Testimonials</h2>
-<blockquote class="blockquote">“LT Software helped us reduce estimating time by 40%.” <footer class="blockquote-footer">Procurement Manager, BuildCo</footer></blockquote>
+<section class="clients-section">
+    <div class="container">
+        <div class="clients-grid">
+            <div class="client-card">
+                <div class="client-logo">Turner Construction</div>
+                <p class="client-testimonial">
+                    "LT Software has transformed how we handle cost estimation. What used to take days now takes hours."
+                </p>
+                <div class="client-author">
+                    <strong>David Martinez</strong>
+                    <span>Project Manager, Turner Construction</span>
+                </div>
+            </div>
+            
+            <div class="client-card">
+                <div class="client-logo">Bechtel</div>
+                <p class="client-testimonial">
+                    "The accuracy and speed of Net Cost Estimator has given us a competitive edge in bidding."
+                </p>
+                <div class="client-author">
+                    <strong>Jennifer Lee</strong>
+                    <span>Senior Estimator, Bechtel</span>
+                </div>
+            </div>
+            
+            <div class="client-card">
+                <div class="client-logo">Skanska</div>
+                <p class="client-testimonial">
+                    "Outstanding support and a product that actually understands construction workflows."
+                </p>
+                <div class="client-author">
+                    <strong>Robert Thompson</strong>
+                    <span>Operations Director, Skanska</span>
+                </div>
+            </div>
+            
+            <div class="client-card">
+                <div class="client-logo">Kiewit</div>
+                <p class="client-testimonial">
+                    "We've seen a 50% reduction in estimation time and significantly fewer errors."
+                </p>
+                <div class="client-author">
+                    <strong>Amanda Foster</strong>
+                    <span>Chief Estimator, Kiewit</span>
+                </div>
+            </div>
+            
+            <div class="client-card">
+                <div class="client-logo">Fluor</div>
+                <p class="client-testimonial">
+                    "The ROI was immediate. LT Software pays for itself within the first month."
+                </p>
+                <div class="client-author">
+                    <strong>James Wilson</strong>
+                    <span>VP of Operations, Fluor</span>
+                </div>
+            </div>
+            
+            <div class="client-card">
+                <div class="client-logo">McCarthy</div>
+                <p class="client-testimonial">
+                    "Finally, construction software that's built by people who understand construction."
+                </p>
+                <div class="client-author">
+                    <strong>Lisa Anderson</strong>
+                    <span>Project Executive, McCarthy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<?php include __DIR__ . '/includes/footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
