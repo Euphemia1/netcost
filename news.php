@@ -3,7 +3,7 @@ include 'includes/header.php';
 include 'includes/db.php';
 
 // Fetch all news items
-$stmt = $pdo->prepare('SELECT id, title, content, created_at FROM news ORDER BY created_at DESC');
+$stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
 $stmt->execute();
 $news_items = $stmt->fetchAll();
 ?>
@@ -24,6 +24,12 @@ $news_items = $stmt->fetchAll();
             <div class="news-grid-page">
                 <?php foreach ($news_items as $index => $news): ?>
                     <article class="news-article-card" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
+                        <?php if ($news['featured_image']): ?>
+                            <div class="news-article-image">
+                                <img src="<?php echo htmlspecialchars($news['featured_image']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?>">
+                            </div>
+                        <?php endif; ?>
+                        
                         <div class="news-article-header">
                             <h2 class="news-article-title"><?php echo htmlspecialchars($news['title']); ?></h2>
                             <time class="news-article-date"><?php echo date('F j, Y', strtotime($news['created_at'])); ?></time>
