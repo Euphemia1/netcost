@@ -61,11 +61,11 @@ $contacts_result = $stmt->fetchAll();
                 <p>Admin Panel</p>
             </div>
             
-            <nav class="admin-nav">
+            <!-- <nav class="admin-nav">
                 <a href="#news" class="admin-nav-item active">News Flash</a>
                 <a href="#contacts" class="admin-nav-item">Contact Messages</a>
                 <a href="logout.php" class="admin-nav-item">Logout</a>
-            </nav>
+            </nav> -->
         </aside>
         
         <main class="admin-main">
