@@ -60,12 +60,13 @@ $contacts_result = $stmt->fetchAll();
                 <h2>LT Software</h2>
                 <p>Admin Panel</p>
             </div>
-            
+
             <!-- <nav class="admin-nav">
                 <a href="#news" class="admin-nav-item active">News Flash</a>
                 <a href="#contacts" class="admin-nav-item">Contact Messages</a>
                 <a href="logout.php" class="admin-nav-item">Logout</a>
             </nav> -->
+
         </aside>
         
         <main class="admin-main">
@@ -101,7 +102,7 @@ $contacts_result = $stmt->fetchAll();
                 </div>
             </section>
             
-            <section id="contacts" class="admin-section">
+            <!-- <section id="contacts" class="admin-section">
                 <h2>Recent Contact Messages</h2>
                 
                 <div class="table-container">
@@ -115,7 +116,7 @@ $contacts_result = $stmt->fetchAll();
                                 <th>Date</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody> -->
                             <?php foreach ($contacts_result as $contact): ?>
                                 <tr>
                                     <td><?php echo htmlspecialchars($contact['name']); ?></td>
@@ -131,6 +132,7 @@ $contacts_result = $stmt->fetchAll();
             </section>
         </main>
     </div>
+    
     
     <!-- Add/Edit News Modal -->
     <div id="newsModal" class="modal">
