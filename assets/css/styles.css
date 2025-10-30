@@ -1557,8 +1557,25 @@ body {
 }
 
 .value-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.value-card:hover .value-icon {
+  background: rgba(255, 107, 0, 0.2);
+  transform: scale(1.1);
+}
+
+.value-icon svg {
+  width: 48px;
+  height: 48px;
 }
 
 .value-card h3 {

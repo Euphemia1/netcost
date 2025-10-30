@@ -32,19 +32,34 @@
         
         <div class="values-grid">
             <div class="value-card">
-                <div class="value-icon">🎯</div>
+                <div class="value-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="6" y="6" width="36" height="36" rx="2" stroke="#FF6B00" stroke-width="2"/>
+                        <path d="M24 12V36M12 24H36" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <h3>Our Mission</h3>
                 <p>To empower construction professionals with intelligent software that simplifies complex estimation and reporting tasks.</p>
             </div>
             
             <div class="value-card">
-                <div class="value-icon">👁️</div>
+                <div class="value-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M24 6C13.5 6 5 14.5 5 25C5 35.5 13.5 42 24 42C34.5 42 43 35.5 43 25" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="24" cy="25" r="3" fill="#FF6B00"/>
+                        <path d="M24 15L24 25M24 25L32 32" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <h3>Our Vision</h3>
                 <p>To become the global standard for construction cost management and project intelligence.</p>
             </div>
             
             <div class="value-card">
-                <div class="value-icon">⭐</div>
+                <div class="value-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M24 8L28.5 18H39L30.5 24L34 34L24 29L14 34L17.5 24L9 18H19.5L24 8Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </div>
                 <h3>Our Values</h3>
                 <p>Precision, innovation, and unwavering commitment to our customers' success drive everything we do.</p>
             </div>
