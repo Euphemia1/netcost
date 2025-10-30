@@ -1,9 +1,14 @@
 <?php 
+// Prevent caching
+header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 include 'includes/header.php';
 include 'includes/db.php';
 
-// Fetch all news items
-$stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
+// Fetch all news items (with DISTINCT to prevent duplicates)
+$stmt = $pdo->prepare('SELECT DISTINCT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
 $stmt->execute();
 $news_items = $stmt->fetchAll();
 ?>

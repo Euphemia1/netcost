@@ -1,4 +1,11 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+// Prevent caching
+header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+include 'includes/header.php'; 
+?>
 
 <!-- Hero Section with Background Video -->
 <section class="hero-section">
