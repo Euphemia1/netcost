@@ -223,7 +223,6 @@
   color: #ff6b00;
 }
 
-/* Enhanced button with better styling and hover effects */
 .btn-large {
   width: 100%;
   padding: 16px 32px;
@@ -277,7 +276,6 @@
   transform: translateX(4px);
 }
 
-/* Enhanced footer with icon and better styling */
 .login-footer {
   margin-top: 32px;
   text-align: center;
@@ -301,7 +299,7 @@
   font-weight: 500;
 }
 
-/* Added branding footer */
+
 .login-branding {
   text-align: center;
   margin-top: 24px;
@@ -324,7 +322,7 @@
   }
 }
 
-/* Admin Dashboard Styles */
+
 .admin-body {
   margin: 0;
   padding: 0;
