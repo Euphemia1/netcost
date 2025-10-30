@@ -60,7 +60,7 @@ body {
 }
 
 .navbar {
-  padding: 16px 0;
+  padding: 12px 0;
 }
 
 .navbar .container {
@@ -1270,14 +1270,14 @@ body {
 .site-footer {
   background: var(--text-primary);
   color: white;
-  padding: 80px 0 32px;
+  padding: 60px 0 24px;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
+  gap: 48px;
+  margin-bottom: 48px;
 }
 
 .footer-logo {
