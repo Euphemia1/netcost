@@ -2276,7 +2276,6 @@ body {
   color: darken(#ff6b00, 10%);
 }
 
-/* Contacts Table */
 .contacts-table {
   width: 100%;
   border-collapse: collapse;
@@ -2315,7 +2314,6 @@ body {
   border-bottom: none;
 }
 
-/* Buttons */
 .btn {
   padding: 10px 20px;
   border: none;
@@ -2354,7 +2352,6 @@ body {
   font-size: 16px;
 }
 
-/* Alert */
 .alert {
   padding: 16px 20px;
   border-radius: 8px;
@@ -2381,7 +2378,6 @@ body {
   color: #33c;
 }
 
-/* Admin Forms */
 .form-group {
   margin-bottom: 20px;
 }
@@ -2426,7 +2422,6 @@ body {
   min-height: 120px;
 }
 
-/* Image Upload */
 .image-upload-wrapper {
   margin: 12px 0;
 }
@@ -2487,7 +2482,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Modal */
+
 .modal {
   display: none;
   position: fixed;
@@ -2548,7 +2543,6 @@ body {
   color: var(--primary);
 }
 
-/* Admin Login */
 .admin-login-container {
   display: flex;
   align-items: center;
@@ -2593,7 +2587,7 @@ body {
   gap: 24px;
 }
 
-/* Responsive Admin */
+
 @media (max-width: 768px) {
   .admin-sidebar {
     width: 100%;
