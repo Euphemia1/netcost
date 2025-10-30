@@ -1,5 +1,4 @@
 <?php
-// One-time admin creation helper. Delete this file after creating an admin for security.
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 
