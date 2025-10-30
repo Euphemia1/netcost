@@ -21,7 +21,7 @@
                         <rect width="32" height="32" rx="6" fill="#FF6B00"/>
                         <path d="M10 22V10L16 7L22 10V22L16 25L10 22Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
-                    <span>LT Software</span>
+                    <span>NetCost Estimator</span>
                 </a>
                 
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
