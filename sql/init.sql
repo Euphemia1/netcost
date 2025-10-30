@@ -34,7 +34,6 @@ CREATE TABLE IF NOT EXISTS contacts (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create indexes for better performance
 CREATE INDEX idx_news_created ON news(created_at DESC);
 CREATE INDEX idx_contacts_created ON contacts(created_at DESC);
 CREATE INDEX idx_admin_username ON admin_users(username);
