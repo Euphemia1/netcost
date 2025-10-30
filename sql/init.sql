@@ -23,7 +23,7 @@ INSERT INTO news (title, content) VALUES
 (''),
 ('');
 
--- Contacts table
+
 CREATE TABLE IF NOT EXISTS contacts (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
