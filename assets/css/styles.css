@@ -1471,9 +1471,9 @@ body {
 /* Page Hero Section - For all inner pages */
 .page-hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  padding: 120px 0;
+  padding: 60px 0;
   text-align: center;
-  margin-top: 80px;
+  margin-top: 60px;
 }
 
 .page-badge {
