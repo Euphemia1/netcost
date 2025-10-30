@@ -37,16 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="admin-login-body">
-    <div class="login-background">
-        <div class="login-gradient"></div>
-        <div class="login-pattern"></div>
-        <div class="login-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-    </div>
-    
     <div class="admin-login-container">
         <div class="admin-login-card">
             <div class="admin-logo">
@@ -75,5 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
+    
+    <?php include '../includes/footer.php'; ?>
 </body>
 </html>
