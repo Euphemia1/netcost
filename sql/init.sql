@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS admin_users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert default admin user (password: admin123)
 INSERT INTO admin_users (username, password) VALUES 
 ('', '');
 
