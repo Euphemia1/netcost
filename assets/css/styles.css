@@ -1467,35 +1467,35 @@ body {
 
 .page-hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  padding: 60px 0;
+  padding: 25px 0;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 12px;
 }
 
 .page-badge {
   display: inline-block;
-  padding: 6px 12px;
+  padding: 4px 10px;
   background: rgba(255, 255, 255, 0.2);
   color: white;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   border-radius: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .page-title {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 800;
   color: white;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
 
 .page-description {
-  font-size: 18px;
+  font-size: 15px;
   color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
+  line-height: 1.5;
   max-width: 700px;
   margin: 0 auto;
 }
