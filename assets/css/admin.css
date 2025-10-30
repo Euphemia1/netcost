@@ -121,6 +121,11 @@
   width: 100%;
   max-width: 480px;
   padding: 24px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 /* Enhanced card with better shadow and glass morphism effect */
