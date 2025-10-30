@@ -223,7 +223,6 @@ $contacts_result = $stmt->fetchAll();
                 </div>
                 
                 <!-- Pagination Controls -->
-                <?php if ($total_pages > 1): ?>
                 <div class="pagination">
                     <?php if ($current_page > 1): ?>
                         <a href="dashboard.php?page=1" class="pagination-btn">First</a>
@@ -245,7 +244,6 @@ $contacts_result = $stmt->fetchAll();
                         <button class="pagination-btn disabled">Last</button>
                     <?php endif; ?>
                 </div>
-                <?php endif; ?>
             </section>
             
             <!-- <section id="contacts" class="admin-section">
