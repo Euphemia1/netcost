@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS news (
 INSERT INTO news (title, content) VALUES 
 ('New Feature Release', 'We are excited to announce the release of our new AI-powered cost estimation feature that reduces estimation time by 50%.'),
 ('Partnership Announcement', 'LT Software partners with leading construction firms to bring innovative solutions to the industry.'),
-('Award Recognition', 'LT Software wins Best Construction Software Award 2024 for innovation and customer satisfaction.');
+('');
 
 -- Contacts table
 CREATE TABLE IF NOT EXISTS contacts (
