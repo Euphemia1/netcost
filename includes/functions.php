@@ -1,5 +1,5 @@
 <?php
-// Utility helpers for the LT Software site
+
 if (session_status() == PHP_SESSION_NONE) session_start();
 
 function generate_csrf_token(): string
