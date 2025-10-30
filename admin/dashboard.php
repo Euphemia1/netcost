@@ -120,9 +120,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Fetch news (with DISTINCT to prevent duplicates)
-$stmt = $pdo->prepare('SELECT DISTINCT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
+// Pagination settings
+$items_per_page = 6;
+$current_page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$offset = ($current_page - 1) * $items_per_page;
+
+// Get total count of news items
+$stmt = $pdo->prepare('SELECT COUNT(DISTINCT id) as total FROM news');
 $stmt->execute();
+$total_count = $stmt->fetch()['total'];
+$total_pages = ceil($total_count / $items_per_page);
+
+// Ensure current page doesn't exceed total pages
+$current_page = min($current_page, max(1, $total_pages));
+$offset = ($current_page - 1) * $items_per_page;
+
+// Fetch news with pagination (with DISTINCT to prevent duplicates)
+$stmt = $pdo->prepare('SELECT DISTINCT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC LIMIT ? OFFSET ?');
+$stmt->execute([$items_per_page, $offset]);
 $news_result = $stmt->fetchAll();
 
 // Fetch contacts
@@ -216,6 +231,31 @@ $contacts_result = $stmt->fetchAll();
                         </div>
                     <?php endforeach; ?>
                 </div>
+                
+                <!-- Pagination Controls -->
+                <?php if ($total_pages > 1): ?>
+                <div class="pagination">
+                    <?php if ($current_page > 1): ?>
+                        <a href="dashboard.php?page=1" class="pagination-btn">First</a>
+                        <a href="dashboard.php?page=<?php echo $current_page - 1; ?>" class="pagination-btn">← Previous</a>
+                    <?php else: ?>
+                        <button class="pagination-btn disabled">First</button>
+                        <button class="pagination-btn disabled">← Previous</button>
+                    <?php endif; ?>
+                    
+                    <span class="pagination-info">
+                        Page <strong><?php echo $current_page; ?></strong> of <strong><?php echo $total_pages; ?></strong>
+                    </span>
+                    
+                    <?php if ($current_page < $total_pages): ?>
+                        <a href="dashboard.php?page=<?php echo $current_page + 1; ?>" class="pagination-btn">Next →</a>
+                        <a href="dashboard.php?page=<?php echo $total_pages; ?>" class="pagination-btn">Last</a>
+                    <?php else: ?>
+                        <button class="pagination-btn disabled">Next →</button>
+                        <button class="pagination-btn disabled">Last</button>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
             </section>
             
             <!-- <section id="contacts" class="admin-section">
