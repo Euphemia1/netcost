@@ -1016,7 +1016,7 @@
   }
 }
 
-/* Footer styling - matches main site */
+
 .site-footer {
   background: #1a1a1a;
   color: white;
@@ -1104,14 +1104,14 @@
   color: #FF6B00;
 }
 
-/* Footer positioning for login page */
+
 .admin-login-body .site-footer {
   margin-top: auto;
   width: 100%;
   flex-shrink: 0;
 }
 
-/* Pagination styles */
+
 .pagination {
   display: flex;
   align-items: center;
@@ -1166,7 +1166,6 @@
   text-align: center;
 }
 
-/* Responsive footer */
 @media (max-width: 1024px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
