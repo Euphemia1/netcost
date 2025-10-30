@@ -23,7 +23,6 @@ function csrf_input(): string
     return "<input type=\"hidden\" name=\"csrf_token\" value=\"$t\">";
 }
 
-// Simple rate limiter helpers (session-based)
 function login_attempt_failed(int $maxAttempts = 5, int $lockSeconds = 300)
 {
     $now = time();
