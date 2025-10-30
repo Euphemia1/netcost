@@ -50,6 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($title && $content) {
                 $stmt = $pdo->prepare('INSERT INTO news (title, content, featured_image, created_at) VALUES (?, ?, ?, NOW())');
                 $stmt->execute([$title, $content, $featured_image]);
+                // Redirect to dashboard after successful insert
+                header('Location: dashboard.php?status=added');
+                exit;
             }
         } elseif ($_POST['action'] === 'delete') {
             $id = (int)($_POST['id'] ?? 0);
@@ -68,6 +71,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $stmt = $pdo->prepare('DELETE FROM news WHERE id = ?');
                 $stmt->execute([$id]);
+                // Redirect to dashboard after successful delete
+                header('Location: dashboard.php?status=deleted');
+                exit;
             }
         } elseif ($_POST['action'] === 'edit') {
             $id = (int)($_POST['id'] ?? 0);
@@ -106,6 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 $stmt = $pdo->prepare('UPDATE news SET title = ?, content = ?, featured_image = ? WHERE id = ?');
                 $stmt->execute([$title, $content, $featured_image, $id]);
+                // Redirect to dashboard after successful update
+                header('Location: dashboard.php?status=updated');
+                exit;
             }
         }
     }
@@ -153,6 +162,29 @@ $contacts_result = $stmt->fetchAll();
                 <h1>Dashboard</h1>
                 <p>Welcome back, <?php echo htmlspecialchars($_SESSION['admin_username']); ?></p>
             </header>
+            
+            <?php 
+            // Display success messages
+            if (isset($_GET['status'])):
+                $messages = [
+                    'added' => 'Article added successfully!',
+                    'updated' => 'Article updated successfully!',
+                    'deleted' => 'Article deleted successfully!'
+                ];
+                $status = $_GET['status'];
+                if (isset($messages[$status])): 
+            ?>
+            <div class="alert alert-success">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <?php echo htmlspecialchars($messages[$status]); ?>
+            </div>
+            <?php 
+                endif;
+            endif;
+            ?>
             
             <section id="news" class="admin-section">
                 <div class="section-header">
