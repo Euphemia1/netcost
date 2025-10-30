@@ -9,7 +9,6 @@ CREATE TABLE IF NOT EXISTS admin_users (
 INSERT INTO admin_users (username, password) VALUES 
 ('', '');
 
--- News table
 CREATE TABLE IF NOT EXISTS news (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
@@ -19,7 +18,6 @@ CREATE TABLE IF NOT EXISTS news (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- Sample news items
 INSERT INTO news (title, content) VALUES 
 ('New Feature Release', 'We are excited to announce the release of our new AI-powered cost estimation feature that reduces estimation time by 50%.'),
 ('Partnership Announcement', 'LT Software partners with leading construction firms to bring innovative solutions to the industry.'),
