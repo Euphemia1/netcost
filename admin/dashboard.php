@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+// Prevent caching
+header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
+
 if (!isset($_SESSION['admin_logged_in'])) {
     header('Location: login.php');
     exit;
@@ -105,8 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-// Fetch news
-$stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
+// Fetch news (with DISTINCT to prevent duplicates)
+$stmt = $pdo->prepare('SELECT DISTINCT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
 $stmt->execute();
 $news_result = $stmt->fetchAll();
 
