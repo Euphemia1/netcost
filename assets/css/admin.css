@@ -1,4 +1,4 @@
-/* Admin Login Styles */
+
 .admin-login-body {
   margin: 0;
   padding: 0;
@@ -10,7 +10,7 @@
   background: #ffffff;
 }
 
-/* Simplified background */
+
 .login-background {
   display: none;
 }
@@ -28,7 +28,7 @@
   flex: 1;
 }
 
-/* Enhanced card with better shadow and glass morphism effect */
+
 .admin-login-card {
   background: white;
   border-radius: 16px;
@@ -51,7 +51,7 @@
   }
 }
 
-/* Enhanced logo section with construction icon */
+
 .admin-logo {
   text-align: center;
   margin-bottom: 48px;
@@ -96,7 +96,7 @@
   font-weight: 500;
 }
 
-/* Enhanced alert styling */
+
 .alert {
   padding: 16px 18px;
   border-radius: 12px;
@@ -150,7 +150,7 @@
   flex-shrink: 0;
 }
 
-/* Enhanced form styling */
+
 .admin-login-form .form-group {
   margin-bottom: 28px;
 }
