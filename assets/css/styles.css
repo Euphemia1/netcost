@@ -60,7 +60,7 @@ body {
 }
 
 .navbar {
-  padding: 8px 0;
+  padding: 6px 0;
 }
 
 .navbar .container {
@@ -1269,14 +1269,14 @@ body {
 .site-footer {
   background: var(--text-primary);
   color: white;
-  padding: 40px 0 20px;
+  padding: 25px 0 15px;
 }
 
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 30px;
+  margin-bottom: 30px;
 }
 
 .footer-logo {
@@ -1322,7 +1322,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
