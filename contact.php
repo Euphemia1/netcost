@@ -1,31 +1,42 @@
 a<?php
-include 'includes/db.php';
+// Prevent caching
+header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0");
+header("Pragma: no-cache");
+header("Expires: 0");
 
+include 'includes/db.php';
+include 'includes/header.php';
+
+$errors = [];
 $success = false;
-$error = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $phone = mysqli_real_escape_string($conn, $_POST['phone'] ?? '');
-    $company = mysqli_real_escape_string($conn, $_POST['company'] ?? '');
-    $message = mysqli_real_escape_string($conn, $_POST['message']);
-    
-    $sql = "INSERT INTO contacts (name, email, phone, company, message, created_at) 
-            VALUES ('$name', '$email', '$phone', '$company', '$message', NOW())";
-    
-    if (mysqli_query($conn, $sql)) {
-        $success = true;
-    } else {
-        $error = true;
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $company = trim($_POST['company'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    if ($name === '') $errors[] = 'Name is required.';
+    if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'A valid email is required.';
+    if ($message === '') $errors[] = 'Please enter a message.';
+
+    if (empty($errors)) {
+        try {
+            $stmt = $pdo->prepare('INSERT INTO contacts (name, email, phone, company, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())');
+            $stmt->execute([$name, $email, $phone, $company, $message]);
+            $success = true;
+            // Clear fields
+            $name = $email = $phone = $company = $message = '';
+        } catch (Exception $e) {
+            $errors[] = 'Failed to save message. Please try again later.';
+        }
     }
 }
-
-include 'includes/header.php';
 ?>
 
 <section class="page-hero">
-    <div class="container">
+    <div class="page-hero-content">
         <span class="page-badge">Contact Us</span>
         <h1 class="page-title">Let's Build Something Great Together</h1>
         <p class="page-description">
@@ -94,12 +105,12 @@ include 'includes/header.php';
                     </div>
                 <?php endif; ?>
                 
-                <?php if ($error): ?>
+                <?php if (!empty($errors)): ?>
                     <div class="alert alert-error">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M10 10V6M10 14H10.01M18 10C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Something went wrong. Please try again.
+                        <?php echo htmlspecialchars(implode(', ', $errors)); ?>
                     </div>
                 <?php endif; ?>
                 
@@ -107,30 +118,30 @@ include 'includes/header.php';
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name ?? ''); ?>" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email ?? ''); ?>" required>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($phone ?? ''); ?>">
                         </div>
                         
                         <div class="form-group">
                             <label for="company">Company</label>
-                            <input type="text" id="company" name="company">
+                            <input type="text" id="company" name="company" value="<?php echo htmlspecialchars($company ?? ''); ?>">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <textarea id="message" name="message" rows="5" required><?php echo htmlspecialchars($message ?? ''); ?></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-primary btn-large">Send Message</button>
@@ -141,62 +152,3 @@ include 'includes/header.php';
 </section>
 
 <?php include 'includes/footer.php'; ?>
-<?php
-require_once __DIR__ . '/includes/db.php';
-include __DIR__ . '/includes/header.php';
-
-$errors = [];
-$success = false;
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $message = trim($_POST['message'] ?? '');
-
-    if ($name === '') $errors[] = 'Name is required.';
-    if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'A valid email is required.';
-    if ($message === '') $errors[] = 'Please enter a message.';
-
-    if (empty($errors)) {
-        try {
-            $stmt = $pdo->prepare('INSERT INTO contacts (name, email, message, created_at) VALUES (?, ?, ?, NOW())');
-            $stmt->execute([$name, $email, $message]);
-            $success = true;
-            // clear fields
-            $name = $email = $message = '';
-        } catch (Exception $e) {
-            $errors[] = 'Failed to save message. Please try again later.';
-        }
-    }
-}
-?>
-
-<h1>Contact Us</h1>
-<p>Reach out for demos, quotes, or partnerships.</p>
-
-<?php if ($success): ?>
-  <div class="alert alert-success">Thank you — your message has been received.</div>
-<?php endif; ?>
-
-<?php if (!empty($errors)): ?>
-  <div class="alert alert-danger"><ul>
-    <?php foreach ($errors as $e): ?><li><?php echo htmlspecialchars($e); ?></li><?php endforeach; ?>
-  </ul></div>
-<?php endif; ?>
-
-<form method="post" action="/contact.php">
-  <div class="mb-3">
-    <label class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" value="<?php echo htmlspecialchars($name ?? ''); ?>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Email</label>
-    <input type="email" name="email" class="form-control" value="<?php echo htmlspecialchars($email ?? ''); ?>">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Message</label>
-    <textarea name="message" class="form-control" rows="5"><?php echo htmlspecialchars($message ?? ''); ?></textarea>
-  </div>
-  <button class="btn btn-primary" type="submit">Send Message</button>
-</form>
-
-<?php include __DIR__ . '/includes/footer.php'; ?>
