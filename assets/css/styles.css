@@ -1069,7 +1069,7 @@ body {
   color: var(--text-secondary);
 }
 
-/* Services Section */
+
 .services-section {
   padding: 120px 0;
   background: var(--bg-secondary);
@@ -1154,7 +1154,7 @@ body {
   color: var(--text-secondary);
 }
 
-/* CTA Section */
+
 .cta-section {
   padding: 120px 0;
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -1212,7 +1212,7 @@ body {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Forms */
+
 .contact-form-wrapper {
   background: var(--bg-secondary);
   padding: 40px;
@@ -1266,7 +1266,6 @@ body {
   min-height: 120px;
 }
 
-/* Footer */
 .site-footer {
   background: var(--text-primary);
   color: white;
@@ -1348,7 +1347,6 @@ body {
   color: var(--primary);
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 56px;
@@ -1434,7 +1432,6 @@ body {
     text-align: center;
   }
 
-  /* Marquee responsive styles */
   .partners-title {
     font-size: 28px;
   }
@@ -1468,7 +1465,6 @@ body {
   }
 }
 
-/* Page Hero Section - For all inner pages */
 .page-hero {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   padding: 60px 0;
@@ -1504,7 +1500,7 @@ body {
   margin: 0 auto;
 }
 
-/* About Page Styles */
+
 .about-content {
   padding: 120px 0;
   background: white;
@@ -1590,7 +1586,7 @@ body {
   line-height: 1.6;
 }
 
-/* Services Page Styles */
+
 .services-detail-section {
   padding: 120px 0;
   background: white;
@@ -1665,7 +1661,7 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* Team Page Styles */
+
 .team-section {
   padding: 120px 0;
   background: white;
@@ -1740,7 +1736,6 @@ body {
   display: none;
 }
 
-/* Contact Page Styles */
 .contact-section {
   padding: 120px 0;
   background: white;
@@ -1803,7 +1798,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* Careers Page Styles */
 .careers-section {
   padding: 120px 0;
   background: white;
@@ -1885,7 +1879,6 @@ body {
   line-height: 1.8;
 }
 
-/* Clients Page Styles */
 .clients-section {
   padding: 120px 0;
   background: white;
@@ -1935,13 +1928,12 @@ body {
   line-height: 1.6;
 }
 
-/* Products Page Styles */
 .products-page-section {
   padding: 120px 0;
   background: white;
 }
 
-/* News Page Styles */
+
 .news-page-section {
   padding: 80px 0;
   background: white;
@@ -2067,7 +2059,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* Responsive for new page styles */
 @media (max-width: 768px) {
   .page-title {
     font-size: 32px;
@@ -2101,9 +2092,6 @@ body {
   }
 }
 
-/* ==================== ADMIN DASHBOARD STYLES ==================== */
-
-/* Admin Body & Container */
 .admin-body {
   background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
   font-family: 'Inter', sans-serif;
@@ -2116,7 +2104,7 @@ body {
   gap: 0;
 }
 
-/* Admin Sidebar */
+
 .admin-sidebar {
   width: 280px;
   background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -2151,7 +2139,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* Admin Navigation */
+
 .admin-nav {
   display: flex;
   flex-direction: column;
@@ -2178,7 +2166,7 @@ body {
   padding-left: 18px;
 }
 
-/* Admin Main Content */
+
 .admin-main {
   margin-left: 280px;
   flex: 1;
@@ -2186,7 +2174,7 @@ body {
   overflow-y: auto;
 }
 
-/* Admin Sections */
+
 .admin-section {
   background: white;
   border-radius: 12px;
@@ -2212,7 +2200,6 @@ body {
   margin: 0;
 }
 
-/* News Grid */
 .news-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
