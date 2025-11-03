@@ -35,7 +35,6 @@
                     <a href="/netcost/index.php#products" class="nav-link">Products</a>
                     <a href="/netcost/team.php" class="nav-link">Team</a>
                     <a href="/netcost/clients.php" class="nav-link">Clients</a>
-                    <a href="/netcost/careers.php" class="nav-link">Careers</a>
                     <a href="/netcost/news.php" class="nav-link">News</a>
                     <a href="/netcost/contact.php" class="btn btn-primary btn-small">Contact Us</a>
                 </div>
