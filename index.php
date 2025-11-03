@@ -434,8 +434,8 @@ include 'includes/header.php';
                     <div class="demo-feature">
                         <div class="demo-feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#18274f" stroke-width="2"/>
-                                <path d="M8 10H16M8 14H12" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#001F3F" stroke-width="2"/>
+                                <path d="M8 10H16M8 14H12" stroke="#001F3F" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <div>
@@ -447,8 +447,8 @@ include 'includes/header.php';
                     <div class="demo-feature">
                         <div class="demo-feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#18274f" stroke-width="2"/>
-                                <path d="M12 6V12L16 14" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#001F3F" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="#001F3F" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <div>
