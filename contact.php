@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <h3>Email</h3>
-                            <p>info@ltsoftware.com</p>
+                            <p>info@netcostestimator.org</p>
                         </div>
                     </div>
                     
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+1 (555) 123-4567</p>
+                            <p>+260 976909813</p>
                         </div>
                     </div>
                     
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <h3>Office</h3>
-                            <p>123 Construction Ave<br>Suite 100<br>San Francisco, CA 94105</p>
+                            <p>Plot A150, Off Munali Road<br>Foxdale<br>Lusaka, Zambia</p>
                         </div>
                     </div>
                 </div>

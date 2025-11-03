@@ -1,3 +1,8 @@
+:root {
+  --primary: #18274f;
+  --primary-light: #223c87;
+  --accent: #ff6b00;
+}
 
 .admin-login-body {
   margin: 0;
@@ -61,13 +66,13 @@
   width: 80px;
   height: 80px;
   margin: 0 auto 20px;
-  background: linear-gradient(135deg, #ff6b00 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 12px 24px rgba(255, 107, 0, 0.3), 0 0 0 8px rgba(255, 107, 0, 0.1);
+  box-shadow: 0 12px 24px rgba(24, 39, 79, 0.3), 0 0 0 8px rgba(24, 39, 79, 0.1);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -177,8 +182,8 @@
 
 .admin-login-form input:focus {
   outline: none;
-  border-color: #FF6B00;
-  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(24, 39, 79, 0.1);
   background: white;
 }
 
@@ -213,14 +218,14 @@
 
 .input-with-icon input:focus {
   outline: none;
-  border-color: #ff6b00;
-  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.1);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(24, 39, 79, 0.1);
   background: white;
 }
 
 .input-with-icon input:focus + svg,
 .input-with-icon:focus-within svg {
-  color: #ff6b00;
+  color: var(--primary);
 }
 
 .btn-large {
@@ -237,7 +242,7 @@
   border-radius: 12px;
   position: relative;
   overflow: hidden;
-  background: #FF6B00;
+  background: var(--primary);
   color: white;
   border: none;
   cursor: pointer;
@@ -358,7 +363,7 @@
   width: 48px;
   height: 48px;
   margin: 0 0 12px 0;
-  background: linear-gradient(135deg, #ff6b00 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -401,13 +406,13 @@
 
 .admin-nav-item:hover {
   background: #f5f7fa;
-  color: #ff6b00;
+  color: var(--primary);
 }
 
 .admin-nav-item.active {
-  background: linear-gradient(135deg, #ff6b00 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(24, 39, 79, 0.3);
 }
 
 .admin-nav-item.logout {
@@ -510,8 +515,8 @@
 
 .btn-icon:hover {
   background: #f5f7fa;
-  color: #ff6b00;
-  border-color: #ff6b00;
+  color: var(--primary);
+  border-color: var(--primary);
 }
 
 .btn-icon.btn-danger:hover {
@@ -599,7 +604,7 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #ff6b00 0%, #ff8c42 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: white;
   border: none;
   padding: 12px 24px;
@@ -611,12 +616,12 @@
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(24, 39, 79, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(24, 39, 79, 0.4);
 }
 
 .btn-secondary {
@@ -657,7 +662,7 @@
 .news-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-color: #ff6b00;
+  border-color: var(--primary);
 }
 
 .news-card-image {
