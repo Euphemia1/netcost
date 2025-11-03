@@ -7,7 +7,6 @@ header("Expires: 0");
 include 'includes/header.php'; 
 ?>
 
-<!-- Hero Section with Background Video -->
 <section class="hero-section">
     <div class="video-background">
         <video autoplay muted loop playsinline id="heroVideo">
