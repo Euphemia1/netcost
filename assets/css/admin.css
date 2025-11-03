@@ -1142,11 +1142,11 @@
 }
 
 .pagination-btn:hover:not(.disabled) {
-  background: #FF6B00;
-  border-color: #FF6B00;
+  background: var(--primary);
+  border-color: var(--primary);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(24, 39, 79, 0.2);
 }
 
 .pagination-btn.disabled {
@@ -1157,8 +1157,8 @@
 }
 
 .pagination-btn.active {
-  background: #FF6B00;
-  border-color: #FF6B00;
+  background: var(--primary);
+  border-color: var(--primary);
   color: white;
 }
 

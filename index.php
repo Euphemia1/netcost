@@ -142,8 +142,8 @@ include 'includes/header.php';
             <div class="feature-card" data-aos="fade-up">
                 <div class="feature-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M4 34L24 44L44 34M4 24L24 34L44 24" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#18274f" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M4 34L24 44L44 34M4 24L24 34L44 24" stroke="#18274f" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <h3>Lightning Fast</h3>
@@ -153,8 +153,8 @@ include 'includes/header.php';
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <circle cx="24" cy="24" r="20" stroke="#FF6B00" stroke-width="2"/>
-                        <path d="M24 12V24L32 28" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="24" cy="24" r="20" stroke="#18274f" stroke-width="2"/>
+                        <path d="M24 12V24L32 28" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </div>
                 <h3>Real-Time Updates</h3>
@@ -164,8 +164,8 @@ include 'includes/header.php';
             <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <rect x="8" y="12" width="32" height="28" rx="2" stroke="#FF6B00" stroke-width="2"/>
-                        <path d="M16 20H32M16 26H32M16 32H24" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                        <rect x="8" y="12" width="32" height="28" rx="2" stroke="#18274f" stroke-width="2"/>
+                        <path d="M16 20H32M16 26H32M16 32H24" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </div>
                 <h3>Smart Reports</h3>
@@ -175,8 +175,8 @@ include 'includes/header.php';
             <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 4V44M4 24H44" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="24" cy="24" r="8" stroke="#FF6B00" stroke-width="2"/>
+                        <path d="M24 4V44M4 24H44" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="24" cy="24" r="8" stroke="#18274f" stroke-width="2"/>
                     </svg>
                 </div>
                 <h3>Precision Accuracy</h3>
@@ -186,8 +186,8 @@ include 'includes/header.php';
             <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="feature-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M12 24C12 17.373 17.373 12 24 12C30.627 12 36 17.373 36 24C36 30.627 30.627 36 24 36" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M24 36C17.373 36 12 30.627 12 24" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
+                        <path d="M12 24C12 17.373 17.373 12 24 12C30.627 12 36 17.373 36 24C36 30.627 30.627 36 24 36" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M24 36C17.373 36 12 30.627 12 24" stroke="#18274f" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
                     </svg>
                 </div>
                 <h3>Seamless Integration</h3>
@@ -197,7 +197,7 @@ include 'includes/header.php';
             <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="feature-icon">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 4L30 16L44 18L34 28L36 44L24 37L12 44L14 28L4 18L18 16L24 4Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M24 4L30 16L44 18L34 28L36 44L24 37L12 44L14 28L4 18L18 16L24 4Z" stroke="#18274f" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
                 </div>
                 <h3>Award Winning</h3>
@@ -421,8 +421,8 @@ include 'includes/header.php';
                     <div class="demo-feature">
                         <div class="demo-feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
-                                <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#FF6B00" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#18274f" stroke-width="2" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#18274f" stroke-width="2" stroke-linejoin="round"/>
                             </svg>
                         </div>
                         <div>
@@ -434,8 +434,8 @@ include 'includes/header.php';
                     <div class="demo-feature">
                         <div class="demo-feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#FF6B00" stroke-width="2"/>
-                                <path d="M8 10H16M8 14H12" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#18274f" stroke-width="2"/>
+                                <path d="M8 10H16M8 14H12" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <div>
@@ -447,8 +447,8 @@ include 'includes/header.php';
                     <div class="demo-feature">
                         <div class="demo-feature-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#FF6B00" stroke-width="2"/>
-                                <path d="M12 6V12L16 14" stroke="#FF6B00" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#18274f" stroke-width="2"/>
+                                <path d="M12 6V12L16 14" stroke="#18274f" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <div>
