@@ -6,12 +6,12 @@
 }
 
 :root {
-  --primary: #18274f;
-  --primary-dark: #0f1a35;
-  --primary-light: #223c87;
-  --accent: #ff6b00;
-  --accent-dark: #e55d00;
-  --accent-light: #ff8533;
+  --primary: #001F3F;
+  --primary-dark: #001429;
+  --primary-light: #0074D9;
+  --accent: #FFA500;
+  --accent-dark: #E89500;
+  --accent-light: #FFB84D;
   --text-primary: #1a1a1a;
   --text-secondary: #666666;
   --text-tertiary: #999999;

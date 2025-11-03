@@ -6,7 +6,7 @@
                 <div class="footer-col">
                     <div class="footer-logo">
                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <rect width="32" height="32" rx="6" fill="#18274f"/>
+                            <rect width="32" height="32" rx="6" fill="#001F3F"/>
                             <path d="M10 22V10L16 7L22 10V22L16 25L10 22Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
                         </svg>
                         <span>LT Construction Software</span>
