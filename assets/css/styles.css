@@ -6,8 +6,8 @@
 }
 
 :root {
-  --primary: #001F3F;
-  --primary-dark: #001429;
+  --primary: #1E3A8A;
+  --primary-dark: #1a2f6b;
   --primary-light: #0074D9;
   --accent: #FFA500;
   --accent-dark: #E89500;
@@ -371,13 +371,13 @@ body {
 .btn-primary {
   background: var(--primary);
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
 .btn-primary:hover {
   background: var(--primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 31, 63, 0.4);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.4);
 }
 
 .btn-primary:active {
@@ -1261,7 +1261,7 @@ body {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
 .form-group textarea {
@@ -1963,7 +1963,7 @@ body {
 }
 
 .news-article-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 31, 63, 0.15);
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
   transform: translateY(-6px);
   border-color: var(--primary);
 }
@@ -2219,7 +2219,7 @@ body {
 }
 
 .news-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 8px 24px rgba(30, 58, 138, 0.1);
   transform: translateY(-4px);
   border-color: var(--primary);
 }
@@ -2336,7 +2336,7 @@ body {
 .btn-primary:hover {
   background: var(--primary-light);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
 .btn-secondary {
@@ -2416,7 +2416,7 @@ body {
 .form-group select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
 }
 
 .form-group textarea {
@@ -2440,7 +2440,7 @@ body {
 
 .image-upload-wrapper input[type="file"]:hover {
   border-color: var(--primary);
-  background: rgba(0, 31, 63, 0.05);
+  background: rgba(30, 58, 138, 0.05);
 }
 
 .image-preview {

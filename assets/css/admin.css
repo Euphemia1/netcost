@@ -1,5 +1,5 @@
 :root {
-  --primary: #001F3F;
+  --primary: #1E3A8A;
   --primary-light: #0074D9;
   --accent: #FFA500;
 }
@@ -72,7 +72,7 @@
   align-items: center;
   justify-content: center;
   color: white;
-  box-shadow: 0 12px 24px rgba(0, 31, 63, 0.3), 0 0 0 8px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 12px 24px rgba(30, 58, 138, 0.3), 0 0 0 8px rgba(30, 58, 138, 0.1);
   animation: pulse 2s ease-in-out infinite;
 }
 
@@ -183,7 +183,7 @@
 .admin-login-form input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
   background: white;
 }
 
@@ -219,7 +219,7 @@
 .input-with-icon input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
   background: white;
 }
 
@@ -412,7 +412,7 @@
 .admin-nav-item.active {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
 .admin-nav-item.logout {
@@ -616,12 +616,12 @@
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.3);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 31, 63, 0.4);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.4);
 }
 
 .btn-secondary {
@@ -912,7 +912,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(0, 31, 63, 0.1);
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
 }
 
 .form-group textarea {
@@ -935,7 +935,7 @@
 
 .image-upload-wrapper input[type="file"]:hover {
   border-color: var(--primary);
-  background: rgba(0, 31, 63, 0.05);
+  background: rgba(30, 58, 138, 0.05);
 }
 
 .image-preview {
@@ -1146,7 +1146,7 @@
   border-color: var(--primary);
   color: white;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
 .pagination-btn.disabled {
