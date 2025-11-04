@@ -295,7 +295,7 @@ include 'includes/header.php';
                         <path d="M24 16V24L30 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <h3 class="product-title">Net Cost Elite</h3>
+                <h3 class="product-title">NetcostEstimator Elite</h3>
                 <p class="product-description">
                     Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
                 </p>
