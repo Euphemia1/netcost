@@ -86,7 +86,7 @@ include 'includes/header.php';
             <!-- Zambia Public Procurement Authority -->
             <div class="circular-logo-container">
                 <div class="circular-logo">
-                    <img src="/netcost/assets/media/zppa-logo.png" alt="Zambia Public Procurement Authority" onerror="this.style.display='none'">
+                    <img src="/netcost/assets/media/Coat_of_arms_of_Zambia.svg" alt="Zambia Public Procurement Authority" onerror="this.style.display='none'">
                 </div>
                 <p class="logo-caption">ZPPA</p>
             </div>
@@ -94,7 +94,7 @@ include 'includes/header.php';
             <!-- Ministry of Water Development -->
             <div class="circular-logo-container">
                 <div class="circular-logo">
-                    <img src="/netcost/assets/media/water-dev-logo.png" alt="Ministry of Water Development" onerror="this.style.display='none'">
+                    <img src="/netcost/assets/media/Coat_of_arms_of_Zambia.svg" alt="Ministry of Water Development" onerror="this.style.display='none'">
                 </div>
                 <p class="logo-caption">Ministry of Water Development</p>
             </div>
@@ -134,7 +134,7 @@ include 'includes/header.php';
             <!-- Ministry of Housing -->
             <div class="circular-logo-container">
                 <div class="circular-logo">
-                    <img src="/netcost/assets/media/housing-logo.png" alt="Ministry of Housing & Infrastructure Development" onerror="this.style.display='none'">
+                    <img src="/netcost/assets/media/housing.jpeg" alt="Ministry of Housing & Infrastructure Development" onerror="this.style.display='none'">
                 </div>
                 <p class="logo-caption">Ministry of Housing</p>
             </div>

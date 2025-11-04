@@ -513,6 +513,13 @@ body {
   height: auto;
   object-fit: contain;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(1) contrast(1.05);
+}
+
+.circular-logo img[src$=".svg"] {
+  width: 70%;
+  height: 70%;
+  filter: brightness(1) contrast(1.2);
 }
 
 .circular-logo-container:hover .circular-logo {
