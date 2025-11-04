@@ -1,4 +1,5 @@
 <?php include 'includes/header.php'; ?>
+<link rel="stylesheet" href="/netcost/assets/css/clients.css">
 
 <section class="page-hero">
     <div class="container">
@@ -20,61 +21,68 @@
             </p>
         </div>
 
-        <div class="circular-logos-grid">
+        <div class="client-logos-grid">
             <!-- Zambia Public Procurement Authority -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/zppa.png" alt="Zambia Public Procurement Authority" class="circular-logo" onerror="this.style.display='none'">
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/Coat_of_arms_of_Zambia.svg" alt="Zambia Public Procurement Authority" onerror="this.style.display='none'">
                 </div>
-                <h3>Zambia Public Procurement Authority</h3>
+                <h3 class="client-name">ZPPA</h3>
+                <p class="client-description">Zambia Public Procurement Authority</p>
             </div>
 
-            <!-- Ministry of Water Development, Sanitation and Environmental Protection -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/ministry-water.png" alt="Ministry of Water Development, Sanitation and Environmental Protection" class="circular-logo" onerror="this.style.display='none'">
+            <!-- Ministry of Water Development -->
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/Coat_of_arms_of_Zambia.svg" alt="Ministry of Water Development" onerror="this.style.display='none'">
                 </div>
-                <h3>Ministry of Water Development, Sanitation & Environmental Protection</h3>
+                <h3 class="client-name">Ministry of Water Development</h3>
+                <p class="client-description">Sanitation & Environmental Protection</p>
             </div>
 
             <!-- Ministry of Works and Supply -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/ministry-works.png" alt="Ministry of Works and Supply" class="circular-logo" onerror="this.style.display='none'">
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/ministry.jpeg" alt="Ministry of Works and Supply" onerror="this.style.display='none'">
                 </div>
-                <h3>Ministry of Works and Supply</h3>
+                <h3 class="client-name">Ministry of Works</h3>
+                <p class="client-description">Ministry of Works and Supply</p>
             </div>
 
-            <!-- UNZA (University of Zambia) -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/unza.png" alt="UNZA (University of Zambia)" class="circular-logo" onerror="this.style.display='none'">
+            <!-- University of Zambia -->
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/unza.png" alt="University of Zambia" onerror="this.style.display='none'">
                 </div>
-                <h3>UNZA (University of Zambia)</h3>
+                <h3 class="client-name">UNZA</h3>
+                <p class="client-description">University of Zambia</p>
             </div>
 
-            <!-- ACEZ (Association of Consulting Engineers of Zambia) -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/acez.png" alt="ACEZ (Association of Consulting Engineers of Zambia)" class="circular-logo" onerror="this.style.display='none'">
+            <!-- Association of Consulting Engineers -->
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/association.jpeg" alt="Association of Consulting Engineers of Zambia" onerror="this.style.display='none'">
                 </div>
-                <h3>ACEZ (Association of Consulting Engineers of Zambia)</h3>
+                <h3 class="client-name">ACEZ</h3>
+                <p class="client-description">Association of Consulting Engineers of Zambia</p>
             </div>
 
-            <!-- EIZ (Engineering Institute of Zambia) -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/eiz.png" alt="EIZ (Engineering Institute of Zambia)" class="circular-logo" onerror="this.style.display='none'">
+            <!-- Engineering Institution of Zambia -->
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/eiz.png" alt="Engineering Institution of Zambia" onerror="this.style.display='none'">
                 </div>
-                <h3>EIZ (Engineering Institute of Zambia)</h3>
+                <h3 class="client-name">EIZ</h3>
+                <p class="client-description">Engineering Institution of Zambia</p>
             </div>
 
-            <!-- Ministry of Housing & Infrastructure Development -->
-            <div class="circular-logo-card">
-                <div class="circular-logo-container">
-                    <img src="/netcost/assets/media/ministry-housing.png" alt="Ministry of Housing & Infrastructure Development" class="circular-logo" onerror="this.style.display='none'">
+            <!-- Ministry of Housing -->
+            <div class="client-logo-card">
+                <div class="client-logo-circle">
+                    <img src="/netcost/assets/media/housing.jpeg" alt="Ministry of Housing & Infrastructure Development" onerror="this.style.display='none'">
                 </div>
-                <h3>Ministry of Housing & Infrastructure Development</h3>
+                <h3 class="client-name">Ministry of Housing</h3>
+                <p class="client-description">Ministry of Housing & Infrastructure Development</p>
             </div>
         </div>
     </div>
