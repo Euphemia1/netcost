@@ -470,50 +470,89 @@ body {
   line-height: 1.6;
 }
 
-/* Simple Logo Grid */
-.simple-logos-grid {
+/* Partners Logos Grid */
+.partners-logos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
-  align-items: center;
+  align-items: start;
   justify-items: center;
   padding: 40px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.simple-logo {
+.circular-logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 200px;
+}
+
+.circular-logo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
-  height: 120px;
+  padding: 20px;
+  border: 2px solid var(--primary);
+  box-shadow: 0 4px 20px rgba(30, 58, 138, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-.simple-logo img {
-  max-width: 100%;
-  max-height: 100%;
+.circular-logo img {
+  max-width: 80%;
+  max-height: 80%;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: brightness(0.95) contrast(1.05);
-  transition: filter 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.simple-logo:hover img {
-  filter: brightness(1.1) contrast(1.15);
+.circular-logo-container:hover .circular-logo {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(30, 58, 138, 0.2);
+  border-color: var(--accent);
+}
+
+.circular-logo-container:hover img {
+  transform: scale(1.1);
+}
+
+.logo-caption {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.circular-logo-container:hover .logo-caption {
+  color: var(--primary);
 }
 
 @media (max-width: 768px) {
-  .simple-logos-grid {
+  .partners-logos-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
     padding: 20px;
   }
   
-  .simple-logo {
-    width: 140px;
-    height: 100px;
+  .circular-logo {
+    width: 120px;
+    height: 120px;
+    padding: 15px;
+  }
+  
+  .logo-caption {
+    font-size: 12px;
   }
 }
 
