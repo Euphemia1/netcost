@@ -10,73 +10,71 @@
     </div>
 </section>
 
-<section class="clients-section">
+<section class="clients-logos-section">
     <div class="container">
-        <div class="clients-grid">
-            <div class="client-card">
-                <div class="client-logo">Turner Construction</div>
-                <p class="client-testimonial">
-                    "LT Software has transformed how we handle cost estimation. What used to take days now takes hours."
-                </p>
-                <div class="client-author">
-                    <strong>David Martinez</strong>
-                    <span>Project Manager, Turner Construction</span>
+        <div class="section-header text-center">
+            <span class="section-badge">Our Partners</span>
+            <h2 class="section-title">Trusted by Zambia's Leading Organizations</h2>
+            <p class="section-description">
+                Proud to partner with government bodies, educational institutions, and professional associations
+            </p>
+        </div>
+
+        <div class="circular-logos-grid">
+            <!-- Zambia Public Procurement Authority -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/zppa.png" alt="Zambia Public Procurement Authority" class="circular-logo" onerror="this.style.display='none'">
                 </div>
+                <h3>Zambia Public Procurement Authority</h3>
             </div>
-            
-            <div class="client-card">
-                <div class="client-logo">Bechtel</div>
-                <p class="client-testimonial">
-                    "The accuracy and speed of Net Cost Estimator has given us a competitive edge in bidding."
-                </p>
-                <div class="client-author">
-                    <strong>Jennifer Lee</strong>
-                    <span>Senior Estimator, Bechtel</span>
+
+            <!-- Ministry of Water Development, Sanitation and Environmental Protection -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/ministry-water.png" alt="Ministry of Water Development, Sanitation and Environmental Protection" class="circular-logo" onerror="this.style.display='none'">
                 </div>
+                <h3>Ministry of Water Development, Sanitation & Environmental Protection</h3>
             </div>
-            
-            <div class="client-card">
-                <div class="client-logo">Skanska</div>
-                <p class="client-testimonial">
-                    "Outstanding support and a product that actually understands construction workflows."
-                </p>
-                <div class="client-author">
-                    <strong>Robert Thompson</strong>
-                    <span>Operations Director, Skanska</span>
+
+            <!-- Ministry of Works and Supply -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/ministry-works.png" alt="Ministry of Works and Supply" class="circular-logo" onerror="this.style.display='none'">
                 </div>
+                <h3>Ministry of Works and Supply</h3>
             </div>
-            
-            <div class="client-card">
-                <div class="client-logo">Kiewit</div>
-                <p class="client-testimonial">
-                    "We've seen a 50% reduction in estimation time and significantly fewer errors."
-                </p>
-                <div class="client-author">
-                    <strong>Amanda Foster</strong>
-                    <span>Chief Estimator, Kiewit</span>
+
+            <!-- UNZA (University of Zambia) -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/unza.png" alt="UNZA (University of Zambia)" class="circular-logo" onerror="this.style.display='none'">
                 </div>
+                <h3>UNZA (University of Zambia)</h3>
             </div>
-            
-            <div class="client-card">
-                <div class="client-logo">Fluor</div>
-                <p class="client-testimonial">
-                    "The ROI was immediate. LT Software pays for itself within the first month."
-                </p>
-                <div class="client-author">
-                    <strong>James Wilson</strong>
-                    <span>VP of Operations, Fluor</span>
+
+            <!-- ACEZ (Association of Consulting Engineers of Zambia) -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/acez.png" alt="ACEZ (Association of Consulting Engineers of Zambia)" class="circular-logo" onerror="this.style.display='none'">
                 </div>
+                <h3>ACEZ (Association of Consulting Engineers of Zambia)</h3>
             </div>
-            
-            <div class="client-card">
-                <div class="client-logo">McCarthy</div>
-                <p class="client-testimonial">
-                    "Finally, construction software that's built by people who understand construction."
-                </p>
-                <div class="client-author">
-                    <strong>Lisa Anderson</strong>
-                    <span>Project Executive, McCarthy</span>
+
+            <!-- EIZ (Engineering Institute of Zambia) -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/eiz.png" alt="EIZ (Engineering Institute of Zambia)" class="circular-logo" onerror="this.style.display='none'">
                 </div>
+                <h3>EIZ (Engineering Institute of Zambia)</h3>
+            </div>
+
+            <!-- Ministry of Housing & Infrastructure Development -->
+            <div class="circular-logo-card">
+                <div class="circular-logo-container">
+                    <img src="/netcost/assets/media/ministry-housing.png" alt="Ministry of Housing & Infrastructure Development" class="circular-logo" onerror="this.style.display='none'">
+                </div>
+                <h3>Ministry of Housing & Infrastructure Development</h3>
             </div>
         </div>
     </div>
