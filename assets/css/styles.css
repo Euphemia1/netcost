@@ -1745,7 +1745,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
   align-items: stretch;
-  justify-items: center;
   margin-top: 60px;
 }
 
@@ -1756,16 +1755,19 @@ body {
   text-align: center;
   gap: 20px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  padding: 32px 24px;
+  padding: 40px 32px;
   background: white;
-  border: 1px solid var(--border);
+  border: 2px solid #e5e7eb;
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 320px;
+  justify-self: center;
 }
 
 .circular-team-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.2);
   border-color: var(--primary);
 }
 
