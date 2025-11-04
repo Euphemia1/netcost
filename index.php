@@ -227,7 +227,7 @@ include 'includes/header.php';
                         <path d="M16 20H32M16 24H32M16 28H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <h3 class="product-title">Net Cost Estimator Professional Express</h3>
+                <h3 class="product-title">Net cost Estimator Pro</h3>
                 <p class="product-description">
                     Lightning-fast cost estimation with AI-powered accuracy. Generate detailed estimates in minutes, not hours.
                 </p>
@@ -261,7 +261,7 @@ include 'includes/header.php';
                         <path d="M24 24L36 18M24 24L12 18M24 24V42" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <h3 class="product-title">Net Cost Reporter</h3>
+                <h3 class="product-title">Net Cost Elite</h3>
                 <p class="product-description">
                     Comprehensive project reporting and analytics. Track costs, progress, and performance in real-time.
                 </p>
@@ -295,7 +295,7 @@ include 'includes/header.php';
                         <path d="M24 16V24L30 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <h3 class="product-title">NetcostEstimator Elite</h3>
+                <h3 class="product-title">Net Cost Estimator Elite</h3>
                 <p class="product-description">
                     Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
                 </p>
