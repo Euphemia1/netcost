@@ -1739,6 +1739,108 @@ body {
   display: none;
 }
 
+/* Circular Team Design */
+.circular-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 60px 40px;
+  align-items: center;
+  justify-items: center;
+  margin-top: 60px;
+}
+
+.circular-team-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-team-card:hover {
+  transform: translateY(-8px);
+}
+
+.circular-team-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(30, 58, 138, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.circular-team-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-team-card:hover .circular-team-container {
+  box-shadow: 0 16px 48px rgba(30, 58, 138, 0.25);
+  transform: scale(1.1);
+}
+
+.circular-team-card:hover .circular-team-container::before {
+  opacity: 1;
+}
+
+.circular-team-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.95) contrast(1.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+}
+
+.circular-team-card:hover .circular-team-image {
+  filter: brightness(1.1) contrast(1.15);
+  transform: scale(1.05);
+}
+
+.team-member-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.4;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-team-card:hover .team-member-name {
+  color: var(--primary);
+}
+
+.team-member-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-team-card:hover .team-member-role {
+  font-weight: 700;
+}
+
 .contact-section {
   padding: 120px 0;
   background: white;
@@ -2177,6 +2279,20 @@ body {
 
   .team-grid {
     grid-template-columns: 1fr;
+  }
+
+  .circular-team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 40px 20px;
+  }
+
+  .circular-team-container {
+    width: 130px;
+    height: 130px;
+  }
+
+  .team-member-name {
+    font-size: 16px;
   }
 
   .clients-grid {
