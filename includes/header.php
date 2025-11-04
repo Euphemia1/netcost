@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LT Software - Construction Software Solutions</title>
     <meta name="description" content="Leading provider of construction cost estimation and project management software">
-    <link rel="stylesheet" href="/netcost/assets/css/styles.css">
+    <link rel="stylesheet" href="/netcost/assets/css/styles.css?v=<?php echo time() % 100000; ?>">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
