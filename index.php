@@ -297,26 +297,38 @@ include 'includes/header.php';
                 </div>
                 <h3 class="product-title">Net Cost Elite</h3>
                 <p class="product-description">
-                    Enterprise-grade solution for large-scale projects. Advanced features for complex construction management.
+                    Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
                 </p>
                 <ul class="product-features">
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Multi-project management
+                        3000+ rate build-ups database
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Team collaboration tools
+                        Custom rate creation & editing
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        API integrations
+                        Material, labour & plant calculations
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Project budget calculations
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Export to Excel & supplier quotations
                     </li>
                 </ul>
                 <a href="#contact" class="product-cta">Learn More</a>
