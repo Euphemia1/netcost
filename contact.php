@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <h3>Phone</h3>
-                            <p>+260 976909813</p>
+                            <p>0211-296071 | 0964082013</p>
                         </div>
                     </div>
                     
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
                         <div>
                             <h3>Office</h3>
-                            <p>Plot A150, Off Munali Road<br>Foxdale<br>Lusaka, Zambia</p>
+                            <p>P.O. Box 33381<br>Plot 5478 Libala Road<br>Kalundu, Lusaka<br>Zambia</p>
                         </div>
                     </div>
                 </div>
