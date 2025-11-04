@@ -470,100 +470,51 @@ body {
   line-height: 1.6;
 }
 
-/* Marquee Container */
-.logos-marquee-wrapper {
-  position: relative;
-  width: 100%;
-}
-
-.logos-marquee {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: white;
-  border-radius: 0;
-  padding: 40px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.marquee-content {
-  display: flex;
-  gap: 60px;
-  animation: scroll-smooth 40s linear infinite;
-  padding: 0 40px;
-  will-change: transform;
+/* Simple Logo Grid */
+.simple-logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
   align-items: center;
+  justify-items: center;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.marquee-content:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll-smooth {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.logo-card {
+.simple-logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: max-content;
-  flex-shrink: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
+  width: 180px;
   height: 120px;
 }
 
-.logo-card:hover {
-  transform: scale(1.15) translateY(-8px);
-  filter: drop-shadow(0 12px 24px rgba(255, 107, 0, 0.25));
-}
-
-.logo-image {
-  max-width: 180px;
-  max-height: 120px;
+.simple-logo img {
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
   object-fit: contain;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   filter: brightness(0.95) contrast(1.05);
+  transition: filter 0.3s ease;
 }
 
-.logo-card:hover .logo-image {
-  filter: brightness(1.1) contrast(1.15) drop-shadow(0 8px 16px rgba(255, 107, 0, 0.2));
-  transform: scale(1.1);
+.simple-logo:hover img {
+  filter: brightness(1.1) contrast(1.15);
 }
 
-/* Smooth fade at edges */
-.logos-marquee::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 100px;
-  background: linear-gradient(90deg, white 0%, transparent 100%);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.logos-marquee::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100px;
-  background: linear-gradient(270deg, white 0%, transparent 100%);
-  z-index: 10;
-  pointer-events: none;
+@media (max-width: 768px) {
+  .simple-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .simple-logo {
+    width: 140px;
+    height: 100px;
+  }
 }
 
 /* Features Showcase */
