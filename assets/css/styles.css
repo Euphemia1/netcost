@@ -1742,9 +1742,9 @@ body {
 /* Circular Team Design */
 .circular-team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 60px 40px;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  align-items: stretch;
   justify-items: center;
   margin-top: 60px;
 }
@@ -1756,10 +1756,17 @@ body {
   text-align: center;
   gap: 20px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 32px 24px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .circular-team-card:hover {
   transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
 }
 
 .circular-team-container {
@@ -1775,6 +1782,7 @@ body {
   padding: 20px;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
 .circular-team-container::before {
@@ -1839,6 +1847,14 @@ body {
 
 .circular-team-card:hover .team-member-role {
   font-weight: 700;
+}
+
+.team-member-bio {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-section {
@@ -2282,8 +2298,8 @@ body {
   }
 
   .circular-team-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 40px 20px;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
   .circular-team-container {
