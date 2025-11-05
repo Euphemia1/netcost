@@ -1502,7 +1502,7 @@ body {
 
 
 .about-content {
-  padding: 120px 0;
+  padding: 120px 0 60px;
   background: white;
 }
 
@@ -1511,7 +1511,11 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
-  margin-bottom: 100px;
+}
+
+.about-timeline {
+  padding: 60px 0;
+  background: var(--bg-secondary);
 }
 
 .about-text h2 {
@@ -1534,9 +1538,11 @@ body {
 }
 
 .values-section {
-  padding: 100px 0;
+  padding: 120px 0;
   position: relative;
   overflow: hidden;
+  margin-top: 60px;
+  background-color: var(--bg-secondary);
 }
 
 .values-title {

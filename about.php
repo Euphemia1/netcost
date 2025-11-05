@@ -29,8 +29,16 @@
                 <img src="/placeholder.svg?height=400&width=600" alt="LT Software Team">
             </div>
         </div>
-        
-        <div class="values-section">
+    </div>
+</section>
+
+<section class="about-timeline">
+    <div class="container">
+        <!-- Add timeline or achievements section here if needed -->
+    </div>
+</section>
+
+<section class="values-section">
             <div class="section-header" data-aos="fade-up">
                 <h2 class="values-title">Our Core Principles</h2>
                 <p class="values-subtitle">Guided by excellence, driven by innovation, committed to your success</p>
