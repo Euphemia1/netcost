@@ -74,73 +74,7 @@ include 'includes/header.php';
 </section>
 
 
-<!-- Trusted By Section with Circular Logo Display -->
-<section class="partners-section">
-    <div class="container">
-        <div class="partners-header">
-            <h3 class="partners-title">Trusted by Leading Organizations</h3>
-            <p class="partners-subtitle">Proud partners with Zambia's most respected institutions and government bodies</p>
-        </div>
-        
-        <div class="partners-logos-grid">
-            <!-- Zambia Public Procurement Authority -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/Coat_of_arms_of_Zambia.svg" alt="Zambia Public Procurement Authority" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">ZPPA</p>
-            </div>
 
-            <!-- Ministry of Water Development -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/Coat_of_arms_of_Zambia.svg" alt="Ministry of Water Development" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">Ministry of Water Development</p>
-            </div>
-
-            <!-- Ministry of Works and Supply -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/ministry.jpeg" alt="Ministry of Works and Supply" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">Ministry of Works & Supply</p>
-            </div>
-
-            <!-- University of Zambia -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/unza.png" alt="University of Zambia" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">UNZA</p>
-            </div>
-
-            <!-- Association of Consulting Engineers -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/association.jpeg" alt="Association of Consulting Engineers of Zambia" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">ACEZ</p>
-            </div>
-
-            <!-- Engineering Institution of Zambia -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/eiz.png" alt="Engineering Institution of Zambia" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">EIZ</p>
-            </div>
-
-            <!-- Ministry of Housing -->
-            <div class="circular-logo-container">
-                <div class="circular-logo">
-                    <img src="/netcost/assets/media/housing.jpeg" alt="Ministry of Housing & Infrastructure Development" onerror="this.style.display='none'">
-                </div>
-                <p class="logo-caption">Ministry of Housing</p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Features Showcase Section -->
 <section class="features-showcase">
