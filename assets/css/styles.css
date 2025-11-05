@@ -1515,7 +1515,7 @@ body {
 
 .about-timeline {
   padding: 60px 0;
-  background: var(--bg-secondary);
+  background: transparent;
 }
 
 .about-text h2 {
@@ -1542,7 +1542,7 @@ body {
   position: relative;
   overflow: hidden;
   margin-top: 60px;
-  background-color: var(--bg-secondary);
+  background-color: transparent;
 }
 
 .values-title {
