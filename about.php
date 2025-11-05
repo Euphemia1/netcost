@@ -31,20 +31,39 @@
         </div>
         
         <div class="values-section">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="values-title">Our Core Principles</h2>
+                <p class="values-subtitle">Guided by excellence, driven by innovation, committed to your success</p>
+            </div>
             <div class="values-container">
                 <div class="value-card mission-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="value-icon-wrapper">
                         <div class="value-icon mission-icon">
                             <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                                <path class="mission-path" d="M32 8L32 56M8 32H56" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
                                 <circle class="mission-circle" cx="32" cy="32" r="24" stroke="#1E3A8A" stroke-width="3"/>
-                                <circle class="mission-point" cx="32" cy="32" r="6" fill="#1E3A8A"/>
+                                <circle class="mission-inner-circle" cx="32" cy="32" r="12" stroke="#1E3A8A" stroke-width="2"/>
+                                <path class="mission-arrow-n" d="M32 8V20" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="mission-arrow-s" d="M32 44V56" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="mission-arrow-e" d="M44 32H56" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="mission-arrow-w" d="M8 32H20" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <circle class="mission-point" cx="32" cy="32" r="4" fill="#1E3A8A"/>
                             </svg>
                         </div>
                     </div>
                     <div class="value-content">
+                        <span class="value-badge">Our Purpose</span>
                         <h3>Our Mission</h3>
                         <p>To empower construction professionals with intelligent software that simplifies complex estimation and reporting tasks.</p>
+                        <div class="mission-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-number">10K+</span>
+                                <span class="highlight-label">Professionals Served</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-number">95%</span>
+                                <span class="highlight-label">Accuracy Rate</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -52,15 +71,34 @@
                     <div class="value-icon-wrapper">
                         <div class="value-icon vision-icon">
                             <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                                <path class="vision-path" d="M8 32C8 32 18 20 32 20C46 20 56 32 56 32C56 32 46 44 32 44C18 44 8 32 8 32Z" stroke="#1E3A8A" stroke-width="3"/>
-                                <circle class="vision-circle" cx="32" cy="32" r="8" fill="#1E3A8A"/>
-                                <path class="vision-beam" d="M32 8V16M32 48V56M8 32H16M48 32H56" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="vision-orbit" d="M8 32C8 18 18 8 32 8C46 8 56 18 56 32" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="vision-orbit-2" d="M56 32C56 46 46 56 32 56C18 56 8 46 8 32" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <circle class="vision-circle" cx="32" cy="32" r="12" fill="#1E3A8A"/>
+                                <path class="vision-beam-1" d="M32 4V12" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="vision-beam-2" d="M32 52V60" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="vision-beam-3" d="M60 32H52" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="vision-beam-4" d="M12 32H4" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
                             </svg>
                         </div>
                     </div>
                     <div class="value-content">
+                        <span class="value-badge">Our Aspiration</span>
                         <h3>Our Vision</h3>
                         <p>To become the global standard for construction cost management and project intelligence.</p>
+                        <div class="vision-roadmap">
+                            <div class="roadmap-item">
+                                <span class="roadmap-dot"></span>
+                                <span class="roadmap-text">Global Reach</span>
+                            </div>
+                            <div class="roadmap-item">
+                                <span class="roadmap-dot"></span>
+                                <span class="roadmap-text">Industry Standard</span>
+                            </div>
+                            <div class="roadmap-item">
+                                <span class="roadmap-dot"></span>
+                                <span class="roadmap-text">Innovation Leader</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -68,18 +106,52 @@
                     <div class="value-icon-wrapper">
                         <div class="value-icon values-icon">
                             <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-                                <path class="values-path-1" d="M32 8L38 24H56L42 34L47 50L32 42L17 50L22 34L8 24H26L32 8Z" stroke="#1E3A8A" stroke-width="3" stroke-linejoin="round"/>
-                                <path class="values-path-2" d="M32 18V38M22 28H42" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                                <path class="values-path-hex" d="M32 4L56 18V46L32 60L8 46V18L32 4Z" stroke="#1E3A8A" stroke-width="3" stroke-linejoin="round"/>
+                                <path class="values-path-inner" d="M32 16L44 24V40L32 48L20 40V24L32 16Z" stroke="#1E3A8A" stroke-width="2"/>
+                                <circle class="values-point" cx="32" cy="32" r="4" fill="#1E3A8A"/>
                             </svg>
                         </div>
                     </div>
                     <div class="value-content">
+                        <span class="value-badge">Our Foundation</span>
                         <h3>Our Values</h3>
-                        <p>Precision, innovation, and unwavering commitment to our customers' success drive everything we do.</p>
+                        <p>Building on principles that define our commitment to excellence.</p>
                         <ul class="values-list">
-                            <li>Excellence in Delivery</li>
-                            <li>Customer-First Approach</li>
-                            <li>Continuous Innovation</li>
+                            <li>
+                                <div class="value-icon-small">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 2L12 8H18L13 12L15 18L10 14L5 18L7 12L2 8H8L10 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="value-text">
+                                    <strong>Excellence in Delivery</strong>
+                                    <span>Consistent quality in every solution</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="value-icon-small">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M10 6V14M6 10H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="value-text">
+                                    <strong>Customer-First Approach</strong>
+                                    <span>Your success is our priority</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="value-icon-small">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10 2V18M2 10H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <div class="value-text">
+                                    <strong>Continuous Innovation</strong>
+                                    <span>Always evolving, always improving</span>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
