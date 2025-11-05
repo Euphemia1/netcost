@@ -1,0 +1,93 @@
+/* Mobile-specific admin styles */
+@media (max-width: 768px) {
+    .admin-login-container {
+        padding: 16px;
+    }
+
+    .admin-login-card {
+        padding: 32px 24px;
+        border-radius: 12px;
+    }
+
+    .admin-logo h1 {
+        font-size: 24px;
+    }
+
+    .admin-logo p {
+        font-size: 14px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .input-with-icon input {
+        padding: 14px 16px 14px 48px;
+        font-size: 14px;
+    }
+
+    .btn-large {
+        padding: 14px 24px;
+        font-size: 15px;
+    }
+
+    /* Touch-friendly improvements */
+    .form-group input,
+    .btn-large {
+        min-height: 48px; /* Minimum touch target size */
+    }
+
+    /* Add ripple effect for touch feedback */
+    .btn-large {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        transform: scale(0);
+        animation: ripple-effect 0.5s linear;
+        pointer-events: none;
+        width: 100px;
+        height: 100px;
+        margin: -50px;
+    }
+
+    @keyframes ripple-effect {
+        to {
+            transform: scale(2.5);
+            opacity: 0;
+        }
+    }
+
+    /* Improve touch scrolling */
+    .admin-login-body {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent zoom on input focus */
+    input[type="text"],
+    input[type="password"] {
+        font-size: 16px !important;
+    }
+
+    /* Improve tap targets */
+    .alert {
+        padding: 16px;
+    }
+
+    .login-footer {
+        padding: 20px 0 0;
+        margin-top: 24px;
+    }
+}
+
+/* Honeypot field for bot protection */
+.hidden-field {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
