@@ -1533,40 +1533,188 @@ body {
   box-shadow: var(--shadow-xl);
 }
 
-.values-grid {
+.values-section {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--bg-secondary) 0%, #ffffff 100%);
+}
+
+.values-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .value-card {
+  position: relative;
   padding: 40px;
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  text-align: center;
-  transition: all 0.3s;
+  background: white;
+  border-radius: 24px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .value-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.15);
+}
+
+.value-icon-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
 }
 
 .value-icon {
-  width: 64px;
-  height: 64px;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
-  background: rgba(255, 107, 0, 0.1);
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--bg-secondary);
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
 }
 
 .value-card:hover .value-icon {
-  background: rgba(255, 107, 0, 0.2);
-  transform: scale(1.1);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.value-card:hover .value-icon svg path,
+.value-card:hover .value-icon svg circle {
+  stroke: white;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.value-card:hover .value-icon .mission-point,
+.value-card:hover .value-icon .vision-circle {
+  fill: white;
+}
+
+.value-content {
+  text-align: center;
+}
+
+.value-content h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.value-content h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.value-card:hover .value-content h3::after {
+  width: 60px;
+}
+
+.value-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Mission Card Specifics */
+.mission-path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.mission-circle {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.value-card:hover .mission-path,
+.value-card:hover .mission-circle {
+  stroke-dashoffset: 0;
+}
+
+/* Vision Card Specifics */
+.vision-path {
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.vision-beam {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.value-card:hover .vision-path,
+.value-card:hover .vision-beam {
+  stroke-dashoffset: 0;
+}
+
+/* Values Card Specifics */
+.values-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  text-align: left;
+}
+
+.values-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.values-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.value-card:hover .values-list li::before {
+  transform: translateX(4px);
+}
+
+.values-path-1 {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  transition: stroke-dashoffset 1s ease;
+}
+
+.values-path-2 {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.value-card:hover .values-path-1,
+.value-card:hover .values-path-2 {
+  stroke-dashoffset: 0;
 }
 
 .value-icon svg {

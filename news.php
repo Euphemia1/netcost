@@ -12,7 +12,6 @@ $stmt->execute();
 $news_items = $stmt->fetchAll();
 ?>
 
-<!-- Page Hero Section -->
 <section class="page-hero">
     <div class="page-hero-content">
         <span class="page-badge">Latest Updates</span>
@@ -21,9 +20,8 @@ $news_items = $stmt->fetchAll();
     </div>
 </section>
 
-<!-- Page Wrapper -->
 <div class="news-page-wrapper">
-    <!-- News Section -->
+    
     <section class="news-page-section no-bottom-space">
         <div class="container">
             <?php if (count($news_items) > 0): ?>
@@ -60,7 +58,6 @@ $news_items = $stmt->fetchAll();
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="site-footer news-footer">
         <?php include 'includes/footer.php'; ?>
     </footer>
