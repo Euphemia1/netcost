@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS admin_login_logs (
     FOREIGN KEY (user_id) REFERENCES admin_users(id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Add status column to admin_users if not exists
 ALTER TABLE admin_users 
 ADD COLUMN IF NOT EXISTS status ENUM('active', 'inactive', 'suspended') 
 DEFAULT 'active' NOT NULL;
