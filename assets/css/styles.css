@@ -2149,8 +2149,13 @@ body {
 
 
 .news-page-section {
-  padding: 80px 0;
+  padding: 80px 0 0 0;
   background: white;
+}
+
+.news-page-section.no-bottom-space {
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .news-grid-page {

@@ -23,7 +23,7 @@ $news_items = $stmt->fetchAll();
 </section>
 
 <!-- News Section -->
-<section class="news-page-section">
+<section class="news-page-section no-bottom-space">
     <div class="container">
         <?php if (count($news_items) > 0): ?>
             <div class="news-grid-page">
