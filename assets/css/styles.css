@@ -1923,6 +1923,30 @@ body {
   background: white;
 }
 
+.news-page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.news-page-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+    flex: 1;
+}
+
+.news-grid-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.site-footer.news-footer {
+    margin-top: auto;
+    width: 100%;
+}
+
 .careers-intro {
   max-width: 800px;
   margin: 0 auto 80px;
