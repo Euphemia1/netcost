@@ -65,7 +65,7 @@
     /* Improve touch scrolling */
     .admin-login-body {
         overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
+        /* -webkit-overflow-scrolling removed (unsupported on many browsers) */
         touch-action: pan-y;
         overscroll-behavior: contain;
     }
