@@ -25,9 +25,9 @@
                 </p>
             </div>
             
-            <div class="about-image">
+            <!-- <div class="about-image">
                 <img src="/placeholder.svg?height=400&width=600" alt="LT Software Team">
-            </div>
+            </div> -->
         </div>
     </div>
 </section>
