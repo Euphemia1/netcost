@@ -247,6 +247,18 @@ include 'includes/header.php';
                     </li>
                 </ul>
                 <a href="#contact" class="product-cta">Learn More</a>
+                
+                <div class="product-video-preview">
+                    <a href="https://youtu.be/YldvOD-o0uY" target="_blank" class="video-thumbnail">
+                        <img src="https://img.youtube.com/vi/YldvOD-o0uY/maxresdefault.jpg" alt="NetCost Elite Demo Video">
+                        <div class="play-button">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
+                                <path d="M32 24L20 31.464V16.536L32 24Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
             </div>
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
