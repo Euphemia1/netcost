@@ -33,7 +33,7 @@
             </div>
         </div>
         
-        <div class="service-detail reverse">
+        <div class="service-detail">
             <div class="service-detail-content">
                 <span class="service-badge">Service 02</span>
                 <h2>Mobile & Web Integration</h2>
