@@ -2141,21 +2141,26 @@ body {
 }
 
 .circular-team-container {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   margin: 0 auto 24px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: var(--shadow-md);
   background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .circular-team-image {
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
   transition: transform 0.3s ease;
   display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .circular-team-card:hover .circular-team-image {
