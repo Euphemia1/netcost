@@ -2068,19 +2068,20 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-.service-image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  padding: 20px;
+.service-image-single {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .service-image {
   width: 100%;
-  height: 150px;
+  max-width: 300px;
+  height: auto;
   object-fit: contain;
   border-radius: 8px;
-  padding: 16px;
+  padding: 24px;
   background: var(--bg-secondary);
   transition: all 0.3s ease;
 }
@@ -2089,6 +2090,17 @@ body {
   transform: scale(1.05);
   background: white;
   box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 768px) {
+  .service-image-single {
+    padding: 20px;
+  }
+  
+  .service-image {
+    max-width: 240px;
+    padding: 16px;
+  }
 }
 
 @media (max-width: 768px) {

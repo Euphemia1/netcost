@@ -27,11 +27,8 @@
                 </ul>
             </div>
             <div class="service-detail-image">
-                <div class="service-image-grid">
-                    <img src="assets/media/NETCOST PRO.svg" alt="Custom Software Development 1" class="service-image">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="Custom Software Development 2" class="service-image">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="Custom Software Development 3" class="service-image">
-                    <img src="assets/media/dart-mission-goal-success.svg" alt="Custom Software Development 4" class="service-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" class="service-image">
                 </div>
             </div>
         </div>
@@ -51,11 +48,8 @@
                 </ul>
             </div>
             <div class="service-detail-image">
-                <div class="service-image-grid">
-                    <img src="assets/media/NETCOST PRO.svg" alt="Mobile Integration 1" class="service-image">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="Mobile Integration 2" class="service-image">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="Mobile Integration 3" class="service-image">
-                    <img src="assets/media/dart-mission-goal-success.svg" alt="Mobile Integration 4" class="service-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" class="service-image">
                 </div>
             </div>
         </div>
@@ -75,11 +69,10 @@
                 </ul>
             </div>
             <div class="service-detail-image">
-                <div class="service-image-grid">
-                    <img src="assets/media/NETCOST PRO.svg" alt="Industry Solutions 1" class="service-image">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="Industry Solutions 2" class="service-image">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="Industry Solutions 3" class="service-image">
-                    <img src="assets/media/dart-mission-goal-success.svg" alt="Industry Solutions 4" class="service-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" class="service-image">
+                </div>
+            </div>
             </div>
         </div>
     </div>
