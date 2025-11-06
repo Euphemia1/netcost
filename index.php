@@ -171,10 +171,7 @@ include 'includes/header.php';
             <div class="product-card featured" data-aos="zoom-in">
                 <div class="product-badge">Most Popular</div>
                 <div class="product-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
-                        <path d="M16 20H32M16 24H32M16 28H24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 150px; height: auto;">
                 </div>
                 <h3 class="product-title">Net cost Estimator Pro</h3>
                 <p class="product-description">
@@ -217,10 +214,7 @@ include 'includes/header.php';
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="product-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M12 36V12L24 6L36 12V36L24 42L12 36Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M24 24L36 18M24 24L12 18M24 24V42" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" style="width: 150px; height: auto;">
                 </div>
                 <h3 class="product-title">Net Cost Elite</h3>
                 <p class="product-description">
@@ -263,10 +257,7 @@ include 'includes/header.php';
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="product-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="2"/>
-                        <path d="M24 16V24L30 28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" style="width: 150px; height: auto;">
                 </div>
                 <h3 class="product-title">Net Cost Estimator Elite</h3>
                 <p class="product-description">
