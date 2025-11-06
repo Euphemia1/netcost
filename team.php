@@ -30,7 +30,7 @@ include 'includes/header.php';
         <div class="circular-team-grid">
             <div class="circular-team-card">
                 <div class="circular-team-container">
-                    <img src="/placeholder.svg?height=300&width=300" alt="L.J Tembo" class="circular-team-image">
+                    <img src="assets/images/0O1A5966.jpg" alt="L.J Tembo" class="circular-team-image">
                 </div>
                 <h3 class="team-member-name">L.J Tembo</h3>
                 <p class="team-member-role">Managing Director</p>
