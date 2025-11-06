@@ -33,12 +33,7 @@
             </div>
         </div>
         
-        <div class="service-detail">
-            <div class="service-detail-image">
-                <div class="service-image-single">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" class="service-image">
-                </div>
-            </div>
+        <div class="service-detail reverse">
             <div class="service-detail-content">
                 <span class="service-badge">Service 02</span>
                 <h2>Mobile & Web Integration</h2>
@@ -51,6 +46,11 @@
                     <li>Offline functionality</li>
                     <li>Responsive design for all devices</li>
                 </ul>
+            </div>
+            <div class="service-detail-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" class="service-image">
+                </div>
             </div>
         </div>
         
