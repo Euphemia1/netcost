@@ -13,6 +13,11 @@
 <section class="services-detail-section">
     <div class="container">
         <div class="service-detail">
+            <div class="service-detail-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" class="service-image">
+                </div>
+            </div>
             <div class="service-detail-content">
                 <span class="service-badge">Service 01</span>
                 <h2>Custom Software Development</h2>
@@ -26,14 +31,14 @@
                     <li>Ongoing support and maintenance</li>
                 </ul>
             </div>
-            <div class="service-detail-image">
-                <div class="service-image-single">
-                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" class="service-image">
-                </div>
-            </div>
         </div>
         
-        <div class="service-detail reverse">
+        <div class="service-detail">
+            <div class="service-detail-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" class="service-image">
+                </div>
+            </div>
             <div class="service-detail-content">
                 <span class="service-badge">Service 02</span>
                 <h2>Mobile & Web Integration</h2>
@@ -47,14 +52,14 @@
                     <li>Responsive design for all devices</li>
                 </ul>
             </div>
-            <div class="service-detail-image">
-                <div class="service-image-single">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" class="service-image">
-                </div>
-            </div>
         </div>
         
         <div class="service-detail">
+            <div class="service-detail-image">
+                <div class="service-image-single">
+                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" class="service-image">
+                </div>
+            </div>
             <div class="service-detail-content">
                 <span class="service-badge">Service 03</span>
                 <h2>Construction Industry Solutions</h2>
@@ -67,11 +72,6 @@
                     <li>Construction-specific workflows</li>
                     <li>Expert consultation and training</li>
                 </ul>
-            </div>
-            <div class="service-detail-image">
-                <div class="service-image-single">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" class="service-image">
-                </div>
             </div>
             </div>
         </div>
