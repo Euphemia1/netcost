@@ -74,8 +74,6 @@ include 'includes/header.php';
 </section>
 
 
-
-
 <!-- Features Showcase Section -->
 <section class="features-showcase">
     <div class="container">
@@ -96,7 +94,7 @@ include 'includes/header.php';
                     </svg>
                 </div>
                 <h3>Lightning Fast</h3>
-                <p>Generate detailed cost estimates in minutes with our AI-powered calculation engine</p>
+                <p>Generate detailed cost estimates in minutes with our netcost estimator calculation engine</p>
             </div>
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
@@ -166,7 +164,7 @@ include 'includes/header.php';
                 Industry-leading software solutions designed specifically for construction professionals
             </p>
         </div>
-        
+
         <div class="products-grid">
             <div class="product-card featured" data-aos="zoom-in">
                 <div class="product-badge">Most Popular</div>
@@ -313,7 +311,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Special Features Section -->
 <section class="special-features-section">
     <div class="container">
         <div class="section-header text-center">
@@ -394,7 +391,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Interactive Demo Section -->
 <section id="demo" class="demo-section">
     <div class="container">
         <div class="demo-content">
@@ -494,7 +490,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Testimonials Section -->
 <section class="testimonials-section">
     <div class="container">
         <div class="section-header text-center">
@@ -599,7 +594,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- Services Section -->
 <section class="services-section">
     <div class="container">
         <div class="services-content">
@@ -660,7 +654,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-<!-- CTA Section -->
 <section class="cta-section">
     <div class="container">
         <div class="cta-content" data-aos="zoom-in">
@@ -678,6 +671,5 @@ include 'includes/header.php';
 </section>
 
 <?php include 'includes/footer.php'; ?>
-
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="assets/js/main.js"></script>
