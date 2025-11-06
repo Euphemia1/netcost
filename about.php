@@ -32,6 +32,50 @@
     </div>
 </section>
 
+<section class="products-showcase">
+    <div class="container">
+        <div class="section-header text-center">
+            <span class="section-badge">Our Solutions</span>
+            <h2 class="section-title">Trusted Software Solutions</h2>
+            <p class="section-description">
+                Explore our range of powerful construction management tools
+            </p>
+        </div>
+        
+        <div class="products-showcase-grid">
+            <div class="showcase-item" data-aos="fade-up">
+                <div class="showcase-icon">
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" width="120" height="120">
+                </div>
+                <div class="showcase-details">
+                    <h3>NetCost Pro</h3>
+                    <p>Professional-grade cost estimation software</p>
+                </div>
+            </div>
+            
+            <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="showcase-icon">
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" width="120" height="120">
+                </div>
+                <div class="showcase-details">
+                    <h3>NetCost Elite</h3>
+                    <p>Advanced project management and analytics</p>
+                </div>
+            </div>
+            
+            <div class="showcase-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="showcase-icon">
+                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" width="120" height="120">
+                </div>
+                <div class="showcase-details">
+                    <h3>NetCost Express</h3>
+                    <p>Quick and efficient cost calculations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="about-timeline">
     <div class="container">
         <!-- Add timeline or achievements section here if needed -->

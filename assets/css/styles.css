@@ -1575,6 +1575,76 @@ body {
   box-shadow: var(--shadow-xl);
 }
 
+.products-showcase {
+  padding: 80px 0;
+  background: var(--bg-secondary);
+}
+
+.products-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.showcase-item {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+.showcase-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.showcase-icon {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-icon img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.showcase-item:hover .showcase-icon img {
+  transform: scale(1.1);
+}
+
+.showcase-details h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.showcase-details p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .products-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .showcase-icon img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 .values-section {
   padding: 120px 0;
   position: relative;
