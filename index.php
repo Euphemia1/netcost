@@ -73,8 +73,6 @@ include 'includes/header.php';
     </div>
 </section>
 
-
-<!-- Features Showcase Section -->
 <section class="features-showcase">
     <div class="container">
         <div class="section-header text-center">
