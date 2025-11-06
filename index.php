@@ -125,7 +125,7 @@ include 'includes/header.php';
                     </svg>
                 </div>
                 <h3>Precision Accuracy</h3>
-                <p>Industry-leading 99.8% accuracy rate backed by comprehensive material databases</p>
+                <p>Industry leading 99.8% accuracy rate backed by comprehensive material databases</p>
             </div>
             
             <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
