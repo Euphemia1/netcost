@@ -41,7 +41,7 @@ include 'includes/header.php';
             
             <div class="circular-team-card">
                 <div class="circular-team-container">
-                    <img src="/placeholder.svg?height=300&width=300" alt="Dr P N Nsama" class="circular-team-image">
+                    <img src="assets/images/@fern-media_--_11.jpg" alt="Dr P N Nsama" class="circular-team-image">
                 </div>
                 <h3 class="team-member-name">Dr P N Nsama</h3>
                 <p class="team-member-role">Director Operations</p>
