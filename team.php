@@ -27,66 +27,52 @@ include 'includes/header.php';
             </p>
         </div>
 
-        <div class="circular-team-grid">
-            <!-- 1. Mr Tembo (top) -->
-            <div class="circular-team-card">
-                <div class="circular-team-container">
-                    <img src="assets/images/0O1A5966.jpg" alt="L.J Tembo" class="circular-team-image">
+        <!-- Tree-style team layout: root -> manager -> group -->
+        <div class="team-tree">
+            <div class="tree-level tree-level-0">
+                <div class="circular-team-card tree-node">
+                    <div class="circular-team-container">
+                        <img src="assets/images/0O1A5966.jpg" alt="L.J Tembo" class="circular-team-image">
+                    </div>
+                    <h3 class="team-member-name">L.J Tembo</h3>
+                    <p class="team-member-role">Managing Director</p>
                 </div>
-                <h3 class="team-member-name">L.J Tembo</h3>
-                <p class="team-member-role">Managing Director</p>
-                <p class="team-member-bio">
-                    Strategic leader with extensive experience in construction and technology sectors. Drives company vision and growth initiatives.
-                </p>
             </div>
 
-            <!-- 2. Dr Pegg (second) -->
-            <div class="circular-team-card">
-                <div class="circular-team-container">
-                    <img src="assets/images/@fern-media_--_11.jpg" alt="Dr Pegg" class="circular-team-image">
+            <div class="tree-level tree-level-1">
+                <div class="circular-team-card tree-node">
+                    <div class="circular-team-container">
+                        <img src="assets/images/@fern-media_--_11.jpg" alt="Dr Pegg" class="circular-team-image">
+                    </div>
+                    <h3 class="team-member-name">Dr Pegg</h3>
+                    <p class="team-member-role">Head of Strategy</p>
                 </div>
-                <h3 class="team-member-name">Dr Pegg</h3>
-                <p class="team-member-role">Head of Strategy</p>
-                <p class="team-member-bio">
-                    Research and strategy lead with a strong academic background and experience in large-scale construction projects.
-                </p>
             </div>
 
-            <!-- Group: Director of Finance, Civil Engineer, Software Engineers -->
-            <!-- 3. Director of Finance (group - first) -->
-            <div class="circular-team-card">
-                <div class="circular-team-container">
-                    <img src="assets/images/0O1A5966.jpg" alt="Director of Finance" class="circular-team-image">
+            <div class="tree-level tree-level-2">
+                <div class="circular-team-card tree-node">
+                    <div class="circular-team-container">
+                        <img src="assets/images/0O1A5966.jpg" alt="Director of Finance" class="circular-team-image">
+                    </div>
+                    <h3 class="team-member-name">Director of Finance</h3>
+                    <p class="team-member-role">Head of Finance</p>
                 </div>
-                <h3 class="team-member-name">Director of Finance</h3>
-                <p class="team-member-role">Head of Finance</p>
-                <p class="team-member-bio">
-                    Responsible for budgeting, financial planning and reporting, ensuring healthy cash flow and compliance.
-                </p>
-            </div>
 
-            <!-- 4. Civil Engineer (group - second) -->
-            <div class="circular-team-card">
-                <div class="circular-team-container">
-                    <img src="assets/images/@fern-media_--_11.jpg" alt="Civil Engineer" class="circular-team-image">
+                <div class="circular-team-card tree-node">
+                    <div class="circular-team-container">
+                        <img src="assets/images/@fern-media_--_11.jpg" alt="Civil Engineer" class="circular-team-image">
+                    </div>
+                    <h3 class="team-member-name">Civil Engineer</h3>
+                    <p class="team-member-role">Lead Civil Engineer</p>
                 </div>
-                <h3 class="team-member-name">Civil Engineer</h3>
-                <p class="team-member-role">Lead Civil Engineer</p>
-                <p class="team-member-bio">
-                    Expert in structural calculations and on-site coordination, ensuring designs meet safety and cost requirements.
-                </p>
-            </div>
 
-            <!-- 5. Software Engineers (group - third) -->
-            <div class="circular-team-card">
-                <div class="circular-team-container">
-                    <img src="assets/images/0O1A5966.jpg" alt="Software Engineers" class="circular-team-image">
+                <div class="circular-team-card tree-node">
+                    <div class="circular-team-container">
+                        <img src="assets/images/0O1A5966.jpg" alt="Software Engineers" class="circular-team-image">
+                    </div>
+                    <h3 class="team-member-name">Software Engineers</h3>
+                    <p class="team-member-role">Engineering Team</p>
                 </div>
-                <h3 class="team-member-name">Software Engineers</h3>
-                <p class="team-member-role">Engineering Team</p>
-                <p class="team-member-bio">
-                    Full-stack developers, QA and DevOps engineers building and maintaining the NetCost platform.
-                </p>
             </div>
         </div>
     </div>

@@ -2467,6 +2467,60 @@ body {
   margin-top: 60px;
 }
 
+/* Tree layout for team executives */
+.team-tree {
+  margin-top: 40px;
+}
+.team-tree .tree-level {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  margin-bottom: 28px;
+}
+
+/* vertical connector from a node to the level below */
+.team-tree .tree-level:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -28px;
+  width: 2px;
+  height: 28px;
+  background: var(--border);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* horizontal branch above a level with multiple nodes */
+.team-tree .tree-level-2::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: -28px;
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.team-tree .tree-node {
+  width: 320px;
+  max-width: calc(33.333% - 40px);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .team-tree .tree-node {
+    max-width: 100%;
+    width: 100%;
+  }
+  .team-tree .tree-level-2::before {
+    left: 5%;
+    right: 5%;
+  }
+}
+
 .circular-team-card {
   display: flex;
   flex-direction: column;
