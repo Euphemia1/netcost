@@ -23,7 +23,7 @@ include 'includes/header.php';
         
         <h1 class="hero-title animate-slide-up">
             Empowering the Construction Industry Through Innovation<br>
-            <!-- <span class="gradient-text">Construction Software</span> -->
+        
         </h1>
         
         <p class="hero-description animate-slide-up delay-1">
