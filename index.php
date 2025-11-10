@@ -156,7 +156,7 @@ include 'includes/header.php';
 
         <div class="products-grid">
             <div class="product-card featured" data-aos="zoom-in">
-                <div class="product-badge">Most Popular</div>
+                <!-- <div class="product-badge">Most Popular</div> -->
                 <div class="product-icon">
                     <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 150px; height: auto;">
                 </div>
@@ -166,7 +166,7 @@ include 'includes/header.php';
                 </p>
                 <ul class="product-features">
                     <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <svg width="40" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         Real-time cost calculations
