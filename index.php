@@ -156,7 +156,7 @@ include 'includes/header.php';
 
         <div class="products-grid">
             <div class="product-card featured" data-aos="zoom-in">
-                <!-- <div class="product-badge">Most Popular</div> -->
+            
                 <div class="product-icon">
                     <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 150px; height: auto;">
                 </div>
