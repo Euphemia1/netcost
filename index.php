@@ -52,173 +52,172 @@ include 'includes/header.php';
                 <div class="stat-number">0%</div>
                 <div class="stat-label">Faster Estimates</div>
             </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item" data-count="99.8">
-                <div class="stat-number">0%</div>
-                <div class="stat-label">Accuracy Rate</div>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Support Available</div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="scroll-indicator">
-        <span>Scroll to explore</span>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </div>
-</section>
-
-<section class="features-showcase">
-    <div class="container">
-        <div class="section-header text-center">
-            <span class="section-badge">Why Choose Us</span>
-            <h2 class="section-title">Built for Modern Construction</h2>
-            <p class="section-description">
-                Experience the difference with features designed by construction professionals, for construction professionals
-            </p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card" data-aos="fade-up">
-                <div class="feature-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 4L4 14L24 24L44 14L24 4Z" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
-                        <path d="M4 34L24 44L44 34M4 24L24 34L44 24" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Lightning Fast</h3>
-                <p>Generate detailed cost estimates in minutes with our netcost estimator calculation engine</p>
-            </div>
-            
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <circle cx="24" cy="24" r="20" stroke="#1E3A8A" stroke-width="2"/>
-                        <path d="M24 12V24L32 28" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3>Real-Time Updates</h3>
-                <p>Stay synchronized across all devices with instant data updates and cloud backup</p>
-            </div>
-            
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <rect x="8" y="12" width="32" height="28" rx="2" stroke="#1E3A8A" stroke-width="2"/>
-                        <path d="M16 20H32M16 26H32M16 32H24" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </div>
-                <h3>Smart Reports</h3>
-                <p>Professional reports generated automatically with customizable templates and branding</p>
-            </div>
-            
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 4V44M4 24H44" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"/>
-                        <circle cx="24" cy="24" r="8" stroke="#1E3A8A" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3>Precision Accuracy</h3>
-                <p>Industry leading 99.8% accuracy rate backed by comprehensive material databases</p>
-            </div>
-            
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M12 24C12 17.373 17.373 12 24 12C30.627 12 36 17.373 36 24C36 30.627 30.627 36 24 36" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M24 36C17.373 36 12 30.627 12 24" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 4"/>
-                    </svg>
-                </div>
-                <h3>Seamless Integration</h3>
-                <p>Connect with your existing tools and workflows through our robust API</p>
-            </div>
-            
-           
-    </div>
-</section>
-
-<!-- Products Section -->
-<section id="products" class="products-section">
-    <div class="container">
-        <div class="section-header text-center">
-            <span class="section-badge">Our Products</span>
-            <h2 class="section-title">Powerful Tools for Every Project</h2>
-            <p class="section-description">
-                Industry-leading software solutions designed specifically for construction professionals
-            </p>
-        </div>
-
-        <div class="products-grid">
-            <div class="product-card featured brand-blue" data-aos="zoom-in">
-            
-                <div class="product-icon brand-blue">
-                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro">
-                </div>
-                <h3 class="product-title">Netcost Estimator Pro</h3>
-                <p class="product-description">
-                    Lightning fast cost estimation. Generate detailed estimates in minutes, not hours.
-                </p>
-                <ul class="product-features">
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        3000+ rate build-ups database
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Custom rate creation & editing
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Material, labour & plant calculations
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Project budget calculations
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Export to Excel & supplier quotations
-                    </li>
-                </ul>
-                <a href="#contact" class="product-cta">Learn More</a>
-                
-                <div class="product-video-preview">
-                    <a href="https://youtu.be/22Ji58kR1ZI" target="_blank" class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/22Ji58kR1ZI/maxresdefault.jpg" alt="NetCost Estimator Demo Video">
-                        <div class="play-button">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
-                                <path d="M32 24L20 31.464V16.536L32 24Z" fill="white"/>
+            <div class="products-grid">
+                <div class="product-card brand-green" data-aos="zoom-in">
+                    <div class="product-icon brand-green">
+                        <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite">
+                    </div>
+                    <h3 class="product-title">NetCost Estimator Express</h3>
+                    <p class="product-description">
+                        Comprehensive project reporting and analytics. Track costs, progress, and performance in real-time.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                        </div>
-                    </a>
+                            3000+ rate build-ups database
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Custom rate creation & editing
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Material, labour & plant calculations
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Project budget calculations
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Export to Excel & supplier quotations
+                        </li>
+                    </ul>
+                    <a href="#contact" class="product-cta">Learn More</a>
+                
+                    <div class="product-video-preview">
+                        <a href="https://youtu.be/YldvOD-o0uY" target="_blank" class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/YldvOD-o0uY/maxresdefault.jpg" alt="NetCost Elite Demo Video">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
+                                    <path d="M32 24L20 31.464V16.536L32 24Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card brand-red" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="product-icon brand-red">
+                        <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
+                    </div>
+                    <h3 class="product-title">NetCost Estimator Elite</h3>
+                    <p class="product-description">
+                        Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            3000+ rate build-ups database
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Custom rate creation & editing
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Material, labour & plant calculations
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Project budget calculations
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Export to Excel & supplier quotations
+                        </li>
+                    </ul>
+                    <a href="#contact" class="product-cta">Learn More</a>
+                
+                    <div class="product-video-preview">
+                        <a href="https://youtu.be/-LAmVZx-HsA" target="_blank" class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/-LAmVZx-HsA/maxresdefault.jpg" alt="NetCost Estimator Elite Demo Video">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
+                                    <path d="M32 24L20 31.464V16.536L32 24Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card featured brand-blue" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="product-icon brand-blue">
+                        <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro">
+                    </div>
+                    <h3 class="product-title">Netcost Estimator Pro</h3>
+                    <p class="product-description">
+                        Lightning-fast cost estimation with AI-powered accuracy. Generate detailed estimates in minutes, not hours.
+                    </p>
+                    <ul class="product-features">
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            3000+ rate build-ups database
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Custom rate creation & editing
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Material, labour & plant calculations
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Project budget calculations
+                        </li>
+                        <li>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            Export to Excel & supplier quotations
+                        </li>
+                    </ul>
+                    <a href="#contact" class="product-cta">Learn More</a>
+                
+                    <div class="product-video-preview">
+                        <a href="https://youtu.be/22Ji58kR1ZI" target="_blank" class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/22Ji58kR1ZI/maxresdefault.jpg" alt="NetCost Estimator Demo Video">
+                            <div class="play-button">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
+                                    <path d="M32 24L20 31.464V16.536L32 24Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card brand-green" data-aos="zoom-in" data-aos-delay="100">
-                <div class="product-icon brand-green">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite">
-                </div>
-                <h3 class="product-title">NetCost Estimator Express</h3>
-                <p class="product-description">
-                    Comprehensive project reporting and analytics. Track costs, progress, and performance in real-time.
-                </p>
                 <ul class="product-features">
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
