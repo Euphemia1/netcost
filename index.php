@@ -139,16 +139,7 @@ include 'includes/header.php';
                 <p>Connect with your existing tools and workflows through our robust API</p>
             </div>
             
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
-                <div class="feature-icon">
-                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                        <path d="M24 4L30 16L44 18L34 28L36 44L24 37L12 44L14 28L4 18L18 16L24 4Z" stroke="#1E3A8A" stroke-width="2" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-                <h3>Award Winning</h3>
-                <p>Recognized by industry leaders for innovation and excellence in construction software</p>
-            </div>
-        </div>
+           
     </div>
 </section>
 
