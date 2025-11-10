@@ -65,9 +65,15 @@
     /* Improve touch scrolling */
     .admin-login-body {
         overflow-y: auto;
-        /* -webkit-overflow-scrolling removed (unsupported on many browsers) */
+        /* Provide momentum scrolling on older iOS Safari; apply overscroll-behavior only when supported */
+        -webkit-overflow-scrolling: touch;
         touch-action: pan-y;
-        overscroll-behavior: contain;
+    }
+
+    @supports (overscroll-behavior: contain) {
+        .admin-login-body {
+            overscroll-behavior: contain;
+        }
     }
 
     /* Prevent zoom on input focus */
