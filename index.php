@@ -158,7 +158,7 @@ include 'includes/header.php';
             <div class="product-card featured" data-aos="zoom-in">
             
                 <div class="product-icon">
-                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 200px; height: auto;">
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro">
                 </div>
                 <h3 class="product-title">Netcost Estimator Pro</h3>
                 <p class="product-description">
@@ -201,7 +201,7 @@ include 'includes/header.php';
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="product-icon">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" style="width: 150px; height: auto;">
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite">
                 </div>
                 <h3 class="product-title">Net Cost Elite</h3>
                 <p class="product-description">
@@ -243,8 +243,8 @@ include 'includes/header.php';
             </div>
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="product-icon">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" style="width: 150px; height: auto;">
+                    <div class="product-icon">
+                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
                 </div>
                 <h3 class="product-title">Net Cost Estimator Elite</h3>
                 <p class="product-description">

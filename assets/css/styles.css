@@ -693,7 +693,6 @@ body {
   padding: 18px;
   margin: 0 auto 24px;
   color: var(--accent);
-  /* allow the icon container to grow on larger cards */
   max-width: 320px;
 }
 
