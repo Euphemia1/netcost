@@ -2470,24 +2470,29 @@ body {
 /* Tree layout for team executives */
 .team-tree {
   margin-top: 40px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px 12px;
 }
 .team-tree .tree-level {
   display: flex;
   justify-content: center;
   gap: 40px;
   position: relative;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+  align-items: flex-start;
 }
 
-/* vertical connector from a node to the level below */
+/* subtle vertical connector from a node to the level below */
 .team-tree .tree-level:not(:first-child)::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: -28px;
+  top: -20px;
   width: 2px;
-  height: 28px;
-  background: var(--border);
+  height: 20px;
+  background: rgba(17,24,39,0.06);
   transform: translateX(-50%);
   z-index: 0;
 }
@@ -2496,18 +2501,32 @@ body {
 .team-tree .tree-level-2::before {
   content: "";
   position: absolute;
-  left: 10%;
-  right: 10%;
-  top: -28px;
+  left: 8%;
+  right: 8%;
+  top: -20px;
   height: 2px;
-  background: var(--border);
+  background: rgba(17,24,39,0.06);
   z-index: 0;
+  border-radius: 2px;
 }
 
 .team-tree .tree-node {
   width: 320px;
   max-width: calc(33.333% - 40px);
   z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Make execs slightly larger and more prominent */
+.tree-level-0 .tree-node,
+.tree-level-1 .tree-node {
+  width: 380px;
+}
+.tree-level-0 .circular-team-container,
+.tree-level-1 .circular-team-container {
+  width: 200px;
+  height: 200px;
 }
 
 @media (max-width: 768px) {
@@ -2518,6 +2537,11 @@ body {
   .team-tree .tree-level-2::before {
     left: 5%;
     right: 5%;
+  }
+  .tree-level-0 .circular-team-container,
+  .tree-level-1 .circular-team-container {
+    width: 140px;
+    height: 140px;
   }
 }
 
