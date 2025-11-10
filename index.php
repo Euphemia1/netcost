@@ -215,7 +215,7 @@ include 'includes/header.php';
                 <div class="product-icon brand-green">
                     <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite">
                 </div>
-                <h3 class="product-title">Net Cost Elite</h3>
+                <h3 class="product-title">NetCost Estimator Express</h3>
                 <p class="product-description">
                     Comprehensive project reporting and analytics. Track costs, progress, and performance in real-time.
                 </p>
