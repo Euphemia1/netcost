@@ -162,7 +162,7 @@ include 'includes/header.php';
                 </div>
                 <h3 class="product-title">Netcost Estimator Pro</h3>
                 <p class="product-description">
-                    Lightning-fast cost estimation with AI-powered accuracy. Generate detailed estimates in minutes, not hours.
+                    Lightning fast cost estimation. Generate detailed estimates in minutes, not hours.
                 </p>
                 <ul class="product-features">
                     <li>
