@@ -96,8 +96,8 @@ include 'includes/header.php';
                     <a href="#contact" class="product-cta">Learn More</a>
                 
                     <div class="product-video-preview">
-                        <a href="https://youtu.be/YldvOD-o0uY" target="_blank" class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/YldvOD-o0uY/maxresdefault.jpg" alt="NetCost Elite Demo Video">
+                        <a href="https://youtu.be/-LAmVZx-HsA" target="_blank" class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/-LAmVZx-HsA/maxresdefault.jpg" alt="NetCost Express Demo Video">
                             <div class="play-button">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                                     <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
@@ -151,8 +151,8 @@ include 'includes/header.php';
                     <a href="#contact" class="product-cta">Learn More</a>
                 
                     <div class="product-video-preview">
-                        <a href="https://youtu.be/-LAmVZx-HsA" target="_blank" class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/-LAmVZx-HsA/maxresdefault.jpg" alt="NetCost Estimator Elite Demo Video">
+                        <a href="https://youtu.be/22Ji58kR1ZI" target="_blank" class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/22Ji58kR1ZI/maxresdefault.jpg" alt="NetCost Estimator Demo Video">
                             <div class="play-button">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                                     <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
@@ -206,8 +206,8 @@ include 'includes/header.php';
                     <a href="#contact" class="product-cta">Learn More</a>
                 
                     <div class="product-video-preview">
-                        <a href="https://youtu.be/22Ji58kR1ZI" target="_blank" class="video-thumbnail">
-                            <img src="https://img.youtube.com/vi/22Ji58kR1ZI/maxresdefault.jpg" alt="NetCost Estimator Demo Video">
+                        <a href="https://youtu.be/YldvOD-o0uY" target="_blank" class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/YldvOD-o0uY/maxresdefault.jpg" alt="NetCost Elite Demo Video">
                             <div class="play-button">
                                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                                     <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
