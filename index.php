@@ -155,7 +155,7 @@ include 'includes/header.php';
         </div>
 
         <div class="products-grid">
-            <div class="product-card featured" data-aos="zoom-in">
+            <div class="product-card featured brand-blue" data-aos="zoom-in">
             
                 <div class="product-icon brand-blue">
                     <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro">
@@ -199,7 +199,7 @@ include 'includes/header.php';
                 </div>
             </div>
             
-            <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="product-card brand-green" data-aos="zoom-in" data-aos-delay="100">
                 <div class="product-icon brand-green">
                     <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite">
                 </div>
@@ -242,7 +242,7 @@ include 'includes/header.php';
                 </div>
             </div>
             
-            <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="product-card brand-red" data-aos="zoom-in" data-aos-delay="200">
                     <div class="product-icon brand-red">
                         <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
                     </div>
