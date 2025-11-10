@@ -75,13 +75,10 @@
         }
     }
 
-    /* Prevent zoom on input focus */
     input[type="text"],
     input[type="password"] {
         font-size: 16px !important;
     }
-
-    /* Improve tap targets */
     .alert {
         padding: 16px;
     }
@@ -92,7 +89,6 @@
     }
 }
 
-/* Honeypot field for bot protection */
 .hidden-field {
     display: none;
     visibility: hidden;
