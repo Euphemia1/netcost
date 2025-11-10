@@ -50,28 +50,81 @@ include 'includes/header.php';
             </div>
 
             <div class="tree-level tree-level-2">
-                <div class="circular-team-card tree-node">
-                    <div class="circular-team-container">
-                        <img src="assets/images/0O1A5966.jpg" alt="Director of Finance" class="circular-team-image">
+                <!-- Branch 1: Director of Finance (no children) -->
+                <div class="tree-branch">
+                    <div class="circular-team-card tree-node">
+                        <div class="circular-team-container">
+                            <img src="assets/images/0O1A5966.jpg" alt="Director of Finance" class="circular-team-image">
+                        </div>
+                        <h3 class="team-member-name">Director of Finance</h3>
+                        <p class="team-member-role">Head of Finance</p>
                     </div>
-                    <h3 class="team-member-name">Director of Finance</h3>
-                    <p class="team-member-role">Head of Finance</p>
                 </div>
 
-                <div class="circular-team-card tree-node">
-                    <div class="circular-team-container">
-                        <img src="assets/images/@fern-media_--_11.jpg" alt="Civil Engineer" class="circular-team-image">
+                <!-- Branch 2: Civil Engineer with children -->
+                <div class="tree-branch">
+                    <div class="circular-team-card tree-node">
+                        <div class="circular-team-container">
+                            <img src="assets/images/@fern-media_--_11.jpg" alt="Civil Engineer" class="circular-team-image">
+                        </div>
+                        <h3 class="team-member-name">Civil Engineer</h3>
+                        <p class="team-member-role">Lead Civil Engineer</p>
                     </div>
-                    <h3 class="team-member-name">Civil Engineer</h3>
-                    <p class="team-member-role">Lead Civil Engineer</p>
+
+                    <div class="tree-children">
+                        <div class="circular-team-card child-node">
+                            <div class="circular-team-container">
+                                <img src="assets/images/0O1A5966.jpg" alt="Construction Engineers" class="circular-team-image">
+                            </div>
+                            <h3 class="team-member-name">Construction Engineers</h3>
+                            <p class="team-member-role">Site & Construction</p>
+                        </div>
+
+                        <div class="circular-team-card child-node">
+                            <div class="circular-team-container">
+                                <img src="assets/images/@fern-media_--_11.jpg" alt="Road Works Engineers" class="circular-team-image">
+                            </div>
+                            <h3 class="team-member-name">Road Works Engineers</h3>
+                            <p class="team-member-role">Roads & Infrastructure</p>
+                        </div>
+
+                        <div class="circular-team-card child-node">
+                            <div class="circular-team-container">
+                                <img src="assets/images/0O1A5966.jpg" alt="Building Engineers" class="circular-team-image">
+                            </div>
+                            <h3 class="team-member-name">Building Engineers</h3>
+                            <p class="team-member-role">Structural & Building</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="circular-team-card tree-node">
-                    <div class="circular-team-container">
-                        <img src="assets/images/0O1A5966.jpg" alt="Software Engineers" class="circular-team-image">
+                <!-- Branch 3: Software Engineers with children -->
+                <div class="tree-branch">
+                    <div class="circular-team-card tree-node">
+                        <div class="circular-team-container">
+                            <img src="assets/images/0O1A5966.jpg" alt="Software Engineers" class="circular-team-image">
+                        </div>
+                        <h3 class="team-member-name">Software Engineers</h3>
+                        <p class="team-member-role">Engineering Team</p>
                     </div>
-                    <h3 class="team-member-name">Software Engineers</h3>
-                    <p class="team-member-role">Engineering Team</p>
+
+                    <div class="tree-children">
+                        <div class="circular-team-card child-node">
+                            <div class="circular-team-container">
+                                <img src="assets/images/@fern-media_--_11.jpg" alt="Full Stack" class="circular-team-image">
+                            </div>
+                            <h3 class="team-member-name">Full Stack</h3>
+                            <p class="team-member-role">Back + Front</p>
+                        </div>
+
+                        <div class="circular-team-card child-node">
+                            <div class="circular-team-container">
+                                <img src="assets/images/0O1A5966.jpg" alt="Frontend Developers" class="circular-team-image">
+                            </div>
+                            <h3 class="team-member-name">Frontend Devs</h3>
+                            <p class="team-member-role">UI / UX</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
