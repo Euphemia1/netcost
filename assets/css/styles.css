@@ -684,9 +684,7 @@ body {
 }
 
 .product-icon {
-  /* Make product icons flexible so the logo image can fill available space.
-     Previously this was fixed at 64x64 which made SVG logos appear tiny
-     inside a larger featured card. */
+ 
   display: flex;
   align-items: center;
   justify-content: center;
