@@ -165,17 +165,7 @@ include 'includes/header.php';
                 </ul>
                 <a href="#contact" class="product-cta">Learn More</a>
 
-                <div class="product-video-preview">
-                    <a href="https://youtu.be/22Ji58kR1ZI" target="_blank" class="video-thumbnail">
-                        <img src="https://img.youtube.com/vi/22Ji58kR1ZI/maxresdefault.jpg" alt="NetCost Estimator Demo Video">
-                        <div class="play-button">
-                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="23" stroke="white" stroke-width="2"/>
-                                <path d="M32 24L20 31.464V16.536L32 24Z" fill="white"/>
-                            </svg>
-                        </div>
-                    </a>
-                </div>
+                <!-- Elite intentionally has no video preview here per request -->
             </div>
 
             <!-- Pro (blue, featured) -->
