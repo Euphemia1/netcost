@@ -158,7 +158,7 @@ include 'includes/header.php';
             <div class="product-card featured" data-aos="zoom-in">
             
                 <div class="product-icon">
-                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 150px; height: auto;">
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 200px; height: auto;">
                 </div>
                 <h3 class="product-title">Netcost Estimator Pro</h3>
                 <p class="product-description">
