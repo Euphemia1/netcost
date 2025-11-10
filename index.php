@@ -510,7 +510,7 @@ include 'includes/header.php';
                 <span class="section-badge">Our Services</span>
                 <h2 class="section-title">Complete Software Solutions</h2>
                 <p class="services-intro">
-                    We don't just build software—we build partnerships. Our comprehensive services ensure your success from day one.
+                    We don't just build software we build partnerships. Our comprehensive services ensure your success from day one.
                 </p>
                 
                 <div class="services-list">
