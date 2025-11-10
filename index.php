@@ -330,23 +330,7 @@ include 'includes/header.php';
                     <li>Labor cost management</li>
                 </ul>
             </div>
-            
-            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-showcase-number">02</div>
-                <h3>Supplier Vetting Portal</h3>
-                <p>Compare vetted suppliers for industrial equipment, furniture, and PPE with transparent pricing.</p>
-                <ul class="feature-list">
-                    <li>Verified supplier database</li>
-                    <li>Price comparison tools</li>
-                    <li>Quality ratings</li>
-                </ul>
-            </div>
-            
-            <div class="feature-showcase-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-showcase-number">03</div>
-                <h3>Quotation Builder</h3>
-                <p>Generate compliant, professional quotations for procurement and tenders—fast, accurate, and compliance-ready.</p>
-                <ul class="feature-list">
+              <ul class="feature-list">
                     <li>Automated quotation generation</li>
                     <li>Compliance templates</li>
                     <li>Professional formatting</li>
@@ -387,7 +371,7 @@ include 'includes/header.php';
             </div>
         </div>
     </div>
-</section> -->
+</section> -->        
 
 <section id="demo" class="demo-section">
     <div class="container">
