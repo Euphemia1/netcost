@@ -256,6 +256,11 @@ body {
   background-clip: text;
 }
 
+/* Small utility to tint specific words blue (primary brand color) */
+.text-blue {
+  color: var(--primary);
+}
+
 .hero-description {
   font-size: 20px;
   line-height: 1.6;

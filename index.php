@@ -22,7 +22,7 @@ include 'includes/header.php';
         </div>
         
         <h1 class="hero-title animate-slide-up">
-            Empowering the Construction Industry Through Innovation<br>
+            Empowering the <span class="text-blue">Construction Industry</span> Through <span class="text-blue">Innovation</span><br>
         
         </h1>
         
