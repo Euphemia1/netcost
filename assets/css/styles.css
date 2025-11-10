@@ -727,6 +727,26 @@ body {
   }
 }
 
+/* Brand color helpers: set the product-icon container background/border to
+   match the logo's primary color so the visual identity is clear. */
+.product-icon.brand-blue {
+  background: rgba(28, 117, 188, 0.08);
+  border: 2px solid rgba(28, 117, 188, 0.14);
+  box-shadow: 0 6px 18px rgba(28,117,188,0.06);
+}
+
+.product-icon.brand-green {
+  background: rgba(0, 148, 68, 0.08);
+  border: 2px solid rgba(0, 148, 68, 0.14);
+  box-shadow: 0 6px 18px rgba(0,148,68,0.06);
+}
+
+.product-icon.brand-red {
+  background: rgba(176, 32, 38, 0.08);
+  border: 2px solid rgba(176, 32, 38, 0.14);
+  box-shadow: 0 6px 18px rgba(176,32,38,0.06);
+}
+
 .product-title {
   font-size: 24px;
   font-weight: 700;

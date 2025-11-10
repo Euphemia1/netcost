@@ -157,7 +157,7 @@ include 'includes/header.php';
         <div class="products-grid">
             <div class="product-card featured" data-aos="zoom-in">
             
-                <div class="product-icon">
+                <div class="product-icon brand-blue">
                     <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro">
                 </div>
                 <h3 class="product-title">Netcost Estimator Pro</h3>
@@ -200,7 +200,7 @@ include 'includes/header.php';
             </div>
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="product-icon">
+                <div class="product-icon brand-green">
                     <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite">
                 </div>
                 <h3 class="product-title">Net Cost Elite</h3>
@@ -243,9 +243,9 @@ include 'includes/header.php';
             </div>
             
             <div class="product-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="product-icon">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
-                </div>
+                    <div class="product-icon brand-red">
+                        <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
+                    </div>
                 <h3 class="product-title">Net Cost Estimator Elite</h3>
                 <p class="product-description">
                     Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
