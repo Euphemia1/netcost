@@ -270,7 +270,7 @@ include 'includes/header.php';
                     <div class="product-icon brand-red">
                         <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
                     </div>
-                <h3 class="product-title">Net Cost Estimator Elite</h3>
+                <h3 class="product-title">NetCost Estimator Elite</h3>
                 <p class="product-description">
                     Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
                 </p>
