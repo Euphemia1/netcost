@@ -62,7 +62,7 @@ include 'includes/header.php';
         <div class="section-header text-center">
             <span class="section-badge">Products</span>
             <h2 class="section-title">NetCost Estimators</h2>
-            <p class="section-description">Choose the right estimator for your business — every product includes full rate build-ups, reporting, and export tools.</p>
+            <p class="section-description">Choose the right estimator for your business every product includes full rate build-ups, reporting, and export tools.</p>
         </div>
 
         <div class="products-grid">
