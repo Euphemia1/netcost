@@ -695,9 +695,6 @@ body {
   color: var(--accent);
   max-width: 320px;
 }
-
-/* Ensure images inside product icons scale to fill the icon container while
-   preserving aspect ratio and staying centered */
 .product-icon img {
   max-width: 100%;
   max-height: 100%;
@@ -707,7 +704,6 @@ body {
   object-fit: contain;
 }
 
-/* Featured product cards get a larger icon area so the logo is prominent */
 .product-card.featured .product-icon {
   max-width: 280px;
   padding: 24px;
