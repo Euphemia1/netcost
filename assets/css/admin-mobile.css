@@ -65,7 +65,7 @@
     
     .admin-login-body {
         overflow-y: auto;
-        /* Provide momentum/safer touch scrolling behavior where supported; rely on touch-action and overscroll-behavior for cross-browser support */
+       
         touch-action: pan-y;
     }
 
