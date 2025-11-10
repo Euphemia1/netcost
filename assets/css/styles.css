@@ -726,9 +726,6 @@ body {
     padding: 12px;
   }
 }
-
-/* Brand color helpers: set the product-icon container background/border to
-   match the logo's primary color so the visual identity is clear. */
 .product-icon.brand-blue {
   background: rgba(28, 117, 188, 0.08);
   border: 2px solid rgba(28, 117, 188, 0.14);
