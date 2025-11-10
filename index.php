@@ -160,7 +160,7 @@ include 'includes/header.php';
                 <div class="product-icon">
                     <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" style="width: 150px; height: auto;">
                 </div>
-                <h3 class="product-title">Net cost Estimator Pro</h3>
+                <h3 class="product-title">Netcost Estimator Pro</h3>
                 <p class="product-description">
                     Lightning-fast cost estimation with AI-powered accuracy. Generate detailed estimates in minutes, not hours.
                 </p>
