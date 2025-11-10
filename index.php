@@ -308,7 +308,7 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
-
+<!-- 
 <section class="special-features-section">
     <div class="container">
         <div class="section-header text-center">
@@ -387,7 +387,7 @@ include 'includes/header.php';
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 <section id="demo" class="demo-section">
     <div class="container">
