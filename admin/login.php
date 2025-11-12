@@ -203,10 +203,6 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
                     </div>
                 </div>
 
-                <!-- Hidden honeypot field to catch bots -->
-                <div class="hidden-field">
-                    <input type="text" name="website" tabindex="-1" autocomplete="off">
-                </div>
                 
                 <button type="submit" class="btn btn-primary btn-large">
                     <span>Login</span>
