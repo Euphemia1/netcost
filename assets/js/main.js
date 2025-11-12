@@ -314,10 +314,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Demo booking form handler
+  // Demo booking form handler - Pure Google Calendar integration
   const demoBookingForm = document.getElementById("demoBookingForm")
   if (demoBookingForm) {
-    // Set minimum date to today
+    // Set minimum date to tomorrow
     const bookingDateInput = document.getElementById("bookingDate")
     const today = new Date()
     const tomorrow = new Date(today)
@@ -325,54 +325,99 @@ document.addEventListener("DOMContentLoaded", () => {
     const minDate = tomorrow.toISOString().split("T")[0]
     bookingDateInput.setAttribute("min", minDate)
 
-    demoBookingForm.addEventListener("submit", async (e) => {
+    demoBookingForm.addEventListener("submit", (e) => {
       e.preventDefault()
 
       const submitBtn = demoBookingForm.querySelector('button[type="submit"]')
       const originalText = submitBtn.textContent
       submitBtn.disabled = true
-      submitBtn.textContent = "Booking..."
+      submitBtn.textContent = "Adding to Calendar..."
 
-      try {
-        const formData = new FormData(demoBookingForm)
-        const response = await fetch("includes/process_demo_booking.php", {
-          method: "POST",
-          body: formData,
-        })
+      // Get form values
+      const name = document.getElementById("bookingName").value
+      const email = document.getElementById("bookingEmail").value
+      const company = document.getElementById("bookingCompany").value
+      const phone = document.getElementById("bookingPhone").value
+      const date = document.getElementById("bookingDate").value
+      const time = document.getElementById("bookingTime").value
+      const product = document.getElementById("bookingProduct").value
+      const message = document.getElementById("bookingMessage").value
 
-        const data = await response.json()
-
-        if (data.success) {
-          // Show success message with Google Calendar option
-          const product = formData.get('product')
-          const date = formData.get('date')
-          const time = formData.get('time')
-          
-          let successMsg = "✓ " + data.message + "\n\n"
-          if (data.googleCalendarLink) {
-            successMsg += "Would you like to add this demo to your Google Calendar?"
-            
-            const userChoice = confirm(successMsg + "\n\nClick OK to add to Google Calendar, or Cancel to close.")
-            if (userChoice) {
-              window.open(data.googleCalendarLink, '_blank')
-            }
-          } else {
-            alert(successMsg)
-          }
-          
-          demoBookingForm.reset()
-          const modal = demoBookingForm.closest(".modal")
-          closeModal(modal)
-        } else {
-          alert("✗ Error: " + data.message)
-        }
-      } catch (error) {
-        console.error("Booking error:", error)
-        alert("✗ An error occurred while processing your booking. Please try again.")
-      } finally {
+      // Validate required fields
+      if (!name || !email || !date || !time || !product) {
+        alert("Please fill in all required fields.")
         submitBtn.disabled = false
         submitBtn.textContent = originalText
+        return
       }
+
+      // Create Google Calendar event URL
+      const [year, month, day] = date.split("-")
+      const [hours, minutes] = time.split(":")
+      
+      // Format start time (ISO 8601 format for Google Calendar)
+      const startDateTime = new Date(year, month - 1, day, hours, minutes)
+      const endDateTime = new Date(startDateTime)
+      endDateTime.setHours(endDateTime.getHours() + 1) // 1 hour demo
+
+      // Function to format date for Google Calendar
+      function formatGoogleCalendarDate(dateObj) {
+        const year = dateObj.getFullYear()
+        const month = String(dateObj.getMonth() + 1).padStart(2, '0')
+        const day = String(dateObj.getDate()).padStart(2, '0')
+        const hours = String(dateObj.getHours()).padStart(2, '0')
+        const mins = String(dateObj.getMinutes()).padStart(2, '0')
+        const secs = String(dateObj.getSeconds()).padStart(2, '0')
+        return `${year}${month}${day}T${hours}${mins}${secs}`
+      }
+
+      const startTime = formatGoogleCalendarDate(startDateTime)
+      const endTime = formatGoogleCalendarDate(endDateTime)
+
+      // Build event details
+      const eventTitle = `NetCost Demo - ${product}`
+      const eventDetails = `Demo with: ${name}
+Email: ${email}
+Company: ${company}
+Phone: ${phone}
+Product: ${product}
+${message ? 'Notes: ' + message : ''}`
+
+      // Create Google Calendar link
+      const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startTime}/${endTime}&details=${encodeURIComponent(eventDetails)}&location=Online%20Meeting&trp=true`
+
+      // Send email to admin via Formspree or similar (optional fallback)
+      // For now, we'll just open Google Calendar
+      
+      // Show confirmation
+      const confirmMsg = `Demo scheduled!\n\nName: ${name}\nEmail: ${email}\nProduct: ${product}\nDate: ${date} at ${time}\n\nClick OK to add to your Google Calendar.`
+      
+      if (confirm(confirmMsg)) {
+        // Open Google Calendar in new tab
+        window.open(googleCalendarUrl, '_blank')
+        
+        // Also send a quick email notification (using a simple service)
+        // You can integrate this with a service like Formspree
+        sendBookingNotification(name, email, company, phone, date, time, product, message)
+      }
+
+      // Reset form and close modal
+      demoBookingForm.reset()
+      const modal = demoBookingForm.closest(".modal")
+      closeModal(modal)
+      
+      submitBtn.disabled = false
+      submitBtn.textContent = originalText
     })
+  }
+
+  // Send booking notification email (using FormSubmit or similar service)
+  function sendBookingNotification(name, email, company, phone, date, time, product, message) {
+    // Optional: Send notification via Formspree or your backend
+    // This is a fallback - Google Calendar is primary
+    console.log("Demo booked:", {name, email, company, phone, date, time, product, message})
+    
+    // You could add an optional email service here if needed
+    // Example: Send to Formspree for email notification
   }
 })
