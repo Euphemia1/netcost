@@ -28,7 +28,6 @@ include 'includes/header.php';
         </div>
 
         <div class="org-chart">
-            <!-- Level 1: CEO (Tembo) -->
             <div class="org-level org-level-1">
                 <div class="org-card exec-card">
                     <div class="exec-photo">
@@ -40,7 +39,6 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <!-- Vertical connector from Tembo to Pegg -->
             <div class="org-connector-vertical"></div>
 
             <!-- Level 2: Head of Strategy (Pegg) - Direct report to Tembo -->
