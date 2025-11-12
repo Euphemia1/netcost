@@ -49,7 +49,7 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <div class="section-note text-center" style="margin-top:18px;color:var(--text-secondary);">Other roles are shown below — click any role to learn more about responsibilities.</div>
+            <!-- <div class="section-note text-center" style="margin-top:18px;color:var(--text-secondary);">Other roles are shown below — click any role to learn more about responsibilities.</div> -->
         </div>
 
         <div class="role-grid" style="margin-top:32px;">
