@@ -265,3 +265,57 @@ testimonialCards.forEach((card) => {
 })
 
 console.log("[v0] LT Software website initialized with enhanced interactions")
+
+// Modal handling (open/close) for product learn-more modals
+document.addEventListener("DOMContentLoaded", () => {
+  function openModal(modal) {
+    if (!modal) return
+    modal.style.display = "flex"
+    setTimeout(() => modal.classList.add("active"), 10)
+    // lock scroll
+    document.body.style.overflow = "hidden"
+  }
+
+  function closeModal(modal) {
+    if (!modal) return
+    modal.classList.remove("active")
+    setTimeout(() => (modal.style.display = "none"), 200)
+    document.body.style.overflow = ""
+  }
+
+  // Openers
+  document.querySelectorAll('[data-modal-target]').forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault()
+      const selector = btn.getAttribute("data-modal-target")
+      const modal = document.querySelector(selector)
+      openModal(modal)
+    })
+  })
+
+  // Close buttons inside modal
+  document.querySelectorAll(".modal .modal-close").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      const modal = btn.closest(".modal")
+      closeModal(modal)
+    })
+  })
+
+  // Close when clicking outside content
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closeModal(modal)
+      }
+    })
+  })
+
+  // Close with ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal").forEach((m) => {
+        if (m.style.display === "flex") closeModal(m)
+      })
+    }
+  })
+})

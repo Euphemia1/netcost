@@ -56,6 +56,29 @@ include 'includes/header.php';
     </div>
 </section>     
 
+<!-- Modal: NetCost Estimator Pro — additional features (opened from Learn More) -->
+<div id="proModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="proModalTitle" style="display:none">
+    <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <h2 id="proModalTitle">NetCost Estimator Pro — Additional Features</h2>
+        <p>NetCost Estimator Pro includes the following advanced capabilities (desktop & web):</p>
+        <ul style="margin-top:12px; margin-bottom:18px;">
+            <li>Integrate the BOQ tender process into NetCost Estimator Pro</li>
+            <li>Generate resource type summary (labour / materials / plant)</li>
+            <li>Trade summary reports</li>
+            <li>Resolve analysis (variance & reconciliation)</li>
+            <li>Priced BOQ export (itemised, supplier-linked)</li>
+            <li>Basic price list management</li>
+            <li>Price build-up report (detailed rate build-ups and margins)</li>
+            <li>Available as Desktop and Web-based applications</li>
+        </ul>
+        <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px;">
+            <a href="contact.php" class="btn btn-primary">Request a Demo</a>
+            <button class="btn btn-secondary modal-close">Close</button>
+        </div>
+    </div>
+</div>
+
 <!-- Products section moved out of the hero overlay so cards sit on normal page background -->
 <section class="products-section">
     <div class="container">
@@ -107,7 +130,7 @@ include 'includes/header.php';
                         Export to Excel & supplier quotations
                     </li>
                 </ul>
-                <a href="#contact" class="product-cta">Learn More</a>
+                <a href="#" class="product-cta" data-modal-target="#proModal">Learn More</a>
 
                 <div class="product-video-preview">
                     <a href="https://youtu.be/-LAmVZx-HsA" target="_blank" class="video-thumbnail">
