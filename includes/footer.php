@@ -19,9 +19,9 @@
                 <div class="footer-col">
                     <h3>Products</h3>
                     <ul class="footer-links">
-                        <li><a href="#products">Net Cost Estimator</a></li>
-                        <li><a href="#products">Net Cost Reporter</a></li>
-                        <li><a href="#products">Net Cost Elite</a></li>
+                        <li><a href="#products">NetCost Estimator Express</a></li>
+                        <li><a href="#products">Netost Estimator Elite</a></li>
+                        <li><a href="#products">NetCost Estimator Pro</a></li>
                     </ul>
                 </div>
                 
