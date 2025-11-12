@@ -85,7 +85,7 @@ include 'includes/header.php';
         <button class="modal-close" aria-label="Close modal">&times;</button>
         <h2 style="margin-bottom: 24px;">Schedule Your Demo</h2>
         
-        <form id="demoBookingForm" method="POST" action="includes/process_demo_booking.php" style="display: flex; flex-direction: column; gap: 20px;">
+        <form id="demoBookingForm" style="display: flex; flex-direction: column; gap: 20px;">
             <!-- Name -->
             <div class="form-group">
                 <label for="bookingName">Full Name *</label>
@@ -154,7 +154,7 @@ include 'includes/header.php';
             </div>
             
             <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px;">
-                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                <button type="submit" class="btn btn-primary">Add to Google Calendar & Send</button>
                 <button type="button" class="btn btn-secondary modal-close">Cancel</button>
             </div>
         </form>
