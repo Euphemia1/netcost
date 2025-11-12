@@ -3897,3 +3897,78 @@ body {
     padding: 32px 24px;
   }
 }
+
+/* Clients logos grid (improved visual, larger centered circular logos) */
+.clients-logos-grid {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0 60px;
+}
+
+.clients-logos-grid .circular-logo-container {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clients-logos-grid .circular-logo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  overflow: hidden;
+}
+
+.clients-logos-grid .circular-logo img {
+  max-width: 75%;
+  max-height: 75%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+}
+
+.clients-logos-grid .circular-logo-container:hover .circular-logo {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+}
+
+@media (max-width: 992px) {
+  .clients-logos-grid .circular-logo-container {
+    width: 160px;
+  }
+
+  .clients-logos-grid .circular-logo {
+    width: 140px;
+    height: 140px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 560px) {
+  .clients-logos-grid {
+    gap: 20px;
+    padding: 24px 0;
+  }
+
+  .clients-logos-grid .circular-logo-container {
+    width: 120px;
+  }
+
+  .clients-logos-grid .circular-logo {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+}

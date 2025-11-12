@@ -16,37 +16,35 @@ include 'includes/header.php';
 
 <section class="clients-section">
   <div class="container">
-    <div class="clients-grid">
-      <div class="client-card">
-        <div class="client-logo">
+    <div class="section-header text-center">
+      <span class="section-badge">Trusted by</span>
+      <h2 class="section-title">Our Clients</h2>
+      <p class="section-description">We partner with public and private sector organisations across the region.</p>
+    </div>
+
+    <div class="clients-logos-grid" aria-hidden="false">
+      <div class="circular-logo-container">
+        <div class="circular-logo">
           <img src="assets/images/logos/placeholder-acea.svg" alt="ACEA">
         </div>
-        <div class="client-name">ACEA</div>
-        <div class="client-info">Infrastructure partner</div>
       </div>
 
-      <div class="client-card">
-        <div class="client-logo">
+      <div class="circular-logo-container">
+        <div class="circular-logo">
           <img src="assets/images/logos/placeholder-eiz.svg" alt="EIZ">
         </div>
-        <div class="client-name">EIZ</div>
-        <div class="client-info">Construction consortium</div>
       </div>
 
-      <div class="client-card">
-        <div class="client-logo">
-          <img src="assets/images/logos/placeholder-ministry.svg" alt="Ministry">
+      <div class="circular-logo-container">
+        <div class="circular-logo">
+          <img src="assets/images/logos/placeholder-ministry.svg" alt="Ministry of Works">
         </div>
-        <div class="client-name">Ministry of Works</div>
-        <div class="client-info">Government partner</div>
       </div>
 
-      <div class="client-card">
-        <div class="client-logo">
+      <div class="circular-logo-container">
+        <div class="circular-logo">
           <img src="assets/images/logos/placeholder-unza.svg" alt="UNZA">
         </div>
-        <div class="client-name">UNZA</div>
-        <div class="client-info">Academic collaboration</div>
       </div>
     </div>
   </div>
