@@ -24,26 +24,21 @@ include 'includes/header.php';
 
     <div class="clients-logos-grid">
       <?php
-      // Auto-list all logo files in the media directory
       $mediaDir = __DIR__ . '/assets/media';
       $relativeDir = 'assets/media';
       $files = glob($mediaDir . '/*.{png,jpg,jpeg,svg,gif}', GLOB_BRACE);
       if ($files === false) {
           $files = [];
       }
-      
-      // Filter out unwanted files
       $excluded = ['NETCOST ELITE.svg', 'NETCOST EXPRESS.svg', 'NETCOST PRO.svg', 'dart-mission-goal-success.svg', 'WhatsApp Image 2025-11-10 at 11.45.47_cd785f93.jpg', 'housing-logo.png', 'housing.jpeg', 'water-dev-logo.png', 'zppa-logo.png'];
       $files = array_filter($files, function($f) use ($excluded) {
           return !in_array(basename($f), $excluded);
       });
-      
-      // sort alphabetically for predictable ordering
       natcasesort($files);
 
       foreach ($files as $filePath) {
           $fileName = basename($filePath);
-          // derive a friendly institution name from filename
+
           $name = preg_replace('/\.(png|jpg|jpeg|svg|gif)$/i', '', $fileName);
           $name = str_replace(['-', '_'], ' ', $name);
           $name = trim($name);
