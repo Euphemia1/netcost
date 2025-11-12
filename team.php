@@ -100,7 +100,6 @@ include 'includes/header.php';
                     </div>
                 </div>
 
-                <!-- Under IT -->
                 <div class="org-group it-group">
                     <div class="org-connector-vertical small-connector"></div>
                     <div class="org-cards-row">
