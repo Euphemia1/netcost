@@ -68,7 +68,7 @@
                     <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" width="120" height="120">
                 </div>
                 <div class="showcase-details">
-                    <h3>NetCost Express</h3>
+                    <h3>NetCost Estimator Express</h3>
                     <p>Quick and efficient cost calculations</p>
                 </div>
             </div>
