@@ -26,6 +26,33 @@ $news_items = $stmt->fetchAll();
         <div class="container">
             <?php if (count($news_items) > 0): ?>
                 <div class="news-grid-page">
+                    <!-- Social links: Facebook posts highlighting LT Construction -->
+                    <div class="news-social-grid">
+                        <a class="social-card" href="https://www.facebook.com/share/p/1bYPLhnoGa/" target="_blank" rel="noopener noreferrer">
+                            <div class="social-thumb">
+                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction Facebook share">
+                            </div>
+                            <div class="social-title">LT Construction — Facebook Share</div>
+                            <div class="social-meta">Facebook • Share</div>
+                        </a>
+
+                        <a class="social-card" href="https://www.facebook.com/100076064542369/posts/802324678979676/?mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener noreferrer">
+                            <div class="social-thumb">
+                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction Facebook post">
+                            </div>
+                            <div class="social-title">LT Construction — Facebook Post</div>
+                            <div class="social-meta">Facebook • Post</div>
+                        </a>
+
+                        <a class="social-card" href="https://www.facebook.com/share/v/1FQfL5bnrB/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
+                            <div class="social-thumb">
+                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction Facebook video share">
+                            </div>
+                            <div class="social-title">LT Construction — Facebook Video</div>
+                            <div class="social-meta">Facebook • Video</div>
+                        </a>
+                    </div>
+
                     <!-- Static featured article card: LT Construction feature -->
                     <article class="news-article-card" data-aos="fade-up" data-aos-delay="0">
                         <div class="news-article-image">
