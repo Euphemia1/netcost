@@ -3898,36 +3898,63 @@ body {
   }
 }
 
-/* Clients logos grid (polished, visually striking, user-appealing) */
+/* Clients Section with Blue Gradient Background */
+.clients-section {
+  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-section .section-header {
+  color: white;
+}
+
+.clients-section .section-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.clients-section .section-title {
+  color: white;
+}
+
+.clients-section .section-description {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Clients logos grid (premium team card aesthetic) */
 .clients-logos-grid {
-  display: flex;
-  gap: 50px;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  padding: 60px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 48px 40px;
+  justify-items: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .clients-logos-grid .circular-logo-container {
-  width: 240px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  text-align: center;
 }
 
 .clients-logos-grid .circular-logo {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  border: 3px solid var(--primary);
-  box-shadow: 0 12px 40px rgba(30,58,138,0.18);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 16px;
+  border: none;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.18);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   position: relative;
 }
@@ -3937,81 +3964,83 @@ body {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(30,58,138,0.05) 0%, rgba(30,58,138,0) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
   pointer-events: none;
 }
 
 .clients-logos-grid .circular-logo img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 75%;
+  max-height: 75%;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: brightness(1) contrast(1.05);
+  filter: brightness(1) contrast(1.08);
   position: relative;
   z-index: 1;
+  transition: filter 0.3s ease;
 }
 
 .clients-logos-grid .circular-logo-container:hover .circular-logo {
-  transform: translateY(-12px) scale(1.08);
-  box-shadow: 0 24px 60px rgba(30,58,138,0.25);
-  border-color: var(--accent);
+  transform: translateY(-14px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
 }
 
 .clients-logos-grid .circular-logo-container:hover .circular-logo img {
-  filter: brightness(1.05) contrast(1.15);
+  filter: brightness(1.08) contrast(1.15);
 }
 
 .client-caption {
   text-align: center;
-  margin-top: 16px;
-  font-size: 15px;
-  color: var(--text-secondary);
+  margin-top: 18px;
+  font-size: 16px;
+  color: white;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
 }
 
 .clients-logos-grid .circular-logo-container:hover .client-caption {
-  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 992px) {
-  .clients-logos-grid {
-    gap: 40px;
-    padding: 50px 15px;
+  .clients-section {
+    padding: 80px 0;
   }
 
-  .clients-logos-grid .circular-logo-container {
-    width: 200px;
+  .clients-logos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 40px 32px;
+    padding: 32px 15px;
   }
 
   .clients-logos-grid .circular-logo {
-    width: 160px;
-    height: 160px;
-    padding: 16px;
-    border: 2px solid var(--primary);
+    width: 150px;
+    height: 150px;
+    padding: 14px;
   }
 
   .client-caption {
     font-size: 14px;
+    margin-top: 14px;
   }
 }
 
-@media (max-width: 560px) {
-  .clients-logos-grid {
-    gap: 28px;
-    padding: 40px 10px;
+@media (max-width: 640px) {
+  .clients-section {
+    padding: 60px 0;
   }
 
-  .clients-logos-grid .circular-logo-container {
-    width: 150px;
+  .clients-logos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 20px;
+    padding: 24px 10px;
   }
 
   .clients-logos-grid .circular-logo {
-    width: 120px;
-    height: 120px;
-    padding: 12px;
-    border: 2px solid var(--primary);
+    width: 110px;
+    height: 110px;
+    padding: 10px;
   }
 
   .client-caption {
