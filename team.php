@@ -52,31 +52,12 @@ include 'includes/header.php';
                     <p class="exec-bio">Leads product strategy and partnerships, ensuring NetCost aligns with industry needs and compliance.</p>
                 </div>
             </div>
-
-            <!-- Vertical connector from Pegg to Department Heads -->
             <div class="org-connector-vertical"></div>
 
-            <!-- Level 3: Department Heads (Three positions) -->
-            <div class="org-level org-level-3">
-                <div class="org-card title-card finance-card">
-                    <div class="title-card-content">Head of Finance</div>
-                </div>
-
-                <div class="org-card title-card civil-card">
-                    <div class="title-card-content">Lead Civil Engineer</div>
-                </div>
-
-                <div class="org-card title-card it-card">
-                    <div class="title-card-content">IT</div>
-                </div>
-            </div>
-
-            <!-- Level 4: Subordinate Roles -->
             <div class="org-level org-level-4">
-                <!-- Under Finance (no subordinates) -->
                 <div class="org-spacer finance-spacer"></div>
 
-                <!-- Under Lead Civil Engineer -->
+
                 <div class="org-branch civil-branch">
                     <div class="org-cards-row three-cards">
                         <div class="org-card sub-card">
