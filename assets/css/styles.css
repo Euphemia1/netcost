@@ -3911,8 +3911,8 @@ body {
 }
 
 .clients-section .section-badge {
-  background: rgba(255, 107, 0, 0.1);
-  color: var(--accent);
+  background: rgba(30, 58, 138, 0.08);
+  color: var(--primary);
 }
 
 .clients-section .section-title {
