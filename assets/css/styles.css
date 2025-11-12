@@ -4121,11 +4121,12 @@ body {
 }
 
 .org-level-4 {
-  margin-top: 40px;
+  margin-top: 60px;
   justify-content: center;
   gap: 100px;
   width: 100%;
   align-items: flex-start;
+  flex-wrap: nowrap;
 }
 
 /* Executive Cards */
@@ -4291,13 +4292,31 @@ body {
   background: var(--primary);
 }
 
-/* SVG Connectors */
-.org-connectors-svg {
+/* Branch connectors using SVG */
+.org-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.branch-connector {
   width: 100%;
-  max-width: 1000px;
-  height: 120px;
-  margin: 20px auto;
-  display: block;
+  max-width: 300px;
+  height: 80px;
+  margin-bottom: -40px;
+  z-index: 0;
+}
+
+.org-cards-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
 }
 
 .org-connector-line {

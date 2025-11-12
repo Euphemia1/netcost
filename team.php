@@ -60,34 +60,33 @@ include 'includes/header.php';
 
             <!-- Level 3: Department Heads (Three positions) -->
             <div class="org-level org-level-3">
-                <div class="org-card title-card finance-card" style="position: relative;">
+                <div class="org-card title-card finance-card">
                     <div class="title-card-content">Head of Finance</div>
-                    <!-- Vertical connector line -->
-                    <div class="connector-line finance-connector"></div>
                 </div>
 
-                <div class="org-card title-card civil-card" style="position: relative;">
+                <div class="org-card title-card civil-card">
                     <div class="title-card-content">Lead Civil Engineer</div>
-                    <!-- Vertical connector line -->
-                    <div class="connector-line civil-connector"></div>
                 </div>
 
-                <div class="org-card title-card it-card" style="position: relative;">
+                <div class="org-card title-card it-card">
                     <div class="title-card-content">IT</div>
-                    <!-- Vertical connector line -->
-                    <div class="connector-line it-connector"></div>
                 </div>
             </div>
 
             <!-- Level 4: Subordinate Roles -->
             <div class="org-level org-level-4">
-                <!-- Under Finance (no subordinates - empty space) -->
-                <div class="org-group finance-group empty-group"></div>
+                <!-- Under Finance (no subordinates) -->
+                <div class="org-spacer finance-spacer"></div>
 
                 <!-- Under Lead Civil Engineer -->
-                <div class="org-group civil-group">
-                    <!-- Connector lines for civil engineer subordinates -->
-                    <div class="connector-horizontal civil-horizontal"></div>
+                <div class="org-branch civil-branch">
+                    <svg class="branch-connector civil-connector" viewBox="0 0 300 80" preserveAspectRatio="none">
+                        <line x1="150" y1="0" x2="150" y2="30" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="50" y1="30" x2="250" y2="30" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="50" y1="30" x2="50" y2="80" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="150" y1="30" x2="150" y2="80" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="250" y1="30" x2="250" y2="80" stroke="#1E3A8A" stroke-width="2"/>
+                    </svg>
                     <div class="org-cards-row three-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Construction Engineers</div>
@@ -102,9 +101,13 @@ include 'includes/header.php';
                 </div>
 
                 <!-- Under IT -->
-                <div class="org-group it-group">
-                    <!-- Connector lines for IT subordinates -->
-                    <div class="connector-horizontal it-horizontal"></div>
+                <div class="org-branch it-branch">
+                    <svg class="branch-connector it-connector" viewBox="0 0 300 80" preserveAspectRatio="none">
+                        <line x1="150" y1="0" x2="150" y2="30" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="75" y1="30" x2="225" y2="30" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="75" y1="30" x2="75" y2="80" stroke="#1E3A8A" stroke-width="2"/>
+                        <line x1="225" y1="30" x2="225" y2="80" stroke="#1E3A8A" stroke-width="2"/>
+                    </svg>
                     <div class="org-cards-row two-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Full Stack</div>
