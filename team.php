@@ -54,16 +54,12 @@ include 'includes/header.php';
                     <p class="exec-bio">Leads product strategy and partnerships, ensuring NetCost aligns with industry needs and compliance.</p>
                 </div>
             </div>
-
-            <!-- Vertical connector from Pegg to Subordinate Roles -->
             <div class="org-connector-vertical"></div>
 
-            <!-- Level 4: Subordinate Roles (Direct from Pegg) -->
             <div class="org-level org-level-4">
-                <!-- Under Finance (no subordinates) -->
                 <div class="org-spacer finance-spacer"></div>
 
-                <!-- Under Lead Civil Engineer -->
+
                 <div class="org-branch civil-branch">
                     <svg class="branch-connector civil-connector" viewBox="0 0 300 80" preserveAspectRatio="none">
                         <line x1="150" y1="0" x2="150" y2="30" stroke="#1E3A8A" stroke-width="2"/>
