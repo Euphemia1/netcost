@@ -3923,10 +3923,10 @@ body {
   color: var(--text-secondary);
 }
 
-/* Clients logos grid (premium team card aesthetic) */
+/* Clients logos grid (simple, clean layout) */
 .clients-logos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 48px 40px;
   justify-items: center;
   padding: 40px 20px;
@@ -3934,64 +3934,35 @@ body {
   margin: 0 auto;
 }
 
-.clients-logos-grid .circular-logo-container {
-  width: 100%;
+.client-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  gap: 12px;
   text-align: center;
 }
 
-.clients-logos-grid .circular-logo {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  border: none;
-  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.18);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  position: relative;
-}
-
-.clients-logos-grid .circular-logo img {
-  max-width: 75%;
-  max-height: 75%;
+.client-logo-image {
+  max-width: 140px;
+  max-height: 140px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: brightness(1) contrast(1.08);
-  position: relative;
-  z-index: 1;
-  transition: filter 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.clients-logos-grid .circular-logo-container:hover .circular-logo {
-  transform: translateY(-14px);
-  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.25);
+.client-item:hover .client-logo-image {
+  transform: scale(1.1);
 }
 
-.clients-logos-grid .circular-logo-container:hover .circular-logo img {
-  filter: brightness(1.08) contrast(1.15);
-}
-
-.client-caption {
-  text-align: center;
-  margin-top: 18px;
-  font-size: 16px;
+.client-name-text {
+  font-size: 15px;
   color: var(--text-secondary);
   font-weight: 600;
-  transition: all 0.3s ease;
-  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
 }
 
-.clients-logos-grid .circular-logo-container:hover .client-caption {
-  transform: translateY(-2px);
+.client-item:hover .client-name-text {
   color: var(--primary);
 }
 
@@ -4001,20 +3972,18 @@ body {
   }
 
   .clients-logos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 40px 32px;
     padding: 32px 15px;
   }
 
-  .clients-logos-grid .circular-logo {
-    width: 150px;
-    height: 150px;
-    padding: 14px;
+  .client-logo-image {
+    max-width: 110px;
+    max-height: 110px;
   }
 
-  .client-caption {
-    font-size: 14px;
-    margin-top: 14px;
+  .client-name-text {
+    font-size: 13px;
   }
 }
 
@@ -4029,15 +3998,13 @@ body {
     padding: 24px 10px;
   }
 
-  .clients-logos-grid .circular-logo {
-    width: 110px;
-    height: 110px;
-    padding: 10px;
+  .client-logo-image {
+    max-width: 80px;
+    max-height: 80px;
   }
 
-  .client-caption {
+  .client-name-text {
     font-size: 12px;
-    margin-top: 10px;
   }
 }
 

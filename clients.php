@@ -44,11 +44,9 @@ include 'includes/header.php';
           $name = ucwords($name);
           $src = $relativeDir . '/' . $fileName;
       ?>
-        <div class="circular-logo-container">
-          <div class="circular-logo" role="img" aria-label="<?php echo htmlentities($name); ?> logo">
-            <img src="<?php echo htmlentities($src); ?>" alt="<?php echo htmlentities($name); ?> logo">
-          </div>
-          <div class="client-caption"><?php echo htmlentities($name); ?></div>
+        <div class="client-item">
+          <img src="<?php echo htmlentities($src); ?>" alt="<?php echo htmlentities($name); ?>" class="client-logo-image">
+          <div class="client-name-text"><?php echo htmlentities($name); ?></div>
         </div>
       <?php
       }
