@@ -203,22 +203,54 @@ mail($email, $confirmationSubject, $confirmationBody, $confirmationHeaders);
 
 // Return success response
 if ($emailSent) {
+    // Generate Google Calendar link for the user to add to their calendar
+    $googleCalendarLink = generateGoogleCalendarLink($date, $time, $product);
+    
     echo json_encode([
         'success' => true,
-        'message' => 'Demo booking confirmed! Check your email for details.'
+        'message' => 'Demo booking confirmed! Check your email for details.',
+        'googleCalendarLink' => $googleCalendarLink
     ]);
 } else {
     // Even if email fails, we consider it a success for user feedback
     // (but log it for admin purposes)
     error_log('Demo booking email failed for: ' . $email);
+    
+    $googleCalendarLink = generateGoogleCalendarLink($date, $time, $product);
+    
     echo json_encode([
         'success' => true,
-        'message' => 'Demo booking received! You will receive a confirmation email shortly.'
+        'message' => 'Demo booking received! You will receive a confirmation email shortly.',
+        'googleCalendarLink' => $googleCalendarLink
     ]);
 }
 
 // Sanitize input function
 function sanitize_input($input) {
     return htmlspecialchars(trim($input), ENT_QUOTES, 'UTF-8');
+}
+
+// Generate Google Calendar link
+function generateGoogleCalendarLink($date, $time, $product) {
+    // Parse the date and time
+    $dateTime = new DateTime($date . ' ' . $time);
+    $endTime = clone $dateTime;
+    $endTime->add(new DateInterval('PT1H')); // 1 hour demo
+    
+    // Format for Google Calendar (RFC 3339 format without timezone)
+    $startFormatted = $dateTime->format('Ymd\THis');
+    $endFormatted = $endTime->format('Ymd\THis');
+    
+    // Build the Google Calendar link
+    $title = 'NetCost Estimator ' . $product . ' Demo';
+    $description = 'Demo session for NetCost Estimator ' . $product . '. You will receive meeting details via email.';
+    $location = 'Online';
+    
+    $link = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' . urlencode($title)
+        . '&dates=' . $startFormatted . '/' . $endFormatted
+        . '&details=' . urlencode($description)
+        . '&location=' . urlencode($location);
+    
+    return $link;
 }
 ?>

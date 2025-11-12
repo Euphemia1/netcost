@@ -343,7 +343,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await response.json()
 
         if (data.success) {
-          alert("✓ " + data.message)
+          // Show success message with Google Calendar option
+          const product = formData.get('product')
+          const date = formData.get('date')
+          const time = formData.get('time')
+          
+          let successMsg = "✓ " + data.message + "\n\n"
+          if (data.googleCalendarLink) {
+            successMsg += "Would you like to add this demo to your Google Calendar?"
+            
+            const userChoice = confirm(successMsg + "\n\nClick OK to add to Google Calendar, or Cancel to close.")
+            if (userChoice) {
+              window.open(data.googleCalendarLink, '_blank')
+            }
+          } else {
+            alert(successMsg)
+          }
+          
           demoBookingForm.reset()
           const modal = demoBookingForm.closest(".modal")
           closeModal(modal)
