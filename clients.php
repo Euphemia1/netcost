@@ -16,10 +16,10 @@ include 'includes/header.php';
 
 <section class="clients-section">
   <div class="container">
-    <div class="section-header text-center">
+    <div class="section-header text-center" style="margin-bottom: 60px;">
       <span class="section-badge">Trusted by</span>
-      <h2 class="section-title">Our Clients</h2>
-      <p class="section-description">We partner with public and private sector organisations across the region.</p>
+      <h2 class="section-title">Our Clients & Partners</h2>
+      <p class="section-description">Trusted by leading organisations across construction, government, and infrastructure.</p>
     </div>
 
     <div class="clients-logos-grid">
