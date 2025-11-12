@@ -171,7 +171,6 @@ include 'includes/header.php';
         </div>
 
         <div class="products-grid">
-            <!-- Express (red) -->
             <div class="product-card brand-red" data-aos="zoom-in">
                 <div class="product-icon brand-red">
                     <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express">
