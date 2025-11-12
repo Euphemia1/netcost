@@ -58,7 +58,7 @@
                     <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" width="120" height="120">
                 </div>
                 <div class="showcase-details">
-                    <h3>NetCost Elite</h3>
+                    <h3>NetCost Estimator Elite</h3>
                     <p>Advanced project management and analytics</p>
                 </div>
             </div>
