@@ -92,8 +92,11 @@ include 'includes/header.php';
                 </div>
             <?php else: ?>
                 <div class="no-news-message">
-                    <h2>No news items yet</h2>
-                    <p>Check back soon for the latest updates from LT Software</p>
+                    <div class="no-news-icon">📰</div>
+                    <h2>No News Yet</h2>
+                    <p>We're busy working on exciting updates for you!</p>
+                    <p class="no-news-subtext">Check back soon for the latest developments and announcements from LT Software</p>
+                    <a href="<?php echo $base_path; ?>index.php" class="btn btn-primary" style="margin-top: 24px;">Back to Home</a>
                 </div>
             <?php endif; ?>
         </div>
