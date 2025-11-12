@@ -48,7 +48,7 @@
                     <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" width="120" height="120">
                 </div>
                 <div class="showcase-details">
-                    <h3>NetCost Pro</h3>
+                    <h3>NetCost Estimator Pro</h3>
                     <p>Professional-grade cost estimation software</p>
                 </div>
             </div>
