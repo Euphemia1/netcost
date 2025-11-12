@@ -27,73 +27,55 @@ include 'includes/header.php';
             </p>
         </div>
 
-        <!-- Tree-style team layout: root -> manager -> group -->
-        <div class="team-tree">
-            <div class="tree-level tree-level-0">
-                <div class="circular-team-card tree-node">
+        <!-- Redesigned team layout: executive spotlight + role grid -->
+        <div class="team-executives">
+            <div class="exec-grid">
+                <div class="circular-team-card">
                     <div class="circular-team-container">
                         <img src="assets/images/0O1A5966.jpg" alt="L.J Tembo" class="circular-team-image">
                     </div>
                     <h3 class="team-member-name">L.J Tembo</h3>
                     <p class="team-member-role">Managing Director</p>
+                    <p class="team-member-bio">Founder and leader with over 20 years' experience in construction and estimating. Passionate about digitising workflows.</p>
                 </div>
-            </div>
 
-            <div class="tree-level tree-level-1">
-                <div class="circular-team-card tree-node">
+                <div class="circular-team-card">
                     <div class="circular-team-container">
                         <img src="assets/images/@fern-media_--_11.jpg" alt="Dr Pegg" class="circular-team-image">
                     </div>
                     <h3 class="team-member-name">Dr Pegg</h3>
                     <p class="team-member-role">Head of Strategy</p>
+                    <p class="team-member-bio">Leads product strategy and partnerships, ensuring NetCost aligns with industry needs and compliance.</p>
                 </div>
             </div>
 
-            <div class="tree-level tree-level-2">
-                <!-- Branch 1: Director of Finance (no children) -->
-                <div class="tree-branch">
-                    <div class="circular-team-card tree-node">
-                        <div class="role-box">Head of Finance</div>
-                    </div>
-                </div>
+            <div class="section-note text-center" style="margin-top:18px;color:var(--text-secondary);">Other roles are shown below — click any role to learn more about responsibilities.</div>
+        </div>
 
-                <!-- Branch 2: Civil Engineer with children -->
-                <div class="tree-branch">
-                    <div class="circular-team-card tree-node">
-                        <div class="role-box">Lead Civil Engineer</div>
-                    </div>
-
-                    <div class="tree-children">
-                        <div class="circular-team-card child-node">
-                            <div class="role-box">Construction Engineers</div>
-                        </div>
-
-                        <div class="circular-team-card child-node">
-                            <div class="role-box">Road Works Engineers</div>
-                        </div>
-
-                        <div class="circular-team-card child-node">
-                            <div class="role-box">Building Engineers</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Branch 3: Software Engineers with children -->
-                <div class="tree-branch">
-                    <div class="circular-team-card tree-node">
-                        <div class="role-box">Engineering Team</div>
-                    </div>
-
-                    <div class="tree-children">
-                        <div class="circular-team-card child-node">
-                            <div class="role-box">Full Stack</div>
-                        </div>
-
-                        <div class="circular-team-card child-node">
-                            <div class="role-box">Frontend Devs</div>
-                        </div>
-                    </div>
-                </div>
+        <div class="role-grid" style="margin-top:32px;">
+            <div class="role-card">
+                <div class="role-box">Head of Finance</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Lead Civil Engineer</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Engineering Team</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Construction Engineers</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Road Works Engineers</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Building Engineers</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Full Stack</div>
+            </div>
+            <div class="role-card">
+                <div class="role-box">Frontend Devs</div>
             </div>
         </div>
     </div>
