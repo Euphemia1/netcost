@@ -1,38 +1,38 @@
-a<?php
-// Prevent caching
-header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0");
-header("Pragma: no-cache");
-header("Expires: 0");
+<?php
+// // Prevent caching
+// header("Cache-Control: no-cache, no-store, must-revalidate, max-age=0");
+// header("Pragma: no-cache");
+// header("Expires: 0");
 
-include 'includes/db.php';
-include 'includes/header.php';
+// include 'includes/db.php';
+// include 'includes/header.php';
 
-$errors = [];
-$success = false;
+// $errors = [];
+// $success = false;
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $phone = trim($_POST['phone'] ?? '');
-    $company = trim($_POST['company'] ?? '');
-    $message = trim($_POST['message'] ?? '');
+// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//     $name = trim($_POST['name'] ?? '');
+//     $email = trim($_POST['email'] ?? '');
+//     $phone = trim($_POST['phone'] ?? '');
+//     $company = trim($_POST['company'] ?? '');
+//     $message = trim($_POST['message'] ?? '');
 
-    if ($name === '') $errors[] = 'Name is required.';
-    if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'A valid email is required.';
-    if ($message === '') $errors[] = 'Please enter a message.';
+//     if ($name === '') $errors[] = 'Name is required.';
+//     if ($email === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'A valid email is required.';
+//     if ($message === '') $errors[] = 'Please enter a message.';
 
-    if (empty($errors)) {
-        try {
-            $stmt = $pdo->prepare('INSERT INTO contacts (name, email, phone, company, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())');
-            $stmt->execute([$name, $email, $phone, $company, $message]);
-            $success = true;
-            // Clear fields
-            $name = $email = $phone = $company = $message = '';
-        } catch (Exception $e) {
-            $errors[] = 'Failed to save message. Please try again later.';
-        }
-    }
-}
+//     if (empty($errors)) {
+//         try {
+//             $stmt = $pdo->prepare('INSERT INTO contacts (name, email, phone, company, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())');
+//             $stmt->execute([$name, $email, $phone, $company, $message]);
+//             $success = true;
+//             // Clear fields
+//             $name = $email = $phone = $company = $message = '';
+//         } catch (Exception $e) {
+//             $errors[] = 'Failed to save message. Please try again later.';
+//         }
+//     }
+// }
 ?>
 
 <section class="page-hero">
