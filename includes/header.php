@@ -16,11 +16,7 @@
         <nav class="navbar">
             <div class="container">
                 <a href="/netcost/" class="logo">
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                        <rect width="32" height="32" rx="6" fill="#1E3A8A"/>
-                        <path d="M10 22V10L16 7L22 10V22L16 25L10 22Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-                    </svg>
-                    <span>LT Construction Software</span>
+                    <img src="/netcost/assets/media/LT.svg" alt="LT Construction" class="logo-image" style="height: 40px; width: auto;">
                 </a>
                 
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">

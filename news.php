@@ -55,10 +55,14 @@ $news_items = $stmt->fetchAll();
 
                     <!-- Static featured article card: LT Construction feature -->
                     <article class="news-article-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="news-article-image">
+                        <div class="news-article-image" style="position: relative;">
                             <a href="news/lt-construction-feature.php">
                                 <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction featured">
                             </a>
+                            <!-- LT Construction Logo Overlay -->
+                            <div style="position: absolute; top: 12px; right: 12px; background: white; padding: 8px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                                <img src="assets/media/LT.svg" alt="LT Construction" style="height: 32px; width: auto; display: block;">
+                            </div>
                         </div>
                         <div class="news-article-header">
                             <h2 class="news-article-title"><a href="news/lt-construction-feature.php">LT Construction Featured in National Press</a></h2>

@@ -5,11 +5,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                            <rect width="32" height="32" rx="6" fill="#1E3A8A"/>
-                            <path d="M10 22V10L16 7L22 10V22L16 25L10 22Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-                        </svg>
-                        <span>LT Construction Software</span>
+                        <img src="/netcost/assets/media/LT.svg" alt="LT Construction" class="logo-image" style="height: 40px; width: auto;">
                     </div>
                     <p class="footer-description">
                         Building the future of construction software with intelligent solutions for cost estimation and project management.

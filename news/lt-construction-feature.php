@@ -17,8 +17,12 @@ include __DIR__ . '/../includes/header.php';
 <section class="news-article-single" style="padding:80px 0; background:white;">
   <div class="container">
     <article style="max-width:900px; margin:0 auto;">
-      <div style="border-radius:12px; overflow:hidden; box-shadow:var(--shadow-md);">
+      <div style="border-radius:12px; overflow:hidden; box-shadow:var(--shadow-md); position:relative;">
         <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction in the news" style="width:100%; height:auto; display:block;">
+        <!-- LT Construction Logo -->
+        <div style="position: absolute; top: 16px; right: 16px; background: white; padding: 10px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          <img src="assets/media/LT.svg" alt="LT Construction" style="height: 40px; width: auto; display: block;">
+        </div>
       </div>
 
       <div style="padding:28px 12px;">

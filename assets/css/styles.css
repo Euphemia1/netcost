@@ -82,6 +82,11 @@ body {
   text-decoration: none;
 }
 
+.logo-image {
+  display: block;
+  object-fit: contain;
+}
+
 .nav-menu {
   display: flex;
   align-items: center;
