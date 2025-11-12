@@ -2,7 +2,6 @@
 session_start();
 include '../includes/db.php';
 
-// Ensure admin_login_logs table exists (safe create)
 function ensure_admin_login_logs_table($pdo)
 {
     try {
@@ -16,18 +15,15 @@ function ensure_admin_login_logs_table($pdo)
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;"
         );
     } catch (PDOException $e) {
-        // If creation fails, write to error log and continue - logging is best-effort
         error_log('Failed to ensure admin_login_logs table: ' . $e->getMessage());
     }
 }
 
-// If already logged in, redirect to dashboard
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header('Location: dashboard.php');
     exit;
 }
 
-// Initialize variables
 $error = false;
 $error_message = '';
 $login_attempts = isset($_SESSION['login_attempts']) ? $_SESSION['login_attempts'] : 0;
