@@ -268,7 +268,7 @@ include 'includes/header.php';
                         Export to Excel & supplier quotations
                     </li>
                 </ul>
-                <a href="#contact" class="product-cta">Learn More</a>
+                <a href="#" class="product-cta" data-modal-target="#demoBookingModal">Learn More</a>
 
                 <!-- Elite intentionally has no video preview here per request -->
             </div>
@@ -314,7 +314,7 @@ include 'includes/header.php';
                         Export to Excel & supplier quotations
                     </li>
                 </ul>
-                <a href="#contact" class="product-cta">Learn More</a>
+                <a href="#" class="product-cta" data-modal-target="#demoBookingModal">Learn More</a>
 
                 <div class="product-video-preview">
                     <a href="https://youtu.be/YldvOD-o0uY" target="_blank" class="video-thumbnail">
