@@ -28,7 +28,7 @@ include 'includes/header.php';
         </div>
 
         <div class="org-chart">
-            <!-- Level 1: CEO -->
+            <!-- Level 1: CEO (Tembo) -->
             <div class="org-level org-level-1">
                 <div class="org-card exec-card">
                     <div class="exec-photo">
@@ -40,11 +40,11 @@ include 'includes/header.php';
                 </div>
             </div>
 
-            <!-- Vertical connector from Tembo -->
+            <!-- Vertical connector from Tembo to Pegg -->
             <div class="org-connector-vertical"></div>
 
-            <!-- Level 2: Direct Reports to Tembo -->
-            <div class="org-level org-level-2">
+            <!-- Level 2: Head of Strategy (Pegg) - Direct report to Tembo -->
+            <div class="org-level org-level-2-pegg">
                 <div class="org-card exec-card exec-card-secondary">
                     <div class="exec-photo">
                         <img src="assets/images/@fern-media_--_11.jpg" alt="Dr Pegg" class="exec-image">
@@ -53,56 +53,76 @@ include 'includes/header.php';
                     <p class="exec-title">Head of Strategy</p>
                     <p class="exec-bio">Leads product strategy and partnerships, ensuring NetCost aligns with industry needs and compliance.</p>
                 </div>
+            </div>
 
-                <div class="org-card title-card">
+            <!-- Vertical connector from Pegg to Department Heads -->
+            <div class="org-connector-vertical"></div>
+
+            <!-- Level 3: Department Heads (Three positions) -->
+            <div class="org-level org-level-3">
+                <div class="org-card title-card finance-card">
                     <div class="title-card-content">Head of Finance</div>
                 </div>
 
-                <div class="org-card title-card">
+                <div class="org-card title-card civil-card">
                     <div class="title-card-content">Lead Civil Engineer</div>
                 </div>
 
-                <div class="org-card title-card">
+                <div class="org-card title-card it-card">
                     <div class="title-card-content">IT</div>
                 </div>
             </div>
 
-            <!-- Connector lines to level 2 cards -->
-            <div class="org-connectors-level-2">
-                <div class="connector-to-strategy"></div>
-                <div class="connector-to-finance"></div>
-                <div class="connector-to-civil"></div>
-                <div class="connector-to-it"></div>
-            </div>
+            <!-- Connector lines from Department Heads to subordinates -->
+            <svg class="org-connectors-svg" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
+                <!-- Vertical line under Finance (no subordinates) -->
+                <line x1="333" y1="0" x2="333" y2="50" stroke="#1E3A8A" stroke-width="2"/>
+                
+                <!-- Vertical line under Civil Engineer -->
+                <line x1="500" y1="0" x2="500" y2="50" stroke="#1E3A8A" stroke-width="2"/>
+                
+                <!-- Horizontal line connecting three subordinates under Civil Engineer -->
+                <line x1="380" y1="50" x2="620" y2="50" stroke="#1E3A8A" stroke-width="2"/>
+                
+                <!-- Vertical lines down to each subordinate -->
+                <line x1="380" y1="50" x2="380" y2="100" stroke="#1E3A8A" stroke-width="2"/>
+                <line x1="500" y1="50" x2="500" y2="100" stroke="#1E3A8A" stroke-width="2"/>
+                <line x1="620" y1="50" x2="620" y2="100" stroke="#1E3A8A" stroke-width="2"/>
+                
+                <!-- Vertical line under IT -->
+                <line x1="667" y1="0" x2="667" y2="50" stroke="#1E3A8A" stroke-width="2"/>
+                
+                <!-- Horizontal line connecting two subordinates under IT -->
+                <line x1="590" y1="50" x2="744" y2="50" stroke="#1E3A8A" stroke-width="2"/>
+                
+                <!-- Vertical lines down to each subordinate -->
+                <line x1="590" y1="50" x2="590" y2="100" stroke="#1E3A8A" stroke-width="2"/>
+                <line x1="744" y1="50" x2="744" y2="100" stroke="#1E3A8A" stroke-width="2"/>
+            </svg>
 
-            <!-- Level 3: Subordinate Roles -->
-            <div class="org-level org-level-3">
-                <!-- Under Head of Finance -->
-                <div class="org-group finance-group">
-                    <div class="org-connector-vertical small-connector"></div>
-                    <div class="org-cards-row single-card">
-                        <div class="org-card sub-card">
-                            <div class="sub-card-content">Finance Officer</div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Level 4: Subordinate Roles -->
+            <div class="org-level org-level-4">
+                <!-- Under Finance (no subordinates - empty space) -->
+                <div class="org-group finance-group empty-group"></div>
 
                 <!-- Under Lead Civil Engineer -->
                 <div class="org-group civil-group">
-                    <div class="org-connector-vertical small-connector"></div>
-                    <div class="org-cards-row">
+                    <div class="org-cards-row three-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Construction Engineers</div>
                         </div>
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Road Works Engineers</div>
                         </div>
+                        <div class="org-card sub-card">
+                            <div class="sub-card-content">Building Engineers</div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Under IT -->
                 <div class="org-group it-group">
-                    <div class="org-connector-vertical small-connector"></div>
-                    <div class="org-cards-row">
+                    <div class="org-cards-row two-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Full Stack</div>
                         </div>
