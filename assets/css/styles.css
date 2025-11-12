@@ -4400,24 +4400,48 @@ body {
 .org-group.empty-group {
   flex: 0 0 160px;
   height: 0;
+  visibility: hidden;
 }
 
 .org-group.civil-group {
   flex: 1;
-  min-width: 400px;
+  min-width: 420px;
 }
 
 .org-group.it-group {
   flex: 1;
-  min-width: 300px;
+  min-width: 320px;
+}
+
+.org-spacer {
+  flex: 0 0 160px;
+  height: 0;
+}
+
+.org-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.branch-connector {
+  width: 100%;
+  max-width: 300px;
+  height: 80px;
+  margin-bottom: -40px;
+  z-index: 0;
 }
 
 .org-cards-row {
   display: flex;
   gap: 20px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
 }
 
 .org-cards-row.single-card {
@@ -4427,11 +4451,13 @@ body {
 .org-cards-row.three-cards {
   gap: 30px;
   width: 100%;
+  justify-content: center;
 }
 
 .org-cards-row.two-cards {
-  gap: 30px;
+  gap: 40px;
   width: 100%;
+  justify-content: center;
 }
 
 /* Sub Cards (Subordinate Roles) */
