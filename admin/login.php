@@ -2,6 +2,25 @@
 session_start();
 include '../includes/db.php';
 
+// Ensure admin_login_logs table exists (safe create)
+function ensure_admin_login_logs_table($pdo)
+{
+    try {
+        $pdo->exec(
+            "CREATE TABLE IF NOT EXISTS admin_login_logs (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                user_id INT NULL,
+                ip_address VARCHAR(45) NOT NULL,
+                status VARCHAR(20) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;"
+        );
+    } catch (PDOException $e) {
+        // If creation fails, write to error log and continue - logging is best-effort
+        error_log('Failed to ensure admin_login_logs table: ' . $e->getMessage());
+    }
+}
+
 // If already logged in, redirect to dashboard
 if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true) {
     header('Location: dashboard.php');
@@ -58,10 +77,25 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
             // Regenerate session ID to prevent session fixation
             session_regenerate_id(true);
             
-            // Log successful login
+            // Log successful login (best-effort)
             $ip = $_SERVER['REMOTE_ADDR'];
-            $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "success")');
-            $stmt->execute([$user['id'], $ip]);
+            try {
+                $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "success")');
+                $stmt->execute([$user['id'], $ip]);
+            } catch (PDOException $e) {
+                // If table doesn't exist, try to create it then retry once
+                if ($e->getCode() === '42S02' || stripos($e->getMessage(), '1146') !== false) {
+                    ensure_admin_login_logs_table($pdo);
+                    try {
+                        $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "success")');
+                        $stmt->execute([$user['id'], $ip]);
+                    } catch (Exception $e2) {
+                        error_log('admin_login_logs insert failed after create: ' . $e2->getMessage());
+                    }
+                } else {
+                    error_log('admin_login_logs insert failed: ' . $e->getMessage());
+                }
+            }
             
             header('Location: dashboard.php');
             exit;
@@ -72,8 +106,22 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
             
             // Log failed attempt
             if ($user) {
-                $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "failed")');
-                $stmt->execute([$user['id'], $_SERVER['REMOTE_ADDR']]);
+                try {
+                    $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "failed")');
+                    $stmt->execute([$user['id'], $_SERVER['REMOTE_ADDR']]);
+                } catch (PDOException $e) {
+                    if ($e->getCode() === '42S02' || stripos($e->getMessage(), '1146') !== false) {
+                        ensure_admin_login_logs_table($pdo);
+                        try {
+                            $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "failed")');
+                            $stmt->execute([$user['id'], $_SERVER['REMOTE_ADDR']]);
+                        } catch (Exception $e2) {
+                            error_log('admin_login_logs insert failed after create: ' . $e2->getMessage());
+                        }
+                    } else {
+                        error_log('admin_login_logs insert failed: ' . $e->getMessage());
+                    }
+                }
             }
             
             $error = true;
