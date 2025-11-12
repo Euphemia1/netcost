@@ -26,6 +26,25 @@ $news_items = $stmt->fetchAll();
         <div class="container">
             <?php if (count($news_items) > 0): ?>
                 <div class="news-grid-page">
+                    <!-- Static featured article card: LT Construction feature -->
+                    <article class="news-article-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="news-article-image">
+                            <a href="news/lt-construction-feature.php">
+                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction featured">
+                            </a>
+                        </div>
+                        <div class="news-article-header">
+                            <h2 class="news-article-title"><a href="news/lt-construction-feature.php">LT Construction Featured in National Press</a></h2>
+                            <time class="news-article-date">November 10, 2025</time>
+                        </div>
+                        <div class="news-article-content">
+                            <p>LT Construction was recently featured for its adoption of NetCost Estimator to streamline BOQs, tendering and resource planning — <a href="news/lt-construction-feature.php">read more</a>.</p>
+                        </div>
+                        <div class="news-article-footer">
+                            <span class="news-category">Press</span>
+                        </div>
+                    </article>
+
                     <?php foreach ($news_items as $index => $news): ?>
                         <article class="news-article-card" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
                             <?php if ($news['featured_image']): ?>
