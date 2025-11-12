@@ -162,7 +162,7 @@ include 'includes/header.php';
 </div>
 
 <!-- Products section moved out of the hero overlay so cards sit on normal page background -->
-<section class="products-section">
+<section class="products-section" id="products">
     <div class="container">
         <div class="section-header text-center">
             <span class="section-badge">Products</span>
