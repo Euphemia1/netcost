@@ -4086,9 +4086,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
+  gap: 0;
   margin-top: 60px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -4096,14 +4096,28 @@ body {
 .org-level {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  align-items: flex-start;
+  gap: 40px;
   width: 100%;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .org-level-1 {
-  gap: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.org-level-2 {
+  margin: 40px 0;
+  justify-content: center;
+  gap: 50px;
+}
+
+.org-level-3 {
+  margin-top: 60px;
+  gap: 80px;
+  justify-content: center;
 }
 
 /* Executive Cards */
@@ -4116,6 +4130,12 @@ body {
   text-align: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.exec-card-secondary {
+  max-width: 280px;
+  padding: 32px 28px;
 }
 
 .exec-card:hover {
@@ -4168,6 +4188,18 @@ body {
 }
 
 /* Connector Lines */
+.org-connector-vertical {
+  width: 2px;
+  height: 40px;
+  background: var(--primary);
+  margin: 0 auto 20px;
+  position: relative;
+}
+
+.org-connector-vertical.small-connector {
+  height: 30px;
+}
+
 .org-connector-line {
   width: 2px;
   height: 30px;
@@ -4175,24 +4207,53 @@ body {
   margin: 10px 0;
 }
 
-.org-connector-vertical {
+/* Connector lines from level 2 to level 3 */
+.org-connectors-level-2 {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.connector-to-strategy,
+.connector-to-finance,
+.connector-to-civil,
+.connector-to-it {
+  position: absolute;
   width: 2px;
-  height: 30px;
+  height: 40px;
   background: var(--primary);
-  margin: 0 auto 20px;
+  top: 0;
+}
+
+.connector-to-strategy {
+  left: calc(12.5% - 1px);
+}
+
+.connector-to-finance {
+  left: calc(37.5% - 1px);
+}
+
+.connector-to-civil {
+  left: calc(62.5% - 1px);
+}
+
+.connector-to-it {
+  right: calc(12.5% - 1px);
 }
 
 /* Title Cards (Department Heads) */
 .title-card {
-  min-width: 180px;
+  min-width: 160px;
   background: linear-gradient(135deg, var(--primary) 0%, #2d5aa8 100%);
   border: none;
   border-radius: 12px;
-  padding: 20px 24px;
+  padding: 18px 20px;
   text-align: center;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
   cursor: default;
+  position: relative;
 }
 
 .title-card:hover {
@@ -4209,17 +4270,12 @@ body {
 }
 
 /* Organization Groups (for sub-roles) */
-.org-level-3 {
-  gap: 80px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 .org-group {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
+  position: relative;
 }
 
 .org-cards-row {
@@ -4229,13 +4285,17 @@ body {
   flex-wrap: wrap;
 }
 
+.org-cards-row.single-card {
+  justify-content: center;
+}
+
 /* Sub Cards (Subordinate Roles) */
 .sub-card {
-  min-width: 160px;
+  min-width: 150px;
   background: #f0f4ff;
   border: 2px solid #dde4ff;
   border-radius: 10px;
-  padding: 18px 16px;
+  padding: 16px 14px;
   text-align: center;
   transition: all 0.3s ease;
 }
@@ -4260,26 +4320,58 @@ body {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .org-level-2 {
+    gap: 30px;
+  }
+
+  .org-level-3 {
+    gap: 60px;
+  }
+
+  .title-card {
+    min-width: 140px;
+    padding: 16px 18px;
+  }
+
+  .sub-card {
+    min-width: 130px;
+    padding: 14px 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .org-chart {
-    gap: 32px;
+    gap: 20px;
     margin-top: 40px;
   }
 
   .org-level-1 {
-    gap: 32px;
+    margin-bottom: 20px;
+  }
+
+  .org-level-2 {
+    gap: 20px;
+    margin: 30px 0;
     flex-direction: column;
     align-items: center;
   }
 
-  .exec-card {
-    max-width: 280px;
-  }
-
-  .org-level-2,
   .org-level-3 {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .exec-card {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .exec-card-secondary {
+    max-width: 100%;
+    width: 90%;
   }
 
   .org-group {
@@ -4295,22 +4387,38 @@ body {
   .title-card,
   .sub-card {
     min-width: 140px;
+    width: 100%;
+    max-width: 200px;
   }
 
-  .org-level-3 {
-    gap: 40px;
+  .connector-to-strategy,
+  .connector-to-finance,
+  .connector-to-civil,
+  .connector-to-it {
+    display: none;
+  }
+
+  .org-connectors-level-2 {
+    display: none;
+  }
+
+  .org-connector-vertical {
+    height: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .org-chart {
-    gap: 24px;
+    gap: 16px;
     margin-top: 30px;
   }
 
   .exec-card {
-    max-width: 100%;
     padding: 30px 20px;
+  }
+
+  .exec-card-secondary {
+    padding: 24px 18px;
   }
 
   .exec-photo {
@@ -4322,15 +4430,33 @@ body {
     font-size: 16px;
   }
 
+  .exec-title {
+    font-size: 13px;
+  }
+
+  .exec-bio {
+    font-size: 12px;
+  }
+
   .title-card,
   .sub-card {
-    min-width: 130px;
-    padding: 16px 12px;
+    min-width: 120px;
+    padding: 14px 10px;
   }
 
   .title-card-content,
   .sub-card-content {
     font-size: 12px;
+  }
+
+  .org-level-2 {
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .org-level-3 {
+    gap: 30px;
+    margin-top: 30px;
   }
 }
 
