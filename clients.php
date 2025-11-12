@@ -22,30 +22,37 @@ include 'includes/header.php';
       <p class="section-description">We partner with public and private sector organisations across the region.</p>
     </div>
 
-    <div class="clients-logos-grid" aria-hidden="false">
-      <div class="circular-logo-container">
-        <div class="circular-logo">
-          <img src="assets/images/logos/placeholder-acea.svg" alt="ACEA">
-        </div>
-      </div>
+    <div class="clients-logos-grid">
+      <?php
+      // Auto-list all logo files in the logos directory so adding a new file shows immediately
+      $logosDir = __DIR__ . '/assets/images/logos';
+      $relativeDir = 'assets/images/logos';
+      $files = glob($logosDir . '/*.{png,jpg,jpeg,svg,gif}', GLOB_BRACE);
+      if ($files === false) {
+          $files = [];
+      }
+      // sort alphabetically for predictable ordering
+      natcasesort($files);
 
-      <div class="circular-logo-container">
-        <div class="circular-logo">
-          <img src="assets/images/logos/placeholder-eiz.svg" alt="EIZ">
+      foreach ($files as $filePath) {
+          $fileName = basename($filePath);
+          // derive a friendly company name from filename
+          $name = preg_replace('/\.(png|jpg|jpeg|svg|gif)$/i', '', $fileName);
+          $name = preg_replace('/^(placeholder-|logo-|img-)/i', '', $name);
+          $name = str_replace(['-', '_'], ' ', $name);
+          $name = trim($name);
+          $name = ucwords($name);
+          $src = $relativeDir . '/' . $fileName;
+      ?>
+        <div class="circular-logo-container">
+          <div class="circular-logo" role="img" aria-label="<?php echo htmlentities($name); ?> logo">
+            <img src="<?php echo htmlentities($src); ?>" alt="<?php echo htmlentities($name); ?> logo">
+          </div>
+          <div class="client-caption"><?php echo htmlentities($name); ?></div>
         </div>
-      </div>
-
-      <div class="circular-logo-container">
-        <div class="circular-logo">
-          <img src="assets/images/logos/placeholder-ministry.svg" alt="Ministry of Works">
-        </div>
-      </div>
-
-      <div class="circular-logo-container">
-        <div class="circular-logo">
-          <img src="assets/images/logos/placeholder-unza.svg" alt="UNZA">
-        </div>
-      </div>
+      <?php
+      }
+      ?>
     </div>
   </div>
 </section>
