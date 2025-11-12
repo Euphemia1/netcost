@@ -367,7 +367,7 @@ include 'includes/header.php';
             <span class="section-badge">Testimonials</span>
             <h2 class="section-title">Loved by Construction Professionals</h2>
             <p class="section-description">
-                Don't just take our word for it—hear from the contractors who use our software every day
+                Don't just take our word for it hear from the contractors who use our software every day
             </p>
         </div>
         
