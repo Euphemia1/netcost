@@ -73,9 +73,91 @@ include 'includes/header.php';
             <li>Available as Desktop and Web-based applications</li>
         </ul>
         <div style="display:flex;gap:12px;justify-content:flex-end;margin-top:8px;">
-            <a href="contact.php" class="btn btn-primary">Request a Demo</a>
+            <a href="#" class="btn btn-primary" data-modal-target="#demoBookingModal">Request a Demo</a>
             <button class="btn btn-secondary modal-close">Close</button>
         </div>
+    </div>
+</div>
+
+<!-- Modal: Demo Booking Calendar -->
+<div id="demoBookingModal" class="modal" role="dialog" aria-modal="true" style="display:none">
+    <div class="modal-content" style="max-width: 600px;">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <h2 style="margin-bottom: 24px;">Schedule Your Demo</h2>
+        
+        <form id="demoBookingForm" method="POST" action="includes/process_demo_booking.php" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="bookingName">Full Name *</label>
+                <input type="text" id="bookingName" name="name" required placeholder="Your name">
+            </div>
+            
+            <!-- Email -->
+            <div class="form-group">
+                <label for="bookingEmail">Email Address *</label>
+                <input type="email" id="bookingEmail" name="email" required placeholder="your@email.com">
+            </div>
+            
+            <!-- Company -->
+            <div class="form-group">
+                <label for="bookingCompany">Company/Organisation</label>
+                <input type="text" id="bookingCompany" name="company" placeholder="Your company">
+            </div>
+            
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="bookingPhone">Phone Number</label>
+                <input type="tel" id="bookingPhone" name="phone" placeholder="+260 ...">
+            </div>
+            
+            <!-- Date -->
+            <div class="form-group">
+                <label for="bookingDate">Preferred Date *</label>
+                <input type="date" id="bookingDate" name="date" required min="">
+            </div>
+            
+            <!-- Time -->
+            <div class="form-group">
+                <label for="bookingTime">Preferred Time *</label>
+                <select id="bookingTime" name="time" required>
+                    <option value="">Select a time...</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="09:30">9:30 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="10:30">10:30 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                    <option value="11:30">11:30 AM</option>
+                    <option value="14:00">2:00 PM</option>
+                    <option value="14:30">2:30 PM</option>
+                    <option value="15:00">3:00 PM</option>
+                    <option value="15:30">3:30 PM</option>
+                    <option value="16:00">4:00 PM</option>
+                    <option value="16:30">4:30 PM</option>
+                </select>
+            </div>
+            
+            <!-- Product Interest -->
+            <div class="form-group">
+                <label for="bookingProduct">Which product interests you? *</label>
+                <select id="bookingProduct" name="product" required>
+                    <option value="">Select a product...</option>
+                    <option value="Express">NetCost Estimator Express</option>
+                    <option value="Elite">NetCost Estimator Elite</option>
+                    <option value="Pro">NetCost Estimator Pro</option>
+                </select>
+            </div>
+            
+            <!-- Message -->
+            <div class="form-group">
+                <label for="bookingMessage">Additional Notes</label>
+                <textarea id="bookingMessage" name="message" placeholder="Any questions or specific topics you'd like to discuss?" rows="3"></textarea>
+            </div>
+            
+            <div style="display: flex; gap: 12px; justify-content: flex-end; margin-top: 8px;">
+                <button type="submit" class="btn btn-primary">Confirm Booking</button>
+                <button type="button" class="btn btn-secondary modal-close">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -313,7 +395,7 @@ include 'includes/header.php';
                     </div>
                 </div>
                 
-                <a href="#contact" class="btn btn-primary btn-large">Request a Demo</a>
+                <a href="#" class="btn btn-primary btn-large" data-modal-target="#demoBookingModal">Request a Demo</a>
             </div>
             
             <div class="demo-visual" data-aos="fade-left">
