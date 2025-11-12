@@ -4116,14 +4116,16 @@ body {
 .org-level-3 {
   margin: 40px 0;
   justify-content: center;
-  gap: 80px;
+  gap: 100px;
+  align-items: stretch;
 }
 
 .org-level-4 {
   margin-top: 40px;
   justify-content: center;
-  gap: 150px;
+  gap: 100px;
   width: 100%;
+  align-items: flex-start;
 }
 
 /* Executive Cards */
@@ -4204,6 +4206,89 @@ body {
 
 .org-connector-vertical.small-connector {
   height: 30px;
+}
+
+/* Individual connector lines from department heads */
+.connector-line {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 40px;
+  background: var(--primary);
+}
+
+.finance-connector,
+.civil-connector,
+.it-connector {
+  width: 2px;
+  height: 40px;
+  background: var(--primary);
+}
+
+/* Horizontal connector lines for subordinates */
+.connector-horizontal {
+  position: relative;
+  height: 40px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.civil-horizontal {
+  width: 60%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+}
+
+.civil-horizontal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: var(--primary);
+}
+
+.civil-horizontal::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.it-horizontal {
+  width: 50%;
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+
+.it-horizontal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: var(--primary);
+}
+
+.it-horizontal::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
 }
 
 /* SVG Connectors */
@@ -4298,10 +4383,21 @@ body {
   height: 0;
 }
 
+.org-group.civil-group {
+  flex: 1;
+  min-width: 400px;
+}
+
+.org-group.it-group {
+  flex: 1;
+  min-width: 300px;
+}
+
 .org-cards-row {
   display: flex;
   gap: 20px;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -4310,11 +4406,13 @@ body {
 }
 
 .org-cards-row.three-cards {
-  gap: 20px;
+  gap: 30px;
+  width: 100%;
 }
 
 .org-cards-row.two-cards {
-  gap: 20px;
+  gap: 30px;
+  width: 100%;
 }
 
 /* Sub Cards (Subordinate Roles) */

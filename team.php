@@ -60,45 +60,24 @@ include 'includes/header.php';
 
             <!-- Level 3: Department Heads (Three positions) -->
             <div class="org-level org-level-3">
-                <div class="org-card title-card finance-card">
+                <div class="org-card title-card finance-card" style="position: relative;">
                     <div class="title-card-content">Head of Finance</div>
+                    <!-- Vertical connector line -->
+                    <div class="connector-line finance-connector"></div>
                 </div>
 
-                <div class="org-card title-card civil-card">
+                <div class="org-card title-card civil-card" style="position: relative;">
                     <div class="title-card-content">Lead Civil Engineer</div>
+                    <!-- Vertical connector line -->
+                    <div class="connector-line civil-connector"></div>
                 </div>
 
-                <div class="org-card title-card it-card">
+                <div class="org-card title-card it-card" style="position: relative;">
                     <div class="title-card-content">IT</div>
+                    <!-- Vertical connector line -->
+                    <div class="connector-line it-connector"></div>
                 </div>
             </div>
-
-            <!-- Connector lines from Department Heads to subordinates -->
-            <svg class="org-connectors-svg" viewBox="0 0 1000 100" preserveAspectRatio="xMidYMid meet">
-                <!-- Vertical line under Finance (no subordinates) -->
-                <line x1="333" y1="0" x2="333" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                
-                <!-- Vertical line under Civil Engineer -->
-                <line x1="500" y1="0" x2="500" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                
-                <!-- Horizontal line connecting three subordinates under Civil Engineer -->
-                <line x1="380" y1="50" x2="620" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                
-                <!-- Vertical lines down to each subordinate -->
-                <line x1="380" y1="50" x2="380" y2="100" stroke="#1E3A8A" stroke-width="2"/>
-                <line x1="500" y1="50" x2="500" y2="100" stroke="#1E3A8A" stroke-width="2"/>
-                <line x1="620" y1="50" x2="620" y2="100" stroke="#1E3A8A" stroke-width="2"/>
-                
-                <!-- Vertical line under IT -->
-                <line x1="667" y1="0" x2="667" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                
-                <!-- Horizontal line connecting two subordinates under IT -->
-                <line x1="590" y1="50" x2="744" y2="50" stroke="#1E3A8A" stroke-width="2"/>
-                
-                <!-- Vertical lines down to each subordinate -->
-                <line x1="590" y1="50" x2="590" y2="100" stroke="#1E3A8A" stroke-width="2"/>
-                <line x1="744" y1="50" x2="744" y2="100" stroke="#1E3A8A" stroke-width="2"/>
-            </svg>
 
             <!-- Level 4: Subordinate Roles -->
             <div class="org-level org-level-4">
@@ -107,6 +86,8 @@ include 'includes/header.php';
 
                 <!-- Under Lead Civil Engineer -->
                 <div class="org-group civil-group">
+                    <!-- Connector lines for civil engineer subordinates -->
+                    <div class="connector-horizontal civil-horizontal"></div>
                     <div class="org-cards-row three-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Construction Engineers</div>
@@ -122,6 +103,8 @@ include 'includes/header.php';
 
                 <!-- Under IT -->
                 <div class="org-group it-group">
+                    <!-- Connector lines for IT subordinates -->
+                    <div class="connector-horizontal it-horizontal"></div>
                     <div class="org-cards-row two-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Full Stack</div>
