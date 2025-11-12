@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $file_path = $upload_dir . $new_filename;
                     
                     if (move_uploaded_file($file_tmp, $file_path)) {
-                        $featured_image = '/netcost/assets/media/news/' . $new_filename;
+                        $featured_image = 'assets/media/news/' . $new_filename;
                     }
                 }
             }
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $news = $stmt->fetch();
                 
                 if ($news && $news['featured_image']) {
-                    $file_path = str_replace('/netcost/assets/media/news/', '../assets/media/news/', $news['featured_image']);
+                    $file_path = str_replace('assets/media/news/', '../assets/media/news/', $news['featured_image']);
                     if (file_exists($file_path)) {
                         unlink($file_path);
                     }
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     if (in_array($file_ext, $allowed_ext)) {
                         // Delete old image
                         if ($featured_image) {
-                            $old_file = str_replace('/netcost/assets/media/news/', '../assets/media/news/', $featured_image);
+                            $old_file = str_replace('assets/media/news/', '../assets/media/news/', $featured_image);
                             if (file_exists($old_file)) {
                                 unlink($old_file);
                             }
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $file_path = $upload_dir . $new_filename;
                         
                         if (move_uploaded_file($file_tmp, $file_path)) {
-                            $featured_image = '/netcost/assets/media/news/' . $new_filename;
+                            $featured_image = 'assets/media/news/' . $new_filename;
                         }
                     }
                 }
