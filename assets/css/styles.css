@@ -3898,29 +3898,29 @@ body {
   }
 }
 
-/* Clients Section with Blue Gradient Background */
+/* Clients Section with White Background */
 .clients-section {
-  background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+  background: white;
   padding: 100px 0;
   position: relative;
   overflow: hidden;
 }
 
 .clients-section .section-header {
-  color: white;
+  color: var(--text-primary);
 }
 
 .clients-section .section-badge {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: rgba(255, 107, 0, 0.1);
+  color: var(--accent);
 }
 
 .clients-section .section-title {
-  color: white;
+  color: var(--text-primary);
 }
 
 .clients-section .section-description {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-secondary);
 }
 
 /* Clients logos grid (premium team card aesthetic) */
@@ -3993,7 +3993,7 @@ body {
   text-align: center;
   margin-top: 18px;
   font-size: 16px;
-  color: white;
+  color: var(--text-secondary);
   font-weight: 600;
   transition: all 0.3s ease;
   letter-spacing: 0.3px;
@@ -4001,6 +4001,7 @@ body {
 
 .clients-logos-grid .circular-logo-container:hover .client-caption {
   transform: translateY(-2px);
+  color: var(--primary);
 }
 
 @media (max-width: 992px) {
