@@ -80,13 +80,6 @@ include 'includes/header.php';
 
                 <!-- Under Lead Civil Engineer -->
                 <div class="org-branch civil-branch">
-                    <svg class="branch-connector civil-connector" viewBox="0 0 300 80" preserveAspectRatio="none">
-                        <line x1="150" y1="0" x2="150" y2="30" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="50" y1="30" x2="250" y2="30" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="50" y1="30" x2="50" y2="80" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="150" y1="30" x2="150" y2="80" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="250" y1="30" x2="250" y2="80" stroke="#1E3A8A" stroke-width="2"/>
-                    </svg>
                     <div class="org-cards-row three-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Construction Engineers</div>
@@ -102,12 +95,6 @@ include 'includes/header.php';
 
                 <!-- Under IT -->
                 <div class="org-branch it-branch">
-                    <svg class="branch-connector it-connector" viewBox="0 0 300 80" preserveAspectRatio="none">
-                        <line x1="150" y1="0" x2="150" y2="30" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="75" y1="30" x2="225" y2="30" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="75" y1="30" x2="75" y2="80" stroke="#1E3A8A" stroke-width="2"/>
-                        <line x1="225" y1="30" x2="225" y2="80" stroke="#1E3A8A" stroke-width="2"/>
-                    </svg>
                     <div class="org-cards-row two-cards">
                         <div class="org-card sub-card">
                             <div class="sub-card-content">Full Stack</div>
