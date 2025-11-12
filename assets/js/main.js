@@ -266,13 +266,11 @@ testimonialCards.forEach((card) => {
 
 console.log("[v0] LT Software website initialized with enhanced interactions")
 
-// Modal handling (open/close) for product learn-more modals
 document.addEventListener("DOMContentLoaded", () => {
   function openModal(modal) {
     if (!modal) return
     modal.style.display = "flex"
     setTimeout(() => modal.classList.add("active"), 10)
-    // lock scroll
     document.body.style.overflow = "hidden"
   }
 
@@ -283,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = ""
   }
 
-  // Openers
   document.querySelectorAll('[data-modal-target]').forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault()
@@ -293,7 +290,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Close buttons inside modal
   document.querySelectorAll(".modal .modal-close").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       const modal = btn.closest(".modal")
@@ -301,7 +297,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Close when clicking outside content
   document.querySelectorAll(".modal").forEach((modal) => {
     modal.addEventListener("click", (e) => {
       if (e.target === modal) {
@@ -318,4 +313,50 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     }
   })
+
+  // Demo booking form handler
+  const demoBookingForm = document.getElementById("demoBookingForm")
+  if (demoBookingForm) {
+    // Set minimum date to today
+    const bookingDateInput = document.getElementById("bookingDate")
+    const today = new Date()
+    const tomorrow = new Date(today)
+    tomorrow.setDate(tomorrow.getDate() + 1)
+    const minDate = tomorrow.toISOString().split("T")[0]
+    bookingDateInput.setAttribute("min", minDate)
+
+    demoBookingForm.addEventListener("submit", async (e) => {
+      e.preventDefault()
+
+      const submitBtn = demoBookingForm.querySelector('button[type="submit"]')
+      const originalText = submitBtn.textContent
+      submitBtn.disabled = true
+      submitBtn.textContent = "Booking..."
+
+      try {
+        const formData = new FormData(demoBookingForm)
+        const response = await fetch("includes/process_demo_booking.php", {
+          method: "POST",
+          body: formData,
+        })
+
+        const data = await response.json()
+
+        if (data.success) {
+          alert("✓ " + data.message)
+          demoBookingForm.reset()
+          const modal = demoBookingForm.closest(".modal")
+          closeModal(modal)
+        } else {
+          alert("✗ Error: " + data.message)
+        }
+      } catch (error) {
+        console.error("Booking error:", error)
+        alert("✗ An error occurred while processing your booking. Please try again.")
+      } finally {
+        submitBtn.disabled = false
+        submitBtn.textContent = originalText
+      }
+    })
+  }
 })
