@@ -37,7 +37,8 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
         // Add delay to prevent brute force attacks
         usleep(random_int(100000, 500000)); // 0.1 to 0.5 seconds
 
-        $stmt = $pdo->prepare('SELECT id, username, password, FROM admin_users WHERE username = ?');
+    // select status as well; remove stray comma
+    $stmt = $pdo->prepare('SELECT id, username, password, status FROM admin_users WHERE username = ?');
         $stmt->execute([$username]);
         $user = $stmt->fetch();
         
