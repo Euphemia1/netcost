@@ -4080,3 +4080,257 @@ body {
     padding: 10px;
   }
 }
+
+/* ===== ORGANIZATIONAL CHART ===== */
+.org-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin-top: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.org-level {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.org-level-1 {
+  gap: 60px;
+  margin-bottom: 20px;
+}
+
+/* Executive Cards */
+.exec-card {
+  max-width: 300px;
+  background: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.exec-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
+  border-color: var(--primary);
+}
+
+.exec-photo {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+  overflow: hidden;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.exec-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.exec-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.exec-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 12px 0;
+}
+
+.exec-bio {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Connector Lines */
+.org-connector-line {
+  width: 2px;
+  height: 30px;
+  background: var(--primary);
+  margin: 10px 0;
+}
+
+.org-connector-vertical {
+  width: 2px;
+  height: 30px;
+  background: var(--primary);
+  margin: 0 auto 20px;
+}
+
+/* Title Cards (Department Heads) */
+.title-card {
+  min-width: 180px;
+  background: linear-gradient(135deg, var(--primary) 0%, #2d5aa8 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+  cursor: default;
+}
+
+.title-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.2);
+}
+
+.title-card-content {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Organization Groups (for sub-roles) */
+.org-level-3 {
+  gap: 80px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.org-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.org-cards-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Sub Cards (Subordinate Roles) */
+.sub-card {
+  min-width: 160px;
+  background: #f0f4ff;
+  border: 2px solid #dde4ff;
+  border-radius: 10px;
+  padding: 18px 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.sub-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  background: #e8ecff;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
+}
+
+.sub-card-content {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.org-card {
+  position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .org-chart {
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .org-level-1 {
+    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .exec-card {
+    max-width: 280px;
+  }
+
+  .org-level-2,
+  .org-level-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .org-group {
+    width: 100%;
+  }
+
+  .org-cards-row {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-card,
+  .sub-card {
+    min-width: 140px;
+  }
+
+  .org-level-3 {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .org-chart {
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  .exec-card {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .exec-photo {
+    width: 110px;
+    height: 110px;
+  }
+
+  .exec-name {
+    font-size: 16px;
+  }
+
+  .title-card,
+  .sub-card {
+    min-width: 130px;
+    padding: 16px 12px;
+  }
+
+  .title-card-content,
+  .sub-card-content {
+    font-size: 12px;
+  }
+}
+

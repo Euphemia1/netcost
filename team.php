@@ -21,71 +21,73 @@ include 'includes/header.php';
     <div class="container">
         <div class="section-header text-center">
             <span class="section-badge">Our Team</span>
-            <h2 class="section-title">Meet the People Behind LT Software</h2>
+            <h2 class="section-title">Organizational Chart</h2>
             <p class="section-description">
                 A diverse team of engineers, designers, and construction experts dedicated to your success.
             </p>
         </div>
 
-        <!-- Redesigned team layout: executive spotlight + role grid -->
-        <div class="team-executives">
-            <div class="exec-grid">
-                <div class="circular-team-card">
-                    <div class="circular-team-container">
-                        <img src="assets/images/0O1A5966.jpg" alt="L.J Tembo" class="circular-team-image">
+        <div class="org-chart">
+            <div class="org-level org-level-1">
+                <div class="org-card exec-card">
+                    <div class="exec-photo">
+                        <img src="assets/images/0O1A5966.jpg" alt="L.J Tembo" class="exec-image">
                     </div>
-                    <h3 class="team-member-name">L.J Tembo</h3>
-                    <p class="team-member-role">Managing Director</p>
-                    <p class="team-member-bio">Founder and leader with over 20 years' experience in construction and estimating. Passionate about digitising workflows.</p>
+                    <h3 class="exec-name">L.J Tembo</h3>
+                    <p class="exec-title">Managing Director</p>
+                    <p class="exec-bio">Founder and leader with over 20 years' experience in construction and estimating. Passionate about digitising workflows.</p>
                 </div>
 
-                <div class="circular-team-card">
-                    <div class="circular-team-container">
-                        <img src="assets/images/@fern-media_--_11.jpg" alt="Dr Pegg" class="circular-team-image">
+                <div class="org-card exec-card">
+                    <div class="exec-photo">
+                        <img src="assets/images/@fern-media_--_11.jpg" alt="Dr Pegg" class="exec-image">
                     </div>
-                    <h3 class="team-member-name">Dr Pegg</h3>
-                    <p class="team-member-role">Head of Strategy</p>
-                    <p class="team-member-bio">Leads product strategy and partnerships, ensuring NetCost aligns with industry needs and compliance.</p>
+                    <h3 class="exec-name">Dr Pegg</h3>
+                    <p class="exec-title">Head of Strategy</p>
+                    <p class="exec-bio">Leads product strategy and partnerships, ensuring NetCost aligns with industry needs and compliance.</p>
+                </div>
+            </div>
+            <div class="org-connector-line"></div>
+            <div class="org-level org-level-2">
+                <div class="org-card title-card">
+                    <div class="title-card-content">Head of Finance</div>
+                </div>
+
+                <div class="org-card title-card">
+                    <div class="title-card-content">Lead Civil Engineer</div>
+                </div>
+
+                <div class="org-card title-card">
+                    <div class="title-card-content">IT</div>
                 </div>
             </div>
 
-            <!-- <div class="section-note text-center" style="margin-top:18px;color:var(--text-secondary);">Other roles are shown below — click any role to learn more about responsibilities.</div> -->
-        </div>
-
-        <div class="role-grid" style="margin-top:32px;">
-            <div class="role-card">
-                <div class="role-box">Head of Finance</div>
-            </div>
-
-            <!-- Civil Engineers Section with subordinate roles -->
-            <div class="role-section">
-                <div class="role-card">
-                    <div class="role-box role-parent">Lead Civil Engineer</div>
-                </div>
-                <div class="role-subsection">
-                    <div class="role-card">
-                        <div class="role-box">Construction Engineers</div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-box">Road Works Engineers</div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-box">Building Engineers</div>
+            <div class="org-level org-level-3">
+                <div class="org-group civil-group">
+                    <div class="org-connector-vertical"></div>
+                    <div class="org-cards-row">
+                        <div class="org-card sub-card">
+                            <div class="sub-card-content">Construction Engineers</div>
+                        </div>
+                        <div class="org-card sub-card">
+                            <div class="sub-card-content">Road Works Engineers</div>
+                        </div>
+                        <div class="org-card sub-card">
+                            <div class="sub-card-content">Building Engineers</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- IT Section with IT roles -->
-            <div class="role-section">
-                <div class="role-card">
-                    <div class="role-box role-parent">IT</div>
-                </div>
-                <div class="role-subsection">
-                    <div class="role-card">
-                        <div class="role-box">Full Stack</div>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-box">Frontend Devs</div>
+                <!-- Under IT -->
+                <div class="org-group it-group">
+                    <div class="org-connector-vertical"></div>
+                    <div class="org-cards-row">
+                        <div class="org-card sub-card">
+                            <div class="sub-card-content">Full Stack</div>
+                        </div>
+                        <div class="org-card sub-card">
+                            <div class="sub-card-content">Frontend Devs</div>
+                        </div>
                     </div>
                 </div>
             </div>
