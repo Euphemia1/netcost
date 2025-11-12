@@ -32,8 +32,8 @@ include 'includes/header.php';
           $files = [];
       }
       
-      // Filter out unwanted files (NetCost products, news images, other non-institution items)
-      $excluded = ['NETCOST ELITE.svg', 'NETCOST EXPRESS.svg', 'NETCOST PRO.svg', 'dart-mission-goal-success.svg', 'WhatsApp Image 2025-11-10 at 11.45.47_cd785f93.jpg'];
+      // Filter out unwanted files
+      $excluded = ['NETCOST ELITE.svg', 'NETCOST EXPRESS.svg', 'NETCOST PRO.svg', 'dart-mission-goal-success.svg', 'WhatsApp Image 2025-11-10 at 11.45.47_cd785f93.jpg', 'housing-logo.png', 'housing.jpeg', 'water-dev-logo.png', 'zppa-logo.png'];
       $files = array_filter($files, function($f) use ($excluded) {
           return !in_array(basename($f), $excluded);
       });
