@@ -30,7 +30,7 @@ include 'includes/header.php';
       if ($files === false) {
           $files = [];
       }
-      $excluded = ['NETCOST ELITE.svg', 'NETCOST EXPRESS.svg', 'NETCOST PRO.svg', 'dart-mission-goal-success.svg', 'WhatsApp Image 2025-11-10 at 11.45.47_cd785f93.jpg', 'housing-logo.png', 'housing.jpeg', 'water-dev-logo.png', 'zppa-logo.png'];
+      $excluded = ['NETCOST ELITE.svg', 'NETCOST EXPRESS.svg', 'NETCOST PRO.svg', 'dart-mission-goal-success.svg', 'WhatsApp Image 2025-11-10 at 11.45.47_cd785f93.jpg', 'housing-logo.png', 'housing.jpeg', 'water-dev-logo.png', 'zppa-logo.png', 'LT.svg'];
       $files = array_filter($files, function($f) use ($excluded) {
           return !in_array(basename($f), $excluded);
       });

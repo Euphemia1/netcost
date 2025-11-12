@@ -87,6 +87,10 @@ body {
   object-fit: contain;
 }
 
+.footer-logo-img {
+  filter: brightness(0) invert(1);
+}
+
 .nav-menu {
   display: flex;
   align-items: center;

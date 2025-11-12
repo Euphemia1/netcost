@@ -5,7 +5,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <img src="/netcost/assets/media/LT.svg" alt="LT Construction" class="logo-image" style="height: 40px; width: auto;">
+                        <img src="/netcost/assets/media/LT.svg" alt="LT Construction" class="logo-image footer-logo-img" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
                     </div>
                     <p class="footer-description">
                         Building the future of construction software with intelligent solutions for cost estimation and project management.
