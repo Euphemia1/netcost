@@ -56,26 +56,38 @@ include 'includes/header.php';
             <div class="role-card">
                 <div class="role-box">Head of Finance</div>
             </div>
-            <div class="role-card">
-                <div class="role-box">Lead Civil Engineer</div>
+
+            <!-- Civil Engineers Section with subordinate roles -->
+            <div class="role-section">
+                <div class="role-card">
+                    <div class="role-box role-parent">Lead Civil Engineer</div>
+                </div>
+                <div class="role-subsection">
+                    <div class="role-card">
+                        <div class="role-box">Construction Engineers</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-box">Road Works Engineers</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-box">Building Engineers</div>
+                    </div>
+                </div>
             </div>
-            <div class="role-card">
-                <div class="role-box">Engineering Team</div>
-            </div>
-            <div class="role-card">
-                <div class="role-box">Construction Engineers</div>
-            </div>
-            <div class="role-card">
-                <div class="role-box">Road Works Engineers</div>
-            </div>
-            <div class="role-card">
-                <div class="role-box">Building Engineers</div>
-            </div>
-            <div class="role-card">
-                <div class="role-box">Full Stack</div>
-            </div>
-            <div class="role-card">
-                <div class="role-box">Frontend Devs</div>
+
+            <!-- IT Section with IT roles -->
+            <div class="role-section">
+                <div class="role-card">
+                    <div class="role-box role-parent">IT</div>
+                </div>
+                <div class="role-subsection">
+                    <div class="role-card">
+                        <div class="role-box">Full Stack</div>
+                    </div>
+                    <div class="role-card">
+                        <div class="role-box">Frontend Devs</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

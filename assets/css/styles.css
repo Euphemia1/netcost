@@ -2785,9 +2785,41 @@ body {
   padding: 12px;
 }
 
+/* Hierarchical role sections (parent + subordinates) */
+.role-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  grid-column: span 1;
+}
+
+.role-parent {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  font-weight: 700;
+  border: 2px solid var(--primary);
+  box-shadow: 0 8px 24px rgba(30,58,138,0.15);
+}
+
+.role-subsection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 3px solid rgba(30,58,138,0.2);
+}
+
 @media (max-width: 768px) {
   .team-executives .exec-grid {
     grid-template-columns: 1fr;
+  }
+
+  .role-subsection {
+    grid-template-columns: 1fr;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
   }
 }
 
