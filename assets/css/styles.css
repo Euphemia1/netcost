@@ -3959,15 +3959,6 @@ body {
   position: relative;
 }
 
-.clients-logos-grid .circular-logo::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
-  pointer-events: none;
-}
-
 .clients-logos-grid .circular-logo img {
   max-width: 75%;
   max-height: 75%;
