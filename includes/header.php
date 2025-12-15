@@ -22,7 +22,7 @@
         <nav class="navbar">
             <div class="container">
                 <a href="<?php echo $base_path; ?>index.php" class="logo">
-                    <img src="<?php echo $base_path; ?>assets/images/logos/letter-head.jpg" alt="LT Construction" class="logo-image" style="height: 40px; width: auto;">
+                    <img src="<?php echo $base_path; ?>assets/images/logos/letter-head.jpg" alt="LT Construction" class="logo-image" style="height: 60px; width: auto;">
                 </a>
                 
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
