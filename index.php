@@ -160,7 +160,7 @@ include 'includes/header.php';
         <div class="section-header text-center">
             <span class="section-badge">Products</span>
             <h2 class="section-title">NetCost Estimators</h2>
-            <p class="section-description">Choose the right estimator for your business every product includes full rate build-ups, reporting, and export tools.</p>
+            <p class="section-description">Choose the right estimator for your business. Each product is tailored to meet different construction estimation needs.</p>
         </div>
 
         <div class="products-grid">
@@ -170,7 +170,7 @@ include 'includes/header.php';
                 </div>
                 <h3 class="product-title">NetCost Estimator Express</h3>
                 <p class="product-description">
-                    Comprehensive project reporting and analytics. Track costs, progress, and performance in real-time.
+                    Perfect for small to medium projects. Get started with essential estimation tools without the complexity.
                 </p>
                 <ul class="product-features">
                     <li>
@@ -183,12 +183,6 @@ include 'includes/header.php';
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Custom rate creation & editing
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
                         Material, labour & plant calculations
                     </li>
                     <li>
@@ -196,12 +190,6 @@ include 'includes/header.php';
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                         Project budget calculations
-                    </li>
-                    <li>
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Export to Excel & supplier quotations
                     </li>
                 </ul>
                 <a href="#" class="product-cta" data-modal-target="#proModal">Learn More</a>
@@ -226,7 +214,7 @@ include 'includes/header.php';
                 </div>
                 <h3 class="product-title">NetCost Estimator Elite</h3>
                 <p class="product-description">
-                    Enterprise-grade solution for large-scale projects. Advanced features for complex construction management with comprehensive rate build-ups and material pricing.
+                    Advanced solution for complex projects. Create custom rate builds and manage large-scale estimations with precision.
                 </p>
                 <ul class="product-features">
                     <li>
@@ -239,7 +227,7 @@ include 'includes/header.php';
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Custom rate creation & editing
+                        Create your own rate build up
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -272,7 +260,7 @@ include 'includes/header.php';
                 </div>
                 <h3 class="product-title">Netcost Estimator Pro</h3>
                 <p class="product-description">
-                    Lightning fast cost estimation. Generate detailed estimates in minutes, not hours.
+                    Professional-grade solution with complete project management capabilities for enterprise construction firms.
                 </p>
                 <ul class="product-features">
                     <li>
@@ -285,25 +273,37 @@ include 'includes/header.php';
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Custom rate creation & editing
+                        Custom rate editing
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Material, labour & plant calculations
+                        Create own rate build up
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Project budget calculations
+                        Reports generation
                     </li>
                     <li>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Export to Excel & supplier quotations
+                        Complete bill pricing
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Precontract budgeting
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Cost budgeting
                     </li>
                 </ul>
                 <a href="#" class="product-cta" data-modal-target="#demoBookingModal">Learn More</a>
