@@ -6,14 +6,9 @@ header("Expires: 0");
 
 include 'includes/header.php'; 
 ?>
-
-
-<section class="hero-section">
-    <div class="video-background">
-        <video autoplay muted loop playsinline id="heroVideo">
-            <source src="https://videos.pexels.com/video-files/3209826/3209826-sd_640_360_30fps.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay"></div>
+<section class="hero-section image-hero">
+    <div class="image-background" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');">
+        <div class="image-overlay"></div>
     </div>
     
     <div class="hero-content">
@@ -57,7 +52,6 @@ include 'includes/header.php';
     </div>
 </section>     
 
-<!-- Modal: NetCost Estimator Pro — additional features (opened from Learn More) -->
 <div id="proModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="proModalTitle" style="display:none">
     <div class="modal-content">
         <button class="modal-close" aria-label="Close modal">&times;</button>
@@ -80,14 +74,13 @@ include 'includes/header.php';
     </div>
 </div>
 
-<!-- Modal: Demo Booking Calendar -->
 <div id="demoBookingModal" class="modal" role="dialog" aria-modal="true" style="display:none">
     <div class="modal-content" style="max-width: 600px;">
         <button class="modal-close" aria-label="Close modal">&times;</button>
         <h2 style="margin-bottom: 24px;">Schedule Your Demo</h2>
         
         <form id="demoBookingForm" style="display: flex; flex-direction: column; gap: 20px;">
-            <!-- Name -->
+         
             <div class="form-group">
                 <label for="bookingName">Full Name *</label>
                 <input type="text" id="bookingName" name="name" required placeholder="Your name">
