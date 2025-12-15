@@ -12,7 +12,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="footer-logo">
-                        <img src="<?php echo $base_path; ?>assets/media/LT.svg" alt="LT Construction" class="logo-image footer-logo-img" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
+                        <img src="<?php echo $base_path; ?>assets/images/logos/letter-head.jpg" alt="LT Construction" class="logo-image footer-logo-img" style="height: 40px; width: auto; filter: brightness(0) invert(1);">
                     </div>
                     <p class="footer-description">
                         Building the future of construction software with intelligent solutions for cost estimation and project management.

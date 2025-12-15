@@ -272,6 +272,62 @@ body {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  animation: fadeInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.product-card[data-aos='zoom-in']:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.product-card[data-aos='zoom-in']:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.product-card[data-aos='zoom-in']:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.aos-animate .product-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-card[data-aos='zoom-in']:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.product-card[data-aos='zoom-in']:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.product-card[data-aos='zoom-in']:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
 .hero-title {
   font-size: 72px;
   font-weight: 800;
@@ -738,6 +794,13 @@ body {
   padding: 24px;
   margin: 0 auto 24px;
   color: var(--accent);
+  transition: all 0.3s;
+  transform: scale(1);
+}
+
+.product-icon:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
 }
 
 .product-icon img {
@@ -754,6 +817,7 @@ body {
   width: 280px;
   padding: 24px;
   border-radius: 16px;
+  animation: pulse 2s infinite;
 }
 
 @media (max-width: 992px) {
@@ -825,25 +889,34 @@ body {
 .product-features {
   list-style: none;
   margin-bottom: 32px;
+  padding-left: 0;
 }
 
 .product-features li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 12px;
-  padding: 8px 0;
+  padding: 10px 0;
   font-size: 15px;
   color: var(--text-secondary);
-  transition: color 0.2s;
+  transition: all 0.2s;
+  border-radius: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: -12px;
+  margin-right: -12px;
 }
 
 .product-features li:hover {
   color: var(--heading);
+  background: rgba(0, 0, 0, 0.03);
+  transform: translateX(4px);
 }
 
 .product-features svg {
   color: var(--primary);
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .product-cta {
