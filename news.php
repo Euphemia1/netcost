@@ -52,7 +52,7 @@ include 'includes/header.php';
                             </a>
                             <!-- LT Construction Logo Overlay -->
                             <div style="position: absolute; top: 12px; right: 12px; background: white; padding: 8px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                                <img src="assets/images/logos/letter-head.jpg" alt="LT Construction" style="height: 48px; width: auto; display: block; background: white; padding: 3px; border-radius: 3px;">
+                                <img src="assets/images/logos/letter-head.jpg" alt="LT Construction" style="height: 48px; width: auto; display: block;">
                             </div>
                         </div>
                         <div class="news-article-header">

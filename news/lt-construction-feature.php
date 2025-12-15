@@ -20,7 +20,7 @@ include __DIR__ . '/../includes/header.php';
       <div style="border-radius:12px; overflow:hidden; box-shadow:var(--shadow-md); position:relative;">
         <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction in the news" style="width:100%; height:auto; display:block;">
         <div style="position: absolute; top: 16px; right: 16px; background: white; padding: 10px 14px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-          <img src="assets/images/logos/letter-head.jpg" alt="LT Construction" style="height: 60px; width: auto; display: block; background: white; padding: 5px; border-radius: 5px;">
+            <img src="assets/images/logos/letter-head.jpg" alt="LT Construction" style="height: 60px; width: auto; display: block;">
         </div>
       </div>
 
