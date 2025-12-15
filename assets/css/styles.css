@@ -4263,6 +4263,9 @@ main {
 .org-level-2-pegg {
   margin: 40px 0;
   justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .org-level-3 {
@@ -4295,11 +4298,19 @@ main {
 }
 
 .exec-card-secondary {
-  max-width: 280px;
-  padding: 32px 28px;
+  max-width: 300px;
+  padding: 40px 32px;
+  border-width: 2px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
 
 .exec-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
+  border-color: var(--primary);
+}
+
+.exec-card-secondary:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
   border-color: var(--primary);
@@ -4317,6 +4328,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .exec-image {
@@ -4324,10 +4336,15 @@ main {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.exec-image:hover {
+  transform: scale(1.05);
 }
 
 .exec-name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--text-primary);
   margin: 0 0 8px 0;
@@ -4335,26 +4352,29 @@ main {
 }
 
 .exec-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--primary);
   margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
 }
 
 .exec-bio {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;
+  font-weight: 400;
 }
 
 /* Connector Lines */
 .org-connector-vertical {
-  width: 2px;
-  height: 40px;
+  width: 3px;
+  height: 50px;
   background: var(--primary);
   margin: 0 auto;
   position: relative;
+  box-shadow: 0 2px 6px rgba(30, 58, 138, 0.2);
 }
 
 .org-connector-vertical.small-connector {
