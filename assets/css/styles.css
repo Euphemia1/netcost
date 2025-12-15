@@ -60,10 +60,12 @@ body {
   border-bottom: 1px solid var(--border);
   z-index: 1000;
   transition: box-shadow 0.3s;
+  height: auto;
+  min-height: 100px;
 }
 
 .navbar {
-  padding: 12px 0;
+  padding: 20px 0;
 }
 
 .navbar .container {
@@ -124,6 +126,10 @@ body {
   height: 2px;
   background: var(--text-primary);
   transition: all 0.3s;
+}
+
+main {
+  padding-top: 120px;
 }
 
 /* Hero Section */
