@@ -1786,16 +1786,17 @@ main {
 
 .showcase-item {
   background: white;
-  padding: 32px;
+  padding: 40px;
   border-radius: 16px;
   text-align: center;
   transition: all 0.3s ease;
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
 }
 
 .showcase-item:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-xl);
   border-color: var(--primary);
 }
 
@@ -1807,8 +1808,8 @@ main {
 }
 
 .showcase-icon img {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
@@ -1818,16 +1819,16 @@ main {
 }
 
 .showcase-details h3 {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .showcase-details p {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -1837,8 +1838,12 @@ main {
   }
   
   .showcase-icon img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .showcase-item {
+    padding: 30px;
   }
 }
 

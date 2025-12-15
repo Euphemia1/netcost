@@ -45,7 +45,7 @@
         <div class="products-showcase-grid">
             <div class="showcase-item" data-aos="fade-up">
                 <div class="showcase-icon">
-                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" width="120" height="120">
+                    <img src="assets/media/NETCOST PRO.svg" alt="NetCost Pro" width="160" height="160">
                 </div>
                 <div class="showcase-details">
                     <h3>NetCost Estimator Pro</h3>
@@ -55,7 +55,7 @@
             
             <div class="showcase-item" data-aos="fade-up" data-aos-delay="100">
                 <div class="showcase-icon">
-                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" width="120" height="120">
+                    <img src="assets/media/NETCOST ELITE.svg" alt="NetCost Elite" width="160" height="160">
                 </div>
                 <div class="showcase-details">
                     <h3>NetCost Estimator Elite</h3>
@@ -65,7 +65,7 @@
             
             <div class="showcase-item" data-aos="fade-up" data-aos-delay="200">
                 <div class="showcase-icon">
-                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" width="120" height="120">
+                    <img src="assets/media/NETCOST EXPRESS.svg" alt="NetCost Express" width="160" height="160">
                 </div>
                 <div class="showcase-details">
                     <h3>NetCost Estimator Express</h3>
