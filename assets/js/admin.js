@@ -72,10 +72,11 @@ function previewImages(event) {
       if (file) {
         const reader = new FileReader()
         reader.onload = function(e) {
+          const fileName = file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name;
           const imageElement = `
             <div class="preview-image">
-              <img src="${e.target.result}" alt="Preview ${i + 1}">
-              <p>Image ${i + 1}</p>
+              <img src="${e.target.result}" alt="Preview of ${file.name}">
+              <p>${fileName}</p>
             </div>
           `
           preview.innerHTML += imageElement
