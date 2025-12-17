@@ -29,7 +29,7 @@ $error_message = '';
 $login_attempts = isset($_SESSION['login_attempts']) ? $_SESSION['login_attempts'] : 0;
 $last_attempt = isset($_SESSION['last_attempt']) ? $_SESSION['last_attempt'] : 0;
 
-// Check if user is temporarily locked out
+// Lockout settings
 $lockout_duration = 900; // 15 minutes
 if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
     $wait_time = $lockout_duration - (time() - $last_attempt);
@@ -44,42 +44,39 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
 
     $username = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
-    
+
     if (empty($username) || empty($password)) {
         $error = true;
         $error_message = "Please enter both username and password.";
     } else {
-        // Add delay to prevent brute force attacks
+        // Small delay to slow down brute-force attempts
         usleep(random_int(100000, 500000)); // 0.1 to 0.5 seconds
 
-    // select status as well; remove stray comma
-    $stmt = $pdo->prepare('SELECT id, username, password, status FROM admin_users WHERE username = ?');
+        // Fetch user
+        $stmt = $pdo->prepare('SELECT id, username, password, status FROM admin_users WHERE username = ?');
         $stmt->execute([$username]);
         $user = $stmt->fetch();
-        
-        if ($user && $user['status'] === 'active' && password_verify($password, $user['password'])) {
-            // Reset login attempts on successful login
+
+        // Check password using SHA-256 hash
+        if ($user && $user['status'] === 'active' && hash('sha256', $password) === $user['password']) {
+            // Reset failed login attempts
             $_SESSION['login_attempts'] = 0;
-            
+
             // Set session variables
             $_SESSION['admin_logged_in'] = true;
             $_SESSION['admin_id'] = $user['id'];
             $_SESSION['admin_username'] = $user['username'];
-            
-            // Set session expiry
             $_SESSION['last_activity'] = time();
             $_SESSION['expire_time'] = 3600; // 1 hour
-            
-            // Regenerate session ID to prevent session fixation
+
             session_regenerate_id(true);
-            
-            // Log successful login (best-effort)
+
+            // Log successful login
             $ip = $_SERVER['REMOTE_ADDR'];
             try {
                 $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "success")');
                 $stmt->execute([$user['id'], $ip]);
             } catch (PDOException $e) {
-                // If table doesn't exist, try to create it then retry once
                 if ($e->getCode() === '42S02' || stripos($e->getMessage(), '1146') !== false) {
                     ensure_admin_login_logs_table($pdo);
                     try {
@@ -92,15 +89,15 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
                     error_log('admin_login_logs insert failed: ' . $e->getMessage());
                 }
             }
-            
+
             header('Location: dashboard.php');
             exit;
         } else {
             // Increment failed login attempts
             $_SESSION['login_attempts'] = ++$login_attempts;
             $_SESSION['last_attempt'] = time();
-            
-            // Log failed attempt
+
+            // Log failed login
             if ($user) {
                 try {
                     $stmt = $pdo->prepare('INSERT INTO admin_login_logs (user_id, ip_address, status) VALUES (?, ?, "failed")');
@@ -119,7 +116,7 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
                     }
                 }
             }
-            
+
             $error = true;
             $error_message = "Invalid username or password.";
         }
@@ -131,9 +128,6 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;">
     <title>Admin Login - LT Software</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -168,16 +162,9 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
                 <div class="form-group">
                     <label for="username">Username</label>
                     <div class="input-with-icon">
-                        <input 
-                            type="text" 
-                            id="username" 
-                            name="username" 
-                            required 
-                            autofocus
-                            pattern="[a-zA-Z0-9_-]{3,20}"
-                            title="Username must be between 3 and 20 characters and can only contain letters, numbers, underscores, and hyphens"
-                            <?php echo isset($_POST['username']) ? 'value="' . htmlspecialchars($_POST['username']) . '"' : ''; ?>
-                        >
+                        <input type="text" id="username" name="username" required autofocus pattern="[a-zA-Z0-9_-]{3,20}" 
+                        title="Username must be 3-20 characters and can include letters, numbers, _ or -"
+                        <?php echo isset($_POST['username']) ? 'value="' . htmlspecialchars($_POST['username']) . '"' : ''; ?>>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
@@ -188,14 +175,7 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
                 <div class="form-group">
                     <label for="password">Password</label>
                     <div class="input-with-icon">
-                        <input 
-                            type="password" 
-                            id="password" 
-                            name="password" 
-                            required
-                            minlength="8"
-                            autocomplete="new-password"
-                        >
+                        <input type="password" id="password" name="password" required minlength="8" autocomplete="new-password">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
@@ -203,7 +183,6 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
                     </div>
                 </div>
 
-                
                 <button type="submit" class="btn btn-primary btn-large">
                     <span>Login</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -220,16 +199,16 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
             </div>
         </div>
     </div>
-    
+
     <?php include '../includes/footer.php'; ?>
 
     <script>
-        // Disable form resubmission on page refresh
+        // Prevent form resubmission
         if (window.history.replaceState) {
             window.history.replaceState(null, null, window.location.href);
         }
 
-        // Add touch ripple effect to button
+        // Touch ripple effect
         document.querySelector('.btn-primary').addEventListener('touchstart', function(e) {
             const rect = this.getBoundingClientRect();
             const x = e.touches[0].clientX - rect.left;
@@ -241,11 +220,8 @@ if ($login_attempts >= 5 && (time() - $last_attempt) < $lockout_duration) {
             circle.style.top = y + 'px';
             
             this.appendChild(circle);
-            
             setTimeout(() => circle.remove(), 500);
         });
     </script>
-</body>
-</html>
 </body>
 </html>
