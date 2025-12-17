@@ -103,13 +103,47 @@ include 'includes/header.php';
 <script>
 // News Modal Functions
 function openNewsModal(newsId) {
-  // In a real implementation, you would fetch the news content via AJAX
-  // For now, we'll simulate opening the modal
-  const modal = document.getElementById('newsModal');
-  modal.classList.add('active');
-  
-  // Prevent body scroll when modal is open
-  document.body.style.overflow = 'hidden';
+  // Fetch news content via AJAX
+  fetch('get_news_modal.php?id=' + newsId)
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        const news = data.data;
+        
+        // Update modal content
+        document.getElementById('modalTitle').textContent = news.title;
+        
+        let modalContent = '<p class="news-modal-date">' + news.created_at + '</p>';
+        
+        if (news.featured_image) {
+          modalContent += '<div class="news-modal-image">';
+          modalContent += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
+          modalContent += '</div>';
+        }
+        
+        modalContent += '<p>' + news.content.replace(/\n/g, '<br>') + '</p>';
+        
+        if (news.additional_images && news.additional_images.length > 0) {
+          modalContent += '<div class="news-modal-additional-images">';
+          news.additional_images.forEach(image => {
+            modalContent += '<img src="' + image.image_path + '" alt="' + news.title + ' additional image">';
+          });
+          modalContent += '</div>';
+        }
+        
+        document.getElementById('modalBody').innerHTML = modalContent;
+        
+        // Show modal
+        const modal = document.getElementById('newsModal');
+        modal.classList.add('active');
+        
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching news:', error);
+    });
 }
 
 function closeNewsModal() {
