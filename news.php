@@ -167,4 +167,71 @@ document.addEventListener('keydown', function(e) {
     closeNewsModal();
   }
 });
-</script>
+
+    // Real-time news updates
+    let latestTimestamp = null;
+    
+    function updateNews() {
+      fetch('get_latest_news.php' + (latestTimestamp ? '?last_timestamp=' + encodeURIComponent(latestTimestamp) : ''))
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Update the latest timestamp
+            if (data.latest_timestamp) {
+              latestTimestamp = data.latest_timestamp;
+            }
+            
+            // Update the news grid if there are new items
+            if (data.data.length > 0) {
+              const newsGrid = document.querySelector('.news-grid-page');
+              if (newsGrid) {
+                // Clear existing content
+                newsGrid.innerHTML = '';
+                
+                // Add new content
+                data.data.forEach((news, index) => {
+                  const newsCard = `
+                    <article class="news-article-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+                      <div class="news-article-image">
+                        ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
+                        
+                        ${news.additional_images && news.additional_images.length > 0 ? 
+                          `<div class="news-article-additional-images">
+                            ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
+                          </div>` : ''}
+                      </div>
+                      
+                      <div class="news-article-header">
+                        <h2 class="news-article-title">${news.title}</h2>
+                        <time class="news-article-date">${news.formatted_date}</time>
+                      </div>
+                      
+                      <div class="news-article-content">
+                        ${news.truncated_content.replace(/\n/g, '<br>')}
+                        <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
+                      </div>
+                      
+                      <div class="news-article-footer">
+                        <span class="news-category">Press Release</span>
+                      </div>
+                    </article>
+                  `;
+                  newsGrid.innerHTML += newsCard;
+                });
+                
+                // Reinitialize AOS animations
+                if (typeof AOS !== 'undefined') {
+                  AOS.refresh();
+                }
+              }
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching latest news:', error);
+        });
+    }
+    
+    // Start polling for updates every 30 seconds
+    setInterval(updateNews, 30000);
+  </script>
