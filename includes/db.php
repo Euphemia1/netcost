@@ -1,4 +1,8 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $DB_HOST = 'localhost';
 $DB_NAME = 'u754414236_netcost';
 $DB_USER = 'u754414236_admin';
