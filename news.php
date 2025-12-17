@@ -1,4 +1,10 @@
 <?php 
+include 'includes/db.php';
+
+// Fetch all news items ordered by creation date (newest first)
+$stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
+$stmt->execute();
+$news_items = $stmt->fetchAll();
 
 include 'includes/header.php';
 ?>
