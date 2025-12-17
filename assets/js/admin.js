@@ -59,22 +59,30 @@ function closeNewsModal() {
   modal.classList.remove("active")
 }
 
-// Image preview function
-function previewImage(event) {
-  const file = event.target.files[0]
+// Image preview function for multiple images
+function previewImages(event) {
+  const files = event.target.files
   const preview = document.getElementById("imagePreview")
-
-  if (file) {
-    const reader = new FileReader()
-    reader.onload = function(e) {
-      preview.innerHTML = `
-        <div class="preview-image">
-          <img src="${e.target.result}" alt="Preview">
-          <p>New image</p>
-        </div>
-      `
+  
+  preview.innerHTML = ""
+  
+  if (files && files.length > 0) {
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      if (file) {
+        const reader = new FileReader()
+        reader.onload = function(e) {
+          const imageElement = `
+            <div class="preview-image">
+              <img src="${e.target.result}" alt="Preview ${i + 1}">
+              <p>Image ${i + 1}</p>
+            </div>
+          `
+          preview.innerHTML += imageElement
+        }
+        reader.readAsDataURL(file)
+      }
     }
-    reader.readAsDataURL(file)
   }
 }
 

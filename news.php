@@ -6,6 +6,14 @@ $stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FRO
 $stmt->execute();
 $news_items = $stmt->fetchAll();
 
+// Fetch additional images for each news item
+foreach ($news_items as &$news_item) {
+    $stmt = $pdo->prepare('SELECT image_path FROM news_images WHERE news_id = ? ORDER BY sort_order');
+    $stmt->execute([$news_item['id']]);
+    $news_item['additional_images'] = $stmt->fetchAll();
+}
+unset($news_item); // Break the reference
+
 include 'includes/header.php';
 ?>
 
@@ -75,11 +83,19 @@ include 'includes/header.php';
 
                     <?php foreach ($news_items as $index => $news): ?>
                         <article class="news-article-card" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
-                            <?php if ($news['featured_image']): ?>
-                                <div class="news-article-image">
+                            <div class="news-article-image">
+                                <?php if ($news['featured_image']): ?>
                                     <img src="<?php echo htmlspecialchars($news['featured_image']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?>">
-                                </div>
-                            <?php endif; ?>
+                                <?php endif; ?>
+                                
+                                <?php if (!empty($news['additional_images'])): ?>
+                                    <div class="news-article-additional-images">
+                                        <?php foreach ($news['additional_images'] as $image): ?>
+                                            <img src="<?php echo htmlspecialchars($image['image_path']); ?>" alt="<?php echo htmlspecialchars($news['title']); ?> additional image">
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                             
                             <div class="news-article-header">
                                 <h2 class="news-article-title"><?php echo htmlspecialchars($news['title']); ?></h2>

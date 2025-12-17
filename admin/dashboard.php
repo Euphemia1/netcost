@@ -27,22 +27,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $content = trim($_POST['content'] ?? '');
             $featured_image = '';
             
-            // Handle image upload
-            if (isset($_FILES['featured_image']) && $_FILES['featured_image']['error'] === UPLOAD_ERR_OK) {
-                $file_tmp = $_FILES['featured_image']['tmp_name'];
-                $file_name = basename($_FILES['featured_image']['name']);
-                $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+            // Handle multiple image uploads
+            $uploaded_images = [];
+            if (isset($_FILES['images'])) {
+                $files = $_FILES['images'];
+                $file_count = count($files['name']);
                 
-                // Allowed extensions
-                $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-                
-                if (in_array($file_ext, $allowed_ext)) {
-                    // Generate unique filename
-                    $new_filename = uniqid('news_') . '.' . $file_ext;
-                    $file_path = $upload_dir . $new_filename;
-                    
-                    if (move_uploaded_file($file_tmp, $file_path)) {
-                        $featured_image = 'assets/media/news/' . $new_filename;
+                for ($i = 0; $i < $file_count; $i++) {
+                    if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                        $file_tmp = $files['tmp_name'][$i];
+                        $file_name = basename($files['name'][$i]);
+                        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                        
+                        // Allowed extensions
+                        $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                        
+                        if (in_array($file_ext, $allowed_ext)) {
+                            // Generate unique filename
+                            $new_filename = uniqid('news_') . '_' . $i . '.' . $file_ext;
+                            $file_path = $upload_dir . $new_filename;
+                            
+                            if (move_uploaded_file($file_tmp, $file_path)) {
+                                $uploaded_images[] = 'assets/media/news/' . $new_filename;
+                                // Set the first image as featured image for backward compatibility
+                                if ($i === 0) {
+                                    $featured_image = 'assets/media/news/' . $new_filename;
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -50,6 +62,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($title && $content) {
                 $stmt = $pdo->prepare('INSERT INTO news (title, content, featured_image, created_at) VALUES (?, ?, ?, NOW())');
                 $stmt->execute([$title, $content, $featured_image]);
+                
+                // Get the inserted news ID
+                $news_id = $pdo->lastInsertId();
+                
+                // Insert uploaded images into news_images table
+                if (!empty($uploaded_images)) {
+                    $stmt = $pdo->prepare('INSERT INTO news_images (news_id, image_path, sort_order) VALUES (?, ?, ?)');
+                    foreach ($uploaded_images as $index => $image_path) {
+                        $stmt->execute([$news_id, $image_path, $index]);
+                    }
+                }
+                
                 // Redirect to dashboard after successful insert
                 header('Location: dashboard.php');
                 exit;
@@ -83,35 +107,84 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($id > 0 && $title && $content) {
                 $featured_image = $_POST['current_image'] ?? '';
                 
-                // Handle new image upload
-                if (isset($_FILES['featured_image']) && $_FILES['featured_image']['error'] === UPLOAD_ERR_OK) {
-                    $file_tmp = $_FILES['featured_image']['tmp_name'];
-                    $file_name = basename($_FILES['featured_image']['name']);
-                    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                // Handle new image uploads
+                $uploaded_images = [];
+                if (isset($_FILES['images'])) {
+                    $files = $_FILES['images'];
+                    $file_count = count($files['name']);
                     
-                    $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                    // Delete existing images if new ones are uploaded
+                    $has_new_images = false;
+                    for ($i = 0; $i < $file_count; $i++) {
+                        if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                            $has_new_images = true;
+                            break;
+                        }
+                    }
                     
-                    if (in_array($file_ext, $allowed_ext)) {
-                        // Delete old image
-                        if ($featured_image) {
-                            $old_file = str_replace('assets/media/news/', '../assets/media/news/', $featured_image);
-                            if (file_exists($old_file)) {
-                                unlink($old_file);
+                    if ($has_new_images) {
+                        // Delete old images from filesystem
+                        $stmt = $pdo->prepare('SELECT image_path FROM news_images WHERE news_id = ? ORDER BY sort_order');
+                        $stmt->execute([$id]);
+                        $old_images = $stmt->fetchAll();
+                        
+                        foreach ($old_images as $old_image) {
+                            $old_file_path = str_replace('assets/media/news/', '../assets/media/news/', $old_image['image_path']);
+                            if (file_exists($old_file_path)) {
+                                unlink($old_file_path);
                             }
                         }
                         
-                        // Upload new image
-                        $new_filename = uniqid('news_') . '.' . $file_ext;
-                        $file_path = $upload_dir . $new_filename;
-                        
-                        if (move_uploaded_file($file_tmp, $file_path)) {
-                            $featured_image = 'assets/media/news/' . $new_filename;
+                        // Delete old images from database
+                        $stmt = $pdo->prepare('DELETE FROM news_images WHERE news_id = ?');
+                        $stmt->execute([$id]);
+                    }
+                    
+                    // Upload new images
+                    for ($i = 0; $i < $file_count; $i++) {
+                        if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                            $file_tmp = $files['tmp_name'][$i];
+                            $file_name = basename($files['name'][$i]);
+                            $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                            
+                            $allowed_ext = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+                            
+                            if (in_array($file_ext, $allowed_ext)) {
+                                // Delete old image (backward compatibility)
+                                if ($featured_image && $i === 0) {
+                                    $old_file = str_replace('assets/media/news/', '../assets/media/news/', $featured_image);
+                                    if (file_exists($old_file)) {
+                                        unlink($old_file);
+                                    }
+                                }
+                                
+                                // Upload new image
+                                $new_filename = uniqid('news_') . '_' . $i . '.' . $file_ext;
+                                $file_path = $upload_dir . $new_filename;
+                                
+                                if (move_uploaded_file($file_tmp, $file_path)) {
+                                    $uploaded_images[] = 'assets/media/news/' . $new_filename;
+                                    // Set the first image as featured image for backward compatibility
+                                    if ($i === 0) {
+                                        $featured_image = 'assets/media/news/' . $new_filename;
+                                    }
+                                }
+                            }
                         }
                     }
                 }
                 
                 $stmt = $pdo->prepare('UPDATE news SET title = ?, content = ?, featured_image = ? WHERE id = ?');
                 $stmt->execute([$title, $content, $featured_image, $id]);
+                
+                // Insert new images into news_images table
+                if (!empty($uploaded_images)) {
+                    $stmt = $pdo->prepare('INSERT INTO news_images (news_id, image_path, sort_order) VALUES (?, ?, ?)');
+                    foreach ($uploaded_images as $index => $image_path) {
+                        $stmt->execute([$id, $image_path, $index]);
+                    }
+                }
+                
                 // Redirect to dashboard after successful update
                 header('Location: dashboard.php?status=updated');
                 exit;
@@ -139,6 +212,14 @@ $offset = ($current_page - 1) * $items_per_page;
 $stmt = $pdo->prepare('SELECT DISTINCT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC LIMIT ? OFFSET ?');
 $stmt->execute([$items_per_page, $offset]);
 $news_result = $stmt->fetchAll();
+
+// Fetch additional images for each news item
+foreach ($news_result as &$news_item) {
+    $stmt = $pdo->prepare('SELECT image_path FROM news_images WHERE news_id = ? ORDER BY sort_order');
+    $stmt->execute([$news_item['id']]);
+    $news_item['additional_images'] = $stmt->fetchAll();
+}
+unset($news_item); // Break the reference
 
 // Fetch contacts
 $stmt = $pdo->prepare('SELECT id, name, email, phone, company, message, created_at FROM contacts ORDER BY created_at DESC LIMIT 10');
@@ -218,6 +299,11 @@ $contacts_result = $stmt->fetchAll();
                                     </form>
                                 </div>
                             </div>
+                            <?php if (!empty($news['additional_images'])): ?>
+                                <div class="news-meta" style="background-color: #f0f8ff; padding: 8px 16px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #666;">
+                                    <span><?php echo count($news['additional_images']); ?> additional image(s)</span>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -302,12 +388,12 @@ $contacts_result = $stmt->fetchAll();
                 </div>
                 
                 <div class="form-group">
-                    <label for="featuredImage">Featured Image (JPG, PNG, GIF, WebP)</label>
+                    <label for="featuredImage">Images (JPG, PNG, GIF, WebP) - You can select multiple images</label>
                     <div class="image-upload-wrapper">
-                        <input type="file" id="featuredImage" name="featured_image" accept=".jpg,.jpeg,.png,.gif,.webp" onchange="previewImage(event)">
+                        <input type="file" id="featuredImage" name="images[]" accept=".jpg,.jpeg,.png,.gif,.webp" multiple onchange="previewImages(event)">
                         <div id="imagePreview" class="image-preview"></div>
                     </div>
-                    <small>Recommended size: 600x400px</small>
+                    <small>You can upload multiple images. Recommended size: 600x400px</small>
                 </div>
                 
                 <div class="modal-footer">
