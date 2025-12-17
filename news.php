@@ -53,7 +53,13 @@ include 'includes/header.php';
                             </div>
                             
                             <div class="news-article-content">
-                                <?php echo nl2br(htmlspecialchars($news['content'])); ?>
+                                <?php 
+                                // Truncate content for preview
+                                $content = $news['content'];
+                                $truncated = strlen($content) > 300 ? substr($content, 0, 300) . '...' : $content;
+                                echo nl2br(htmlspecialchars($truncated));
+                                ?>
+                                <button class="read-more-link" onclick="openNewsModal(<?php echo $news['id']; ?>)">Read More</button>
                             </div>
                             
                             <div class="news-article-footer">
@@ -79,5 +85,52 @@ include 'includes/header.php';
     </footer>
 </div>
 
+<!-- News Modal -->
+<div id="newsModal" class="news-modal">
+  <div class="news-modal-content">
+    <div class="news-modal-header">
+      <h2 id="modalTitle">News Title</h2>
+      <button class="news-modal-close" onclick="closeNewsModal()">&times;</button>
+    </div>
+    <div class="news-modal-body" id="modalBody">
+      <!-- Modal content will be loaded here -->
+    </div>
+  </div>
+</div>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script src="assets/js/main.js"></script>
+<script>
+// News Modal Functions
+function openNewsModal(newsId) {
+  // In a real implementation, you would fetch the news content via AJAX
+  // For now, we'll simulate opening the modal
+  const modal = document.getElementById('newsModal');
+  modal.classList.add('active');
+  
+  // Prevent body scroll when modal is open
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNewsModal() {
+  const modal = document.getElementById('newsModal');
+  modal.classList.remove('active');
+  
+  // Restore body scroll
+  document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+document.getElementById('newsModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeNewsModal();
+  }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeNewsModal();
+  }
+});
+</script>
