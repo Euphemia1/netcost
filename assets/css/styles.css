@@ -3288,14 +3288,15 @@ main {
 .news-article-card {
   background: white;
   border: 1px solid #e0e0e0;
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 0;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: slideUp 0.4s ease-out;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  animation: slideUp 0.5s ease-out;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  height: 100%;
 }
 
 /* Social cards for external links (Facebook posts) */
@@ -3350,8 +3351,8 @@ main {
 }
 
 .news-article-card:hover {
-  box-shadow: 0 12px 32px rgba(30, 58, 138, 0.15);
-  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(30, 58, 138, 0.2);
+  transform: translateY(-10px);
   border-color: var(--primary);
 }
 
@@ -3401,6 +3402,7 @@ main {
   padding: 24px 24px 0 24px;
   padding-bottom: 16px;
   border-bottom: 2px solid #f0f0f0;
+  background: #fafafa;
 }
 
 .news-article-title {
@@ -3433,6 +3435,7 @@ main {
   word-wrap: break-word;
   white-space: pre-wrap;
   padding: 16px 24px;
+  background: white;
 }
 
 .news-article-footer {
@@ -3445,14 +3448,15 @@ main {
 
 .news-category {
   display: inline-block;
-  padding: 6px 14px;
-  background: rgba(255, 107, 0, 0.1);
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(255, 107, 0, 0.15) 100%);
   color: var(--primary);
   border-radius: 20px;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .no-news-message {
