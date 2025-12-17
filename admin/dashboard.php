@@ -363,7 +363,6 @@ $contacts_result = $stmt->fetchAll();
         </main>
     </div>
     
-
     <!-- Add/Edit News Modal -->
     <div id="newsModal" class="modal">
         <div class="modal-content">
@@ -391,6 +390,7 @@ $contacts_result = $stmt->fetchAll();
                     <label for="featuredImage">Images (JPG, PNG, GIF, WebP) - You can select multiple images</label>
                     <div class="image-upload-wrapper">
                         <input type="file" id="featuredImage" name="images[]" accept=".jpg,.jpeg,.png,.gif,.webp" multiple onchange="previewImages(event)">
+                        <div class="image-upload-instructions">Hold Ctrl (Cmd on Mac) to select multiple files</div>
                         <div id="imagePreview" class="image-preview"></div>
                     </div>
                     <small>You can upload multiple images. Recommended size: 600x400px</small>
