@@ -1,8 +1,8 @@
 <?php
 $DB_HOST = 'localhost';
-$DB_NAME = 'netcost';
-$DB_USER = 'root';
-$DB_PASS = '';
+$DB_NAME = 'u754414236_netcost';
+$DB_USER = 'u754414236_admin';
+$DB_PASS = 'Reti@2025';
 
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
