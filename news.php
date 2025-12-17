@@ -31,56 +31,6 @@ include 'includes/header.php';
         <div class="container">
             <?php if (count($news_items) > 0): ?>
                 <div class="news-grid-page">
-                    <!-- Social links: Facebook posts highlighting LT Construction -->
-                    <div class="news-social-grid">
-                        <a class="social-card" href="https://www.facebook.com/share/p/1bYPLhnoGa/" target="_blank" rel="noopener noreferrer">
-                            <div class="social-thumb">
-                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction Facebook share">
-                            </div>
-                            <div class="social-title">LT Construction — Facebook Share</div>
-                            <div class="social-meta">Facebook • Share</div>
-                        </a>
-
-                        <a class="social-card" href="https://www.facebook.com/100076064542369/posts/802324678979676/?mibextid=rS40aB7S9Ucbxw6v" target="_blank" rel="noopener noreferrer">
-                            <div class="social-thumb">
-                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction Facebook post">
-                            </div>
-                            <div class="social-title">LT Construction — Facebook Post</div>
-                            <div class="social-meta">Facebook • Post</div>
-                        </a>
-
-                        <a class="social-card" href="https://www.facebook.com/share/v/1FQfL5bnrB/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">
-                            <div class="social-thumb">
-                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction Facebook video share">
-                            </div>
-                            <div class="social-title">LT Construction — Facebook Video</div>
-                            <div class="social-meta">Facebook • Video</div>
-                        </a>
-                    </div>
-
-                    <!-- Static featured article card: LT Construction feature -->
-                    <article class="news-article-card" data-aos="fade-up" data-aos-delay="0">
-                        <div class="news-article-image" style="position: relative;">
-                            <a href="news/lt-construction-feature.php">
-                                <img src="assets/media/news/WhatsApp%20Image%202025-11-10%20at%2011.45.47_c6ca47d7.jpg" alt="LT Construction featured">
-                            </a>
-                            <!-- LT Construction Logo Overlay -->
-                            <div style="position: absolute; top: 12px; right: 12px; background: white; padding: 8px 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                                <img src="assets/images/logos/letter-head.jpg" alt="LT Construction" style="height: 48px; width: auto; display: block;">
-                            </div>
-                        </div>
-                        <div class="news-article-header">
-                            <h2 class="news-article-title"><a href="news/lt-construction-feature.php">LT Construction Featured in National Press</a></h2>
-                            <time class="news-article-date">November 10, 2025</time>
-                        </div>
-                        <div class="news-article-content">
-                            <p>LT Construction was recently featured for its adoption of NetCost Estimator to streamline BOQs, tendering and resource planning — <a href="news/lt-construction-feature.php">read more</a>.</p>
-                        </div>
-                        <div class="news-article-footer">
-                            <span class="news-category">Press</span>
-                        </div>
-                    </article>
-
                     <?php foreach ($news_items as $index => $news): ?>
                         <article class="news-article-card" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
                             <div class="news-article-image">
