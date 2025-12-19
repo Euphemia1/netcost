@@ -1,9 +1,24 @@
 <?php 
 include 'includes/db.php';
 
-// Fetch all news items ordered by creation date (newest first)
-$stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC');
+// Pagination settings
+$items_per_page = 6;
+$current_page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+$offset = ($current_page - 1) * $items_per_page;
+
+// Get total count of news items
+$stmt = $pdo->prepare('SELECT COUNT(id) as total FROM news');
 $stmt->execute();
+$total_count = $stmt->fetch()['total'];
+$total_pages = ceil($total_count / $items_per_page);
+
+// Ensure current page doesn't exceed total pages
+$current_page = min($current_page, max(1, $total_pages));
+$offset = ($current_page - 1) * $items_per_page;
+
+// Fetch news with pagination
+$stmt = $pdo->prepare('SELECT id, title, content, featured_image, created_at FROM news ORDER BY created_at DESC LIMIT ? OFFSET ?');
+$stmt->execute([$items_per_page, $offset]);
 $news_items = $stmt->fetchAll();
 
 // Fetch additional images for each news item
@@ -68,6 +83,31 @@ include 'includes/header.php';
                         </article>
                     <?php endforeach; ?>
                 </div>
+                
+                <!-- Pagination Controls -->
+                <?php if ($total_pages > 1): ?>
+                <div class="pagination">
+                    <?php if ($current_page > 1): ?>
+                        <a href="news.php?page=1" class="pagination-btn">First</a>
+                        <a href="news.php?page=<?php echo $current_page - 1; ?>" class="pagination-btn">← Previous</a>
+                    <?php else: ?>
+                        <button class="pagination-btn disabled">First</button>
+                        <button class="pagination-btn disabled">← Previous</button>
+                    <?php endif; ?>
+                    
+                    <span class="pagination-info">
+                        Page <strong><?php echo $current_page; ?></strong> of <strong><?php echo $total_pages; ?></strong>
+                    </span>
+                    
+                    <?php if ($current_page < $total_pages): ?>
+                        <a href="news.php?page=<?php echo $current_page + 1; ?>" class="pagination-btn">Next →</a>
+                        <a href="news.php?page=<?php echo $total_pages; ?>" class="pagination-btn">Last</a>
+                    <?php else: ?>
+                        <button class="pagination-btn disabled">Next →</button>
+                        <button class="pagination-btn disabled">Last</button>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
             <?php else: ?>
                 <div class="no-news-message">
                     <div class="no-news-icon">📰</div>
@@ -351,43 +391,68 @@ initializeNewsUpdates();
         eventSource.addEventListener('news_update', function(event) {
           try {
             const news = JSON.parse(event.data);
-            
-            // Create news card HTML
-            const newsCard = `
-              <article class="news-article-card" data-aos="fade-up" data-aos-delay="0">
-                <div class="news-article-image">
-                  ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
                   
-                  ${news.additional_images && news.additional_images.length > 0 ? 
-                    `<div class="news-article-additional-images">
-                      ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
-                    </div>` : ''}
-                </div>
-                
-                <div class="news-article-header">
-                  <h2 class="news-article-title">${news.title}</h2>
-                  <time class="news-article-date">${news.formatted_date}</time>
-                </div>
-                
-                <div class="news-article-content">
-                  ${news.truncated_content.replace(/\n/g, '<br>')}
-                  <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
-                </div>
-                
-                <div class="news-article-footer">
-                  <span class="news-category">Press Release</span>
-                </div>
-              </article>
-            `;
-            
-            // Add new news item to the top of the grid
-            const newsGrid = document.querySelector('.news-grid-page');
-            if (newsGrid) {
-              newsGrid.insertAdjacentHTML('afterbegin', newsCard);
-              
-              // Reinitialize AOS animations
-              if (typeof AOS !== 'undefined') {
-                AOS.refresh();
+            // Check if this news item already exists to prevent duplicates
+            const existingNewsItems = document.querySelectorAll('.news-article-card');
+            let alreadyExists = false;
+                  
+            for (let i = 0; i < existingNewsItems.length; i++) {
+              const newsId = existingNewsItems[i].getAttribute('data-news-id');
+              if (newsId && parseInt(newsId) === parseInt(news.id)) {
+                alreadyExists = true;
+                break;
+              }
+            }
+                  
+            // Only add if it doesn't already exist
+            if (!alreadyExists) {
+              // Create news card HTML
+              let newsCardHTML = '<article class="news-article-card" data-news-id="' + news.id + '" data-aos="fade-up" data-aos-delay="0">';
+                    
+              // Image section
+              newsCardHTML += '<div class="news-article-image">';
+              if (news.featured_image) {
+                newsCardHTML += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
+              }
+                    
+              // Additional images
+              if (news.additional_images && news.additional_images.length > 0) {
+                newsCardHTML += '<div class="news-article-additional-images">';
+                for (let i = 0; i < news.additional_images.length; i++) {
+                  newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
+                }
+                newsCardHTML += '</div>';
+              }
+              newsCardHTML += '</div>';
+                    
+              // Header section
+              newsCardHTML += '<div class="news-article-header">';
+              newsCardHTML += '<h2 class="news-article-title">' + news.title + '</h2>';
+              newsCardHTML += '<time class="news-article-date">' + news.formatted_date + '</time>';
+              newsCardHTML += '</div>';
+                    
+              // Content section
+              newsCardHTML += '<div class="news-article-content">';
+              newsCardHTML += news.truncated_content.replace(/\n/g, '<br>');
+              newsCardHTML += '<button class="read-more-link" onclick="openNewsModal(' + news.id + ')">Read More</button>';
+              newsCardHTML += '</div>';
+                    
+              // Footer section
+              newsCardHTML += '<div class="news-article-footer">';
+              newsCardHTML += '<span class="news-category">Press Release</span>';
+              newsCardHTML += '</div>';
+                    
+              newsCardHTML += '</article>';
+                    
+              // Add new news item to the top of the grid
+              const newsGrid = document.querySelector('.news-grid-page');
+              if (newsGrid) {
+                newsGrid.insertAdjacentHTML('afterbegin', newsCardHTML);
+                      
+                // Reinitialize AOS animations
+                if (typeof AOS !== 'undefined') {
+                  AOS.refresh();
+                }
               }
             }
           } catch (e) {
@@ -429,38 +494,62 @@ initializeNewsUpdates();
                 if (data.data.length > 0) {
                   const newsGrid = document.querySelector('.news-grid-page');
                   if (newsGrid) {
-                    // Clear existing content
-                    newsGrid.innerHTML = '';
-                    
-                    // Add new content
+                    // Process each new item
                     data.data.forEach((news, index) => {
-                      const newsCard = `
-                        <article class="news-article-card" data-aos="fade-up" data-aos-delay="${index * 100}">
-                          <div class="news-article-image">
-                            ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
-                            
-                            ${news.additional_images && news.additional_images.length > 0 ? 
-                              `<div class="news-article-additional-images">
-                                ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
-                              </div>` : ''}
-                          </div>
-                          
-                          <div class="news-article-header">
-                            <h2 class="news-article-title">${news.title}</h2>
-                            <time class="news-article-date">${news.formatted_date}</time>
-                          </div>
-                          
-                          <div class="news-article-content">
-                            ${news.truncated_content.replace(/\n/g, '<br>')}
-                            <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
-                          </div>
-                          
-                          <div class="news-article-footer">
-                            <span class="news-category">Press Release</span>
-                          </div>
-                        </article>
-                      `;
-                      newsGrid.innerHTML += newsCard;
+                      // Check if this news item already exists to prevent duplicates
+                      const existingNewsItems = document.querySelectorAll('.news-article-card');
+                      let alreadyExists = false;
+                      
+                      for (let i = 0; i < existingNewsItems.length; i++) {
+                        const newsId = existingNewsItems[i].getAttribute('data-news-id');
+                        if (newsId && parseInt(newsId) === parseInt(news.id)) {
+                          alreadyExists = true;
+                          break;
+                        }
+                      }
+                      
+                      // Only add if it doesn't already exist
+                      if (!alreadyExists) {
+                        // Create news card HTML
+                        let newsCardHTML = '<article class="news-article-card" data-news-id="' + news.id + '" data-aos="fade-up" data-aos-delay="' + (index * 100) + '">';
+                        
+                        // Image section
+                        newsCardHTML += '<div class="news-article-image">';
+                        if (news.featured_image) {
+                          newsCardHTML += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
+                        }
+                        
+                        // Additional images
+                        if (news.additional_images && news.additional_images.length > 0) {
+                          newsCardHTML += '<div class="news-article-additional-images">';
+                          for (let i = 0; i < news.additional_images.length; i++) {
+                            newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
+                          }
+                          newsCardHTML += '</div>';
+                        }
+                        newsCardHTML += '</div>';
+                        
+                        // Header section
+                        newsCardHTML += '<div class="news-article-header">';
+                        newsCardHTML += '<h2 class="news-article-title">' + news.title + '</h2>';
+                        newsCardHTML += '<time class="news-article-date">' + news.formatted_date + '</time>';
+                        newsCardHTML += '</div>';
+                        
+                        // Content section
+                        newsCardHTML += '<div class="news-article-content">';
+                        newsCardHTML += news.truncated_content.replace(/\n/g, '<br>');
+                        newsCardHTML += '<button class="read-more-link" onclick="openNewsModal(' + news.id + ')">Read More</button>';
+                        newsCardHTML += '</div>';
+                        
+                        // Footer section
+                        newsCardHTML += '<div class="news-article-footer">';
+                        newsCardHTML += '<span class="news-category">Press Release</span>';
+                        newsCardHTML += '</div>';
+                        
+                        newsCardHTML += '</article>';
+                        
+                        newsGrid.innerHTML = newsCardHTML + newsGrid.innerHTML;
+                      }
                     });
                     
                     // Reinitialize AOS animations
@@ -525,4 +614,3 @@ initializeNewsUpdates();
       }
     }
   </script>
->>>>>>> 2f83ac7bbba141f9cc19c92f7c648bde5ae39dce
