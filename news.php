@@ -115,21 +115,52 @@ function openNewsModal(newsId) {
         
         let modalContent = '<p class="news-modal-date">' + news.created_at + '</p>';
         
+        // Combine all images (featured + additional) for slideshow
+        let allImages = [];
         if (news.featured_image) {
-          modalContent += '<div class="news-modal-image">';
-          modalContent += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
-          modalContent += '</div>';
+          allImages.push(news.featured_image);
+        }
+        if (news.additional_images && news.additional_images.length > 0) {
+          news.additional_images.forEach(img => {
+            allImages.push(img.image_path);
+          });
+        }
+        
+        // Create slideshow if there are images
+        if (allImages.length > 0) {
+          if (allImages.length > 1) {
+            // Create slideshow for multiple images
+            modalContent += '<div class="news-modal-slideshow">';
+            modalContent += '  <div class="slideshow-container">';
+            
+            allImages.forEach((image, index) => {
+              modalContent += '    <div class="slide fade" style="' + (index === 0 ? 'display: block;' : 'display: none;') + '">';
+              modalContent += '      <img src="' + image + '" alt="' + news.title + ' image ' + (index + 1) + '">';
+              modalContent += '    </div>';
+            });
+            
+            // Navigation dots
+            modalContent += '    <div class="slideshow-dots">';
+            allImages.forEach((_, index) => {
+              modalContent += '      <span class="dot ' + (index === 0 ? 'active' : '') + '" onclick="currentSlide(' + (index + 1) + ')"></span>';
+            });
+            modalContent += '    </div>';
+            
+            // Navigation arrows
+            modalContent += '    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
+            modalContent += '    <a class="next" onclick="plusSlides(1)">&#10095;</a>';
+            
+            modalContent += '  </div>';
+            modalContent += '</div>';
+          } else {
+            // Single image display
+            modalContent += '<div class="news-modal-image">';
+            modalContent += '  <img src="' + allImages[0] + '" alt="' + news.title + '">';
+            modalContent += '</div>';
+          }
         }
         
         modalContent += '<p>' + news.content.replace(/\n/g, '<br>') + '</p>';
-        
-        if (news.additional_images && news.additional_images.length > 0) {
-          modalContent += '<div class="news-modal-additional-images">';
-          news.additional_images.forEach(image => {
-            modalContent += '<img src="' + image.image_path + '" alt="' + news.title + ' additional image">';
-          });
-          modalContent += '</div>';
-        }
         
         document.getElementById('modalBody').innerHTML = modalContent;
         
@@ -139,6 +170,11 @@ function openNewsModal(newsId) {
         
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';
+        
+        // Initialize slideshow if needed
+        if (allImages.length > 1) {
+          initSlideshow();
+        }
       }
     })
     .catch(error => {
@@ -168,70 +204,188 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-    // Real-time news updates
-    let latestTimestamp = null;
-    
-    function updateNews() {
-      fetch('get_latest_news.php' + (latestTimestamp ? '?last_timestamp=' + encodeURIComponent(latestTimestamp) : ''))
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            // Update the latest timestamp
-            if (data.latest_timestamp) {
-              latestTimestamp = data.latest_timestamp;
-            }
+    // Real-time news updates using Server-Sent Events
+    function initializeNewsUpdates() {
+      // Check if EventSource is supported
+      if (typeof(EventSource) !== "undefined") {
+        // Create EventSource connection
+        const eventSource = new EventSource("news_updates_sse.php");
+        
+        // Handle news updates
+        eventSource.addEventListener('news_update', function(event) {
+          try {
+            const news = JSON.parse(event.data);
             
-            // Update the news grid if there are new items
-            if (data.data.length > 0) {
-              const newsGrid = document.querySelector('.news-grid-page');
-              if (newsGrid) {
-                // Clear existing content
-                newsGrid.innerHTML = '';
+            // Create news card HTML
+            const newsCard = `
+              <article class="news-article-card" data-aos="fade-up" data-aos-delay="0">
+                <div class="news-article-image">
+                  ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
+                  
+                  ${news.additional_images && news.additional_images.length > 0 ? 
+                    `<div class="news-article-additional-images">
+                      ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
+                    </div>` : ''}
+                </div>
                 
-                // Add new content
-                data.data.forEach((news, index) => {
-                  const newsCard = `
-                    <article class="news-article-card" data-aos="fade-up" data-aos-delay="${index * 100}">
-                      <div class="news-article-image">
-                        ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
-                        
-                        ${news.additional_images && news.additional_images.length > 0 ? 
-                          `<div class="news-article-additional-images">
-                            ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
-                          </div>` : ''}
-                      </div>
-                      
-                      <div class="news-article-header">
-                        <h2 class="news-article-title">${news.title}</h2>
-                        <time class="news-article-date">${news.formatted_date}</time>
-                      </div>
-                      
-                      <div class="news-article-content">
-                        ${news.truncated_content.replace(/\n/g, '<br>')}
-                        <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
-                      </div>
-                      
-                      <div class="news-article-footer">
-                        <span class="news-category">Press Release</span>
-                      </div>
-                    </article>
-                  `;
-                  newsGrid.innerHTML += newsCard;
-                });
+                <div class="news-article-header">
+                  <h2 class="news-article-title">${news.title}</h2>
+                  <time class="news-article-date">${news.formatted_date}</time>
+                </div>
                 
-                // Reinitialize AOS animations
-                if (typeof AOS !== 'undefined') {
-                  AOS.refresh();
-                }
+                <div class="news-article-content">
+                  ${news.truncated_content.replace(/\n/g, '<br>')}
+                  <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
+                </div>
+                
+                <div class="news-article-footer">
+                  <span class="news-category">Press Release</span>
+                </div>
+              </article>
+            `;
+            
+            // Add new news item to the top of the grid
+            const newsGrid = document.querySelector('.news-grid-page');
+            if (newsGrid) {
+              newsGrid.insertAdjacentHTML('afterbegin', newsCard);
+              
+              // Reinitialize AOS animations
+              if (typeof AOS !== 'undefined') {
+                AOS.refresh();
               }
             }
+          } catch (e) {
+            console.error('Error processing news update:', e);
           }
-        })
-        .catch(error => {
-          console.error('Error fetching latest news:', error);
         });
+        
+        // Handle errors
+        eventSource.addEventListener('error', function(event) {
+          console.error('SSE error occurred:', event);
+        });
+        
+        // Handle connection opened
+        eventSource.addEventListener('open', function(event) {
+          console.log('SSE connection opened');
+        });
+        
+        // Handle heartbeat
+        eventSource.addEventListener('heartbeat', function(event) {
+          console.log('SSE heartbeat received:', event.data);
+        });
+      } else {
+        // Fallback to polling if SSE is not supported
+        console.warn('Server-Sent Events not supported, falling back to polling');
+        
+        let latestTimestamp = null;
+        
+        function updateNews() {
+          fetch('get_latest_news.php' + (latestTimestamp ? '?last_timestamp=' + encodeURIComponent(latestTimestamp) : ''))
+            .then(response => response.json())
+            .then(data => {
+              if (data.success) {
+                // Update the latest timestamp
+                if (data.latest_timestamp) {
+                  latestTimestamp = data.latest_timestamp;
+                }
+                
+                // Update the news grid if there are new items
+                if (data.data.length > 0) {
+                  const newsGrid = document.querySelector('.news-grid-page');
+                  if (newsGrid) {
+                    // Clear existing content
+                    newsGrid.innerHTML = '';
+                    
+                    // Add new content
+                    data.data.forEach((news, index) => {
+                      const newsCard = `
+                        <article class="news-article-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+                          <div class="news-article-image">
+                            ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
+                            
+                            ${news.additional_images && news.additional_images.length > 0 ? 
+                              `<div class="news-article-additional-images">
+                                ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
+                              </div>` : ''}
+                          </div>
+                          
+                          <div class="news-article-header">
+                            <h2 class="news-article-title">${news.title}</h2>
+                            <time class="news-article-date">${news.formatted_date}</time>
+                          </div>
+                          
+                          <div class="news-article-content">
+                            ${news.truncated_content.replace(/\n/g, '<br>')}
+                            <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
+                          </div>
+                          
+                          <div class="news-article-footer">
+                            <span class="news-category">Press Release</span>
+                          </div>
+                        </article>
+                      `;
+                      newsGrid.innerHTML += newsCard;
+                    });
+                    
+                    // Reinitialize AOS animations
+                    if (typeof AOS !== 'undefined') {
+                      AOS.refresh();
+                    }
+                  }
+                }
+              }
+            })
+            .catch(error => {
+              console.error('Error fetching latest news:', error);
+            });
+        }
+        
+        // Start polling for updates every 30 seconds
+        setInterval(updateNews, 30000);
+      }
     }
     
-    // Start polling for updates every 30 seconds
-    setInterval(updateNews, 30000);
+    // Initialize real-time updates when page loads
+    initializeNewsUpdates();
+    
+    // Slideshow functions
+    let slideIndex = 1;
+    
+    function initSlideshow() {
+      showSlides(slideIndex);
+    }
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      const slides = document.querySelectorAll('#newsModal .slide');
+      const dots = document.querySelectorAll('#newsModal .dot');
+      
+      if (slides.length === 0) return;
+      
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+      
+      // Hide all slides
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      
+      // Remove active class from all dots
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+      }
+      
+      // Show current slide and mark dot as active
+      slides[slideIndex - 1].style.display = 'block';
+      if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].className += ' active';
+      }
+    }
   </script>

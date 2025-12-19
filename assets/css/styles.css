@@ -3659,39 +3659,6 @@ main {
   font-weight: 500;
 }
 
-.news-modal-image {
-  margin-bottom: 24px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.news-modal-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.news-modal-additional-images {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 16px;
-  margin-top: 24px;
-}
-
-.news-modal-additional-images img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.news-modal-additional-images img:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
 .news-modal-body p {
   line-height: 1.8;
   color: #444;
@@ -3713,6 +3680,112 @@ main {
 
 .read-more-link:hover {
   color: #ff6b00;
+}
+
+/* News Modal Slideshow Styles */
+.news-modal-slideshow {
+  position: relative;
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.slideshow-container {
+  position: relative;
+  margin: auto;
+}
+
+.slide {
+  display: none;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.slideshow-dots {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot.active, .dot:hover {
+  background-color: var(--primary);
+}
+
+/* Responsive adjustments for slideshow */
+@media (max-width: 768px) {
+  .slide img {
+    max-height: 250px;
+  }
+  
+  .prev, .next {
+    padding: 12px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide img {
+    max-height: 200px;
+  }
+  
+  .prev, .next {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+  }
 }
 
 .admin-body {
