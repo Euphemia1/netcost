@@ -143,99 +143,125 @@ include 'includes/header.php';
 <script>
 // News Modal Functions
 function openNewsModal(newsId) {
-  // Fetch news content via AJAX
-  fetch('get_news_modal.php?id=' + newsId)
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        const news = data.data;
-        
-        // Update modal content
-        document.getElementById('modalTitle').textContent = news.title;
-        
-        let modalContent = '<p class="news-modal-date">' + news.created_at + '</p>';
-        
-        // Combine all images (featured + additional) for slideshow
-        let allImages = [];
-        if (news.featured_image) {
-          allImages.push(news.featured_image);
-        }
-        if (news.additional_images && news.additional_images.length > 0) {
-          news.additional_images.forEach(img => {
-            allImages.push(img.image_path);
-          });
-        }
-        
-        // Create slideshow if there are images
-        if (allImages.length > 0) {
-          if (allImages.length > 1) {
-            // Create slideshow for multiple images
-            modalContent += '<div class="news-modal-slideshow">';
-            modalContent += '  <div class="slideshow-container">';
-            
-            allImages.forEach((image, index) => {
-              modalContent += '    <div class="slide fade" style="' + (index === 0 ? 'display: block;' : 'display: none;') + '">';
-              modalContent += '      <img src="' + image + '" alt="' + news.title + ' image ' + (index + 1) + '">';
+  try {
+    // Fetch news content via AJAX
+    fetch('get_news_modal.php?id=' + newsId)
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          const news = data.data;
+          
+          // Update modal content
+          const modalTitle = document.getElementById('modalTitle');
+          const modalBody = document.getElementById('modalBody');
+          
+          if (modalTitle) {
+            modalTitle.textContent = news.title;
+          }
+          
+          let modalContent = '<p class="news-modal-date">' + news.created_at + '</p>';
+          
+          // Combine all images (featured + additional) for slideshow
+          let allImages = [];
+          if (news.featured_image) {
+            allImages.push(news.featured_image);
+          }
+          if (news.additional_images && news.additional_images.length > 0) {
+            news.additional_images.forEach(img => {
+              allImages.push(img.image_path);
+            });
+          }
+          
+          // Create slideshow if there are images
+          if (allImages.length > 0) {
+            if (allImages.length > 1) {
+              // Create slideshow for multiple images
+              modalContent += '<div class="news-modal-slideshow">';
+              modalContent += '  <div class="slideshow-container">';
+              
+              allImages.forEach((image, index) => {
+                modalContent += '    <div class="slide fade" style="' + (index === 0 ? 'display: block;' : 'display: none;') + '">';
+                modalContent += '      <img src="' + image + '" alt="' + news.title + ' image ' + (index + 1) + '">';
+                modalContent += '    </div>';
+              });
+              
+              // Navigation dots
+              modalContent += '    <div class="slideshow-dots">';
+              allImages.forEach((_, index) => {
+                modalContent += '      <span class="dot ' + (index === 0 ? 'active' : '') + '" onclick="currentSlide(' + (index + 1) + ')"></span>';
+              });
               modalContent += '    </div>';
-            });
-            
-            // Navigation dots
-            modalContent += '    <div class="slideshow-dots">';
-            allImages.forEach((_, index) => {
-              modalContent += '      <span class="dot ' + (index === 0 ? 'active' : '') + '" onclick="currentSlide(' + (index + 1) + ')"></span>';
-            });
-            modalContent += '    </div>';
-            
-            // Navigation arrows
-            modalContent += '    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
-            modalContent += '    <a class="next" onclick="plusSlides(1)">&#10095;</a>';
-            
-            modalContent += '  </div>';
-            modalContent += '</div>';
+              
+              // Navigation arrows
+              modalContent += '    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
+              modalContent += '    <a class="next" onclick="plusSlides(1)">&#10095;</a>';
+              
+              modalContent += '  </div>';
+              modalContent += '</div>';
+            } else {
+              // Single image display
+              modalContent += '<div class="news-modal-image">';
+              modalContent += '  <img src="' + allImages[0] + '" alt="' + news.title + '">';
+              modalContent += '</div>';
+            }
+          }
+          
+          modalContent += '<p>' + news.content.replace(/\n/g, '<br>') + '</p>';
+          
+          if (modalBody) {
+            modalBody.innerHTML = modalContent;
+          }
+          
+          // Show modal
+          const modal = document.getElementById('newsModal');
+          if (modal) {
+            modal.classList.add('active');
+          }
+          
+          // Prevent body scroll when modal is open
+          document.body.style.overflow = 'hidden';
+          
+          // Initialize slideshow if needed
+          if (allImages.length > 1) {
+            slideIndex = 1;
+            showSlides(slideIndex);
           } else {
-            // Single image display
-            modalContent += '<div class="news-modal-image">';
-            modalContent += '  <img src="' + allImages[0] + '" alt="' + news.title + '">';
-            modalContent += '</div>';
+            // Reset slideIndex for single images
+            slideIndex = 1;
           }
         }
-        
-        modalContent += '<p>' + news.content.replace(/\n/g, '<br>') + '</p>';
-        
-        document.getElementById('modalBody').innerHTML = modalContent;
-        
-        // Show modal
-        const modal = document.getElementById('newsModal');
-        modal.classList.add('active');
-        
-        // Prevent body scroll when modal is open
-        document.body.style.overflow = 'hidden';
-        
-        // Initialize slideshow if needed
-        if (allImages.length > 1) {
-          initSlideshow();
-        }
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching news:', error);
-    });
+      })
+      .catch(error => {
+        console.error('Error fetching news:', error);
+      });
+  } catch (e) {
+    console.error('Error opening news modal:', e);
+  }
 }
 
 function closeNewsModal() {
-  const modal = document.getElementById('newsModal');
-  modal.classList.remove('active');
-  
-  // Restore body scroll
-  document.body.style.overflow = '';
+  try {
+    const modal = document.getElementById('newsModal');
+    if (modal) {
+      modal.classList.remove('active');
+    }
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+  } catch (e) {
+    console.error('Error closing modal:', e);
+  }
 }
 
 // Close modal when clicking outside
-document.getElementById('newsModal').addEventListener('click', function(e) {
-  if (e.target === this) {
-    closeNewsModal();
-  }
-});
+const modalElement = document.getElementById('newsModal');
+if (modalElement) {
+  modalElement.addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeNewsModal();
+    }
+  });
+}
 
 // Close modal with ESC key
 document.addEventListener('keydown', function(e) {
@@ -244,7 +270,6 @@ document.addEventListener('keydown', function(e) {
   }
 });
 
-<<<<<<< HEAD
 // Real-time news updates using Server-Sent Events
 function initializeNewsUpdates() {
   // Check if EventSource is supported
@@ -272,40 +297,56 @@ function initializeNewsUpdates() {
         // Only add if it doesn't already exist
         if (!alreadyExists) {
           // Create news card HTML
-          const newsCard = `
-            <article class="news-article-card" data-news-id="${news.id}" data-aos="fade-up" data-aos-delay="0">
-              <div class="news-article-image">
-                ${news.featured_image ? `<img src="${news.featured_image}" alt="${news.title}">` : ''}
-                
-                ${news.additional_images && news.additional_images.length > 0 ? 
-                  `<div class="news-article-additional-images">
-                    ${news.additional_images.map(img => `<img src="${img.image_path}" alt="${news.title} additional image">`).join('')}
-                  </div>` : ''}
-              </div>
-              
-              <div class="news-article-header">
-                <h2 class="news-article-title">${news.title}</h2>
-                <time class="news-article-date">${news.formatted_date}</time>
-              </div>
-              
-              <div class="news-article-content">
-                ${news.truncated_content.replace(/\n/g, '<br>')}
-                <button class="read-more-link" onclick="openNewsModal(${news.id})">Read More</button>
-              </div>
-              
-              <div class="news-article-footer">
-                <span class="news-category">Press Release</span>
-              </div>
-            </article>
-          `;
+          let newsCardHTML = '<article class="news-article-card" data-news-id="' + news.id + '" data-aos="fade-up" data-aos-delay="0">';
+                  
+          // Image section
+          newsCardHTML += '<div class="news-article-image">';
+          if (news.featured_image) {
+            newsCardHTML += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
+          }
+                  
+          // Additional images
+          if (news.additional_images && news.additional_images.length > 0) {
+            newsCardHTML += '<div class="news-article-additional-images">';
+            for (let i = 0; i < news.additional_images.length; i++) {
+              newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
+            }
+            newsCardHTML += '</div>';
+          }
+          newsCardHTML += '</div>';
+                  
+          // Header section
+          newsCardHTML += '<div class="news-article-header">';
+          newsCardHTML += '<h2 class="news-article-title">' + news.title + '</h2>';
+          // Format date properly
+          const newsDate = new Date(news.created_at);
+          const formattedDate = newsDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          newsCardHTML += '<time class="news-article-date">' + formattedDate + '</time>';
+          newsCardHTML += '</div>';
+                  
+          // Content section
+          newsCardHTML += '<div class="news-article-content">';
+          // Truncate content for preview
+          const content = news.content;
+          const truncatedContent = content.length > 300 ? content.substring(0, 300) + '...' : content;
+          newsCardHTML += truncatedContent.replace(/\n/g, '<br>');
+          newsCardHTML += '<button class="read-more-link" onclick="openNewsModal(' + news.id + ')">Read More</button>';
+          newsCardHTML += '</div>';
+                  
+          // Footer section
+          newsCardHTML += '<div class="news-article-footer">';
+          newsCardHTML += '<span class="news-category">Press Release</span>';
+          newsCardHTML += '</div>';
+                  
+          newsCardHTML += '</article>';
           
           // Add new news item to the top of the grid
           const newsGrid = document.querySelector('.news-grid-page');
           if (newsGrid) {
-            newsGrid.insertAdjacentHTML('afterbegin', newsCard);
+            newsGrid.insertAdjacentHTML('afterbegin', newsCardHTML);
             
             // Reinitialize AOS animations
-            if (typeof AOS !== 'undefined') {
+            if (typeof AOS !== 'undefined' && AOS.refresh) {
               AOS.refresh();
             }
           }
@@ -332,15 +373,107 @@ function initializeNewsUpdates() {
   } else {
     // Fallback to polling if SSE is not supported
     console.warn('Server-Sent Events not supported, falling back to polling');
+    
+    let latestTimestamp = null;
+    
+    function updateNews() {
+      fetch('get_latest_news.php' + (latestTimestamp ? '?last_timestamp=' + encodeURIComponent(latestTimestamp) : ''))
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            // Update the latest timestamp
+            if (data.latest_timestamp) {
+              latestTimestamp = data.latest_timestamp;
+            }
+            
+            // Update the news grid if there are new items
+            if (data.data.length > 0) {
+              const newsGrid = document.querySelector('.news-grid-page');
+              if (newsGrid) {
+                // Process each new item
+                data.data.forEach((news, index) => {
+                  // Check if this news item already exists to prevent duplicates
+                  const existingNewsItems = document.querySelectorAll('.news-article-card');
+                  let alreadyExists = false;
+                  
+                  for (let i = 0; i < existingNewsItems.length; i++) {
+                    const newsId = existingNewsItems[i].getAttribute('data-news-id');
+                    if (newsId && parseInt(newsId) === parseInt(news.id)) {
+                      alreadyExists = true;
+                      break;
+                    }
+                  }
+                  
+                  // Only add if it doesn't already exist
+                  if (!alreadyExists) {
+                    // Create news card HTML
+                    let newsCardHTML = '<article class="news-article-card" data-news-id="' + news.id + '" data-aos="fade-up" data-aos-delay="' + (index * 100) + '">';
+                    
+                    // Image section
+                    newsCardHTML += '<div class="news-article-image">';
+                    if (news.featured_image) {
+                      newsCardHTML += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
+                    }
+                    
+                    // Additional images
+                    if (news.additional_images && news.additional_images.length > 0) {
+                      newsCardHTML += '<div class="news-article-additional-images">';
+                      for (let i = 0; i < news.additional_images.length; i++) {
+                        newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
+                      }
+                      newsCardHTML += '</div>';
+                    }
+                    newsCardHTML += '</div>';
+                    
+                    // Header section
+                    newsCardHTML += '<div class="news-article-header">';
+                    newsCardHTML += '<h2 class="news-article-title">' + news.title + '</h2>';
+                    // Format date properly
+                    const newsDate = new Date(news.created_at);
+                    const formattedDate = newsDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    newsCardHTML += '<time class="news-article-date">' + formattedDate + '</time>';
+                    newsCardHTML += '</div>';
+                    
+                    // Content section
+                    newsCardHTML += '<div class="news-article-content">';
+                    // Truncate content for preview
+                    const content = news.content;
+                    const truncatedContent = content.length > 300 ? content.substring(0, 300) + '...' : content;
+                    newsCardHTML += truncatedContent.replace(/\n/g, '<br>');
+                    newsCardHTML += '<button class="read-more-link" onclick="openNewsModal(' + news.id + ')">Read More</button>';
+                    newsCardHTML += '</div>';
+                    
+                    // Footer section
+                    newsCardHTML += '<div class="news-article-footer">';
+                    newsCardHTML += '<span class="news-category">Press Release</span>';
+                    newsCardHTML += '</div>';
+                    
+                    newsCardHTML += '</article>';
+                    
+                    newsGrid.insertAdjacentHTML('afterbegin', newsCardHTML);
+                  }
+                });
+                
+                // Reinitialize AOS animations
+                if (typeof AOS !== 'undefined' && AOS.refresh) {
+                  AOS.refresh();
+                }
+              }
+            }
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching latest news:', error);
+        });
+    }
+    
+    // Start polling for updates every 30 seconds
+    setInterval(updateNews, 30000);
   }
 }
 
 // Slideshow functions
 let slideIndex = 1;
-
-function initSlideshow() {
-  showSlides(slideIndex);
-}
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
@@ -354,263 +487,37 @@ function showSlides(n) {
   const slides = document.querySelectorAll('#newsModal .slide');
   const dots = document.querySelectorAll('#newsModal .dot');
   
+  // Check if slides exist
   if (slides.length === 0) return;
   
+  // Handle slide index boundaries
   if (n > slides.length) { slideIndex = 1; }
   if (n < 1) { slideIndex = slides.length; }
   
   // Hide all slides
   for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = 'none';
+    if (slides[i]) {
+      slides[i].style.display = 'none';
+    }
   }
   
   // Remove active class from all dots
   for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(' active', '');
+    if (dots[i]) {
+      dots[i].className = dots[i].className.replace(' active', '');
+    }
   }
   
   // Show current slide and mark dot as active
-  slides[slideIndex - 1].style.display = 'block';
-  if (dots[slideIndex - 1]) {
-    dots[slideIndex - 1].className += ' active';
+  const currentIndex = slideIndex - 1;
+  if (slides[currentIndex]) {
+    slides[currentIndex].style.display = 'block';
+  }
+  if (dots[currentIndex]) {
+    dots[currentIndex].className += ' active';
   }
 }
 
 // Initialize real-time updates when page loads
 initializeNewsUpdates();
 </script>
-=======
-    // Real-time news updates using Server-Sent Events
-    function initializeNewsUpdates() {
-      // Check if EventSource is supported
-      if (typeof(EventSource) !== "undefined") {
-        // Create EventSource connection
-        const eventSource = new EventSource("news_updates_sse.php");
-        
-        // Handle news updates
-        eventSource.addEventListener('news_update', function(event) {
-          try {
-            const news = JSON.parse(event.data);
-                  
-            // Check if this news item already exists to prevent duplicates
-            const existingNewsItems = document.querySelectorAll('.news-article-card');
-            let alreadyExists = false;
-                  
-            for (let i = 0; i < existingNewsItems.length; i++) {
-              const newsId = existingNewsItems[i].getAttribute('data-news-id');
-              if (newsId && parseInt(newsId) === parseInt(news.id)) {
-                alreadyExists = true;
-                break;
-              }
-            }
-                  
-            // Only add if it doesn't already exist
-            if (!alreadyExists) {
-              // Create news card HTML
-              let newsCardHTML = '<article class="news-article-card" data-news-id="' + news.id + '" data-aos="fade-up" data-aos-delay="0">';
-                    
-              // Image section
-              newsCardHTML += '<div class="news-article-image">';
-              if (news.featured_image) {
-                newsCardHTML += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
-              }
-                    
-              // Additional images
-              if (news.additional_images && news.additional_images.length > 0) {
-                newsCardHTML += '<div class="news-article-additional-images">';
-                for (let i = 0; i < news.additional_images.length; i++) {
-                  newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
-                }
-                newsCardHTML += '</div>';
-              }
-              newsCardHTML += '</div>';
-                    
-              // Header section
-              newsCardHTML += '<div class="news-article-header">';
-              newsCardHTML += '<h2 class="news-article-title">' + news.title + '</h2>';
-              newsCardHTML += '<time class="news-article-date">' + news.formatted_date + '</time>';
-              newsCardHTML += '</div>';
-                    
-              // Content section
-              newsCardHTML += '<div class="news-article-content">';
-              newsCardHTML += news.truncated_content.replace(/\n/g, '<br>');
-              newsCardHTML += '<button class="read-more-link" onclick="openNewsModal(' + news.id + ')">Read More</button>';
-              newsCardHTML += '</div>';
-                    
-              // Footer section
-              newsCardHTML += '<div class="news-article-footer">';
-              newsCardHTML += '<span class="news-category">Press Release</span>';
-              newsCardHTML += '</div>';
-                    
-              newsCardHTML += '</article>';
-                    
-              // Add new news item to the top of the grid
-              const newsGrid = document.querySelector('.news-grid-page');
-              if (newsGrid) {
-                newsGrid.insertAdjacentHTML('afterbegin', newsCardHTML);
-                      
-                // Reinitialize AOS animations
-                if (typeof AOS !== 'undefined') {
-                  AOS.refresh();
-                }
-              }
-            }
-          } catch (e) {
-            console.error('Error processing news update:', e);
-          }
-        });
-        
-        // Handle errors
-        eventSource.addEventListener('error', function(event) {
-          console.error('SSE error occurred:', event);
-        });
-        
-        // Handle connection opened
-        eventSource.addEventListener('open', function(event) {
-          console.log('SSE connection opened');
-        });
-        
-        // Handle heartbeat
-        eventSource.addEventListener('heartbeat', function(event) {
-          console.log('SSE heartbeat received:', event.data);
-        });
-      } else {
-        // Fallback to polling if SSE is not supported
-        console.warn('Server-Sent Events not supported, falling back to polling');
-        
-        let latestTimestamp = null;
-        
-        function updateNews() {
-          fetch('get_latest_news.php' + (latestTimestamp ? '?last_timestamp=' + encodeURIComponent(latestTimestamp) : ''))
-            .then(response => response.json())
-            .then(data => {
-              if (data.success) {
-                // Update the latest timestamp
-                if (data.latest_timestamp) {
-                  latestTimestamp = data.latest_timestamp;
-                }
-                
-                // Update the news grid if there are new items
-                if (data.data.length > 0) {
-                  const newsGrid = document.querySelector('.news-grid-page');
-                  if (newsGrid) {
-                    // Process each new item
-                    data.data.forEach((news, index) => {
-                      // Check if this news item already exists to prevent duplicates
-                      const existingNewsItems = document.querySelectorAll('.news-article-card');
-                      let alreadyExists = false;
-                      
-                      for (let i = 0; i < existingNewsItems.length; i++) {
-                        const newsId = existingNewsItems[i].getAttribute('data-news-id');
-                        if (newsId && parseInt(newsId) === parseInt(news.id)) {
-                          alreadyExists = true;
-                          break;
-                        }
-                      }
-                      
-                      // Only add if it doesn't already exist
-                      if (!alreadyExists) {
-                        // Create news card HTML
-                        let newsCardHTML = '<article class="news-article-card" data-news-id="' + news.id + '" data-aos="fade-up" data-aos-delay="' + (index * 100) + '">';
-                        
-                        // Image section
-                        newsCardHTML += '<div class="news-article-image">';
-                        if (news.featured_image) {
-                          newsCardHTML += '<img src="' + news.featured_image + '" alt="' + news.title + '">';
-                        }
-                        
-                        // Additional images
-                        if (news.additional_images && news.additional_images.length > 0) {
-                          newsCardHTML += '<div class="news-article-additional-images">';
-                          for (let i = 0; i < news.additional_images.length; i++) {
-                            newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
-                          }
-                          newsCardHTML += '</div>';
-                        }
-                        newsCardHTML += '</div>';
-                        
-                        // Header section
-                        newsCardHTML += '<div class="news-article-header">';
-                        newsCardHTML += '<h2 class="news-article-title">' + news.title + '</h2>';
-                        newsCardHTML += '<time class="news-article-date">' + news.formatted_date + '</time>';
-                        newsCardHTML += '</div>';
-                        
-                        // Content section
-                        newsCardHTML += '<div class="news-article-content">';
-                        newsCardHTML += news.truncated_content.replace(/\n/g, '<br>');
-                        newsCardHTML += '<button class="read-more-link" onclick="openNewsModal(' + news.id + ')">Read More</button>';
-                        newsCardHTML += '</div>';
-                        
-                        // Footer section
-                        newsCardHTML += '<div class="news-article-footer">';
-                        newsCardHTML += '<span class="news-category">Press Release</span>';
-                        newsCardHTML += '</div>';
-                        
-                        newsCardHTML += '</article>';
-                        
-                        newsGrid.innerHTML = newsCardHTML + newsGrid.innerHTML;
-                      }
-                    });
-                    
-                    // Reinitialize AOS animations
-                    if (typeof AOS !== 'undefined') {
-                      AOS.refresh();
-                    }
-                  }
-                }
-              }
-            })
-            .catch(error => {
-              console.error('Error fetching latest news:', error);
-            });
-        }
-        
-        // Start polling for updates every 30 seconds
-        setInterval(updateNews, 30000);
-      }
-    }
-    
-    // Initialize real-time updates when page loads
-    initializeNewsUpdates();
-    
-    // Slideshow functions
-    let slideIndex = 1;
-    
-    function initSlideshow() {
-      showSlides(slideIndex);
-    }
-    
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      const slides = document.querySelectorAll('#newsModal .slide');
-      const dots = document.querySelectorAll('#newsModal .dot');
-      
-      if (slides.length === 0) return;
-      
-      if (n > slides.length) { slideIndex = 1; }
-      if (n < 1) { slideIndex = slides.length; }
-      
-      // Hide all slides
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-      }
-      
-      // Remove active class from all dots
-      for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(' active', '');
-      }
-      
-      // Show current slide and mark dot as active
-      slides[slideIndex - 1].style.display = 'block';
-      if (dots[slideIndex - 1]) {
-        dots[slideIndex - 1].className += ' active';
-      }
-    }
-  </script>
