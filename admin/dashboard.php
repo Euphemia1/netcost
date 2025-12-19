@@ -13,6 +13,13 @@ if (!isset($_SESSION['admin_logged_in'])) {
 
 include '../includes/db.php';
 
+// Function to notify clients of news updates
+function notifyNewsUpdate() {
+    // Create a simple notification file that the SSE script can check
+    $notification_file = '../news_update_notification.txt';
+    file_put_contents($notification_file, time());
+}
+
 // Create upload directory if it doesn't exist
 $upload_dir = '../assets/media/news/';
 if (!is_dir($upload_dir)) {
@@ -73,6 +80,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->execute([$news_id, $image_path, $index]);
                     }
                 }
+                
+                // Notify clients of the new news item
+                notifyNewsUpdate();
                 
                 // Redirect to dashboard after successful insert
                 header('Location: dashboard.php');
@@ -184,6 +194,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $stmt->execute([$id, $image_path, $index]);
                     }
                 }
+                
+                // Notify clients of the updated news item
+                notifyNewsUpdate();
                 
                 // Redirect to dashboard after successful update
                 header('Location: dashboard.php?status=updated');
