@@ -143,11 +143,9 @@ if (heroStats.length > 0) {
   heroStats.forEach((stat) => statsObserver.observe(stat))
 }
 
-// Declare AOS variable before using it
-const AOS = window.AOS
-
-if (typeof AOS !== "undefined") {
-  AOS.init({
+// Initialize AOS if available
+if (typeof window.AOS !== "undefined") {
+  window.AOS.init({
     duration: 800,
     easing: "ease-out",
     once: true,
@@ -390,7 +388,14 @@ ${message ? 'Notes: ' + message : ''}`
       // For now, we'll just open Google Calendar
       
       // Show confirmation
-      const confirmMsg = `Demo scheduled!\n\nName: ${name}\nEmail: ${email}\nProduct: ${product}\nDate: ${date} at ${time}\n\nClick OK to add to your Google Calendar.`
+      const confirmMsg = `Demo scheduled!
+
+Name: ${name}
+Email: ${email}
+Product: ${product}
+Date: ${date} at ${time}
+
+Click OK to add to your Google Calendar.`
       
       if (confirm(confirmMsg)) {
         // Open Google Calendar in new tab
