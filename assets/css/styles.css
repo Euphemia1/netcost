@@ -3783,6 +3783,20 @@ main {
   background-color: var(--primary);
 }
 
+.news-modal-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.news-modal-video {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 /* Responsive adjustments for slideshow */
 @media (max-width: 768px) {
   .slide img {
@@ -8866,6 +8880,20 @@ main {
 
 .dot.active, .dot:hover {
   background-color: var(--primary);
+}
+
+.news-modal-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.news-modal-video {
+  margin-bottom: 24px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 /* Responsive adjustments for slideshow */
