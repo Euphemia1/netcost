@@ -409,6 +409,16 @@ $contacts_result = $stmt->fetchAll();
                     <small>You can upload multiple images. Recommended size: 600x400px</small>
                 </div>
                 
+                <div class="form-group">
+                    <label for="newsVideos">Videos (MP4, MOV, AVI) - You can select multiple videos</label>
+                    <div class="video-upload-wrapper">
+                        <input type="file" id="newsVideos" name="videos[]" accept=".mp4,.mov,.avi,.webm" multiple onchange="previewVideos(event)">
+                        <div class="video-upload-instructions">Hold Ctrl (Cmd on Mac) to select multiple files</div>
+                        <div id="videoPreview" class="video-preview"></div>
+                    </div>
+                    <small>You can upload multiple videos. Recommended format: MP4 (H.264 codec)</small>
+                </div>
+                
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="closeNewsModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">Save</button>
