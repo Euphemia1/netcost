@@ -26,6 +26,11 @@ foreach ($news_items as &$news_item) {
     $stmt = $pdo->prepare('SELECT image_path FROM news_images WHERE news_id = ? ORDER BY sort_order');
     $stmt->execute([$news_item['id']]);
     $news_item['additional_images'] = $stmt->fetchAll();
+    
+    // Fetch videos for each news item
+    $stmt = $pdo->prepare('SELECT video_path FROM news_videos WHERE news_id = ? ORDER BY sort_order');
+    $stmt->execute([$news_item['id']]);
+    $news_item['videos'] = $stmt->fetchAll();
 }
 unset($news_item); // Break the reference
 
@@ -172,24 +177,44 @@ function openNewsModal(newsId) {
             });
           }
           
-          // Create slideshow if there are images
-          if (allImages.length > 0) {
-            if (allImages.length > 1) {
-              // Create slideshow for multiple images
+          // Get videos
+          let allVideos = [];
+          if (news.videos && news.videos.length > 0) {
+            news.videos.forEach(video => {
+              allVideos.push(video.video_path);
+            });
+          }
+          
+          // Create slideshow if there are images or videos
+          if (allImages.length > 0 || allVideos.length > 0) {
+            if (allImages.length + allVideos.length > 1) {
+              // Create slideshow for multiple items (images and videos)
               modalContent += '<div class="news-modal-slideshow">';
               modalContent += '  <div class="slideshow-container">';
               
+              // Add images to slideshow
               allImages.forEach((image, index) => {
-                modalContent += '    <div class="slide fade" style="' + (index === 0 ? 'display: block;' : 'display: none;') + '">';
+                modalContent += '    <div class="slide fade" style="' + (index === 0 && allVideos.length === 0 ? 'display: block;' : 'display: none;') + '">';
                 modalContent += '      <img src="' + image + '" alt="' + news.title + ' image ' + (index + 1) + '">';
+                modalContent += '    </div>';
+              });
+              
+              // Add videos to slideshow
+              allVideos.forEach((video, index) => {
+                const imageIndex = allImages.length + index;
+                modalContent += '    <div class="slide fade" style="' + (imageIndex === 0 ? 'display: block;' : 'display: none;') + '">';
+                modalContent += '      <video controls width="100%" height="auto">';
+                modalContent += '        <source src="' + video + '" type="video/mp4">';
+                modalContent += '        Your browser does not support the video tag.';
+                modalContent += '      </video>';
                 modalContent += '    </div>';
               });
               
               // Navigation dots
               modalContent += '    <div class="slideshow-dots">';
-              allImages.forEach((_, index) => {
-                modalContent += '      <span class="dot ' + (index === 0 ? 'active' : '') + '" onclick="currentSlide(' + (index + 1) + ')"></span>';
-              });
+              for (let i = 0; i < allImages.length + allVideos.length; i++) {
+                modalContent += '      <span class="dot ' + (i === 0 ? 'active' : '') + '" onclick="currentSlide(' + (i + 1) + ')"></span>';
+              }
               modalContent += '    </div>';
               
               // Navigation arrows
@@ -199,10 +224,21 @@ function openNewsModal(newsId) {
               modalContent += '  </div>';
               modalContent += '</div>';
             } else {
-              // Single image display
-              modalContent += '<div class="news-modal-image">';
-              modalContent += '  <img src="' + allImages[0] + '" alt="' + news.title + '">';
-              modalContent += '</div>';
+              // Single item display (either image or video)
+              if (allImages.length > 0) {
+                // Single image display
+                modalContent += '<div class="news-modal-image">';
+                modalContent += '  <img src="' + allImages[0] + '" alt="' + news.title + '">';
+                modalContent += '</div>';
+              } else if (allVideos.length > 0) {
+                // Single video display
+                modalContent += '<div class="news-modal-video">';
+                modalContent += '  <video controls width="100%" height="auto">';
+                modalContent += '    <source src="' + allVideos[0] + '" type="video/mp4">';
+                modalContent += '    Your browser does not support the video tag.';
+                modalContent += '  </video>';
+                modalContent += '</div>';
+              }
             }
           }
           
@@ -314,6 +350,14 @@ function initializeNewsUpdates() {
               }
               newsCardHTML += '</div>';
             }
+            
+            // Videos indicator
+            if (news.videos && news.videos.length > 0) {
+              newsCardHTML += '<div class="news-article-videos-indicator">';
+              newsCardHTML += '<span class="video-icon">▶</span>';
+              newsCardHTML += '<span class="video-count">' + news.videos.length + ' video(s)</span>';
+              newsCardHTML += '</div>';
+            }
             newsCardHTML += '</div>';
             
             // Header section
@@ -422,6 +466,14 @@ function initializeNewsUpdates() {
                         for (let i = 0; i < news.additional_images.length; i++) {
                           newsCardHTML += '<img src="' + news.additional_images[i].image_path + '" alt="' + news.title + ' additional image">';
                         }
+                        newsCardHTML += '</div>';
+                      }
+                      
+                      // Videos indicator
+                      if (news.videos && news.videos.length > 0) {
+                        newsCardHTML += '<div class="news-article-videos-indicator">';
+                        newsCardHTML += '<span class="video-icon">▶</span>';
+                        newsCardHTML += '<span class="video-count">' + news.videos.length + ' video(s)</span>';
                         newsCardHTML += '</div>';
                       }
                       newsCardHTML += '</div>';

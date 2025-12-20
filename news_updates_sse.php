@@ -44,6 +44,11 @@ function sendNewsUpdate($pdo, $eventId) {
             $stmt->execute([$latest_news['id']]);
             $latest_news['additional_images'] = $stmt->fetchAll();
             
+            // Fetch videos
+            $stmt = $pdo->prepare('SELECT video_path FROM news_videos WHERE news_id = ? ORDER BY sort_order');
+            $stmt->execute([$latest_news['id']]);
+            $latest_news['videos'] = $stmt->fetchAll();
+            
             // Send the update
             echo "id: " . $eventId . "\n";
             echo "event: news_update\n";

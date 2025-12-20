@@ -22,6 +22,11 @@ if ($news_id > 0) {
             $stmt->execute([$news_id]);
             $news['additional_images'] = $stmt->fetchAll();
             
+            // Fetch videos
+            $stmt = $pdo->prepare('SELECT video_path FROM news_videos WHERE news_id = ? ORDER BY sort_order');
+            $stmt->execute([$news_id]);
+            $news['videos'] = $stmt->fetchAll();
+            
             // Return success response
             echo json_encode([
                 'success' => true,

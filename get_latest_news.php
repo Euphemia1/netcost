@@ -32,6 +32,11 @@ try {
         $stmt = $pdo->prepare('SELECT image_path FROM news_images WHERE news_id = ? ORDER BY sort_order');
         $stmt->execute([$news['id']]);
         $news['additional_images'] = $stmt->fetchAll();
+        
+        // Fetch videos
+        $stmt = $pdo->prepare('SELECT video_path FROM news_videos WHERE news_id = ? ORDER BY sort_order');
+        $stmt->execute([$news['id']]);
+        $news['videos'] = $stmt->fetchAll();
     }
     
     // Get the latest timestamp for future requests

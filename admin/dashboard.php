@@ -66,6 +66,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
             
+            // Handle multiple video uploads
+            $uploaded_videos = [];
+            if (isset($_FILES['videos'])) {
+                $files = $_FILES['videos'];
+                $file_count = count($files['name']);
+                
+                for ($i = 0; $i < $file_count; $i++) {
+                    if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                        $file_tmp = $files['tmp_name'][$i];
+                        $file_name = basename($files['name'][$i]);
+                        $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                        
+                        // Allowed video extensions
+                        $allowed_ext = ['mp4', 'mov', 'avi', 'webm'];
+                        
+                        if (in_array($file_ext, $allowed_ext)) {
+                            // Generate unique filename
+                            $new_filename = uniqid('news_video_') . '_' . $i . '.' . $file_ext;
+                            $file_path = $upload_dir . $new_filename;
+                            
+                            if (move_uploaded_file($file_tmp, $file_path)) {
+                                $uploaded_videos[] = 'assets/media/news/' . $new_filename;
+                            }
+                        }
+                    }
+                }
+            }
+            
             if ($title && $content) {
                 $stmt = $pdo->prepare('INSERT INTO news (title, content, featured_image, created_at) VALUES (?, ?, ?, NOW())');
                 $stmt->execute([$title, $content, $featured_image]);
@@ -78,6 +106,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt = $pdo->prepare('INSERT INTO news_images (news_id, image_path, sort_order) VALUES (?, ?, ?)');
                     foreach ($uploaded_images as $index => $image_path) {
                         $stmt->execute([$news_id, $image_path, $index]);
+                    }
+                }
+                
+                // Insert uploaded videos into news_videos table
+                if (!empty($uploaded_videos)) {
+                    $stmt = $pdo->prepare('INSERT INTO news_videos (news_id, video_path, sort_order) VALUES (?, ?, ?)');
+                    foreach ($uploaded_videos as $index => $video_path) {
+                        $stmt->execute([$news_id, $video_path, $index]);
                     }
                 }
                 
@@ -184,6 +220,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
                 
+                // Handle new video uploads
+                $uploaded_videos = [];
+                if (isset($_FILES['videos'])) {
+                    $files = $_FILES['videos'];
+                    $file_count = count($files['name']);
+                    
+                    // Delete existing videos if new ones are uploaded
+                    $has_new_videos = false;
+                    for ($i = 0; $i < $file_count; $i++) {
+                        if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                            $has_new_videos = true;
+                            break;
+                        }
+                    }
+                    
+                    if ($has_new_videos) {
+                        // Delete old videos from filesystem
+                        $stmt = $pdo->prepare('SELECT video_path FROM news_videos WHERE news_id = ? ORDER BY sort_order');
+                        $stmt->execute([$id]);
+                        $old_videos = $stmt->fetchAll();
+                        
+                        foreach ($old_videos as $old_video) {
+                            $old_file_path = str_replace('assets/media/news/', '../assets/media/news/', $old_video['video_path']);
+                            if (file_exists($old_file_path)) {
+                                unlink($old_file_path);
+                            }
+                        }
+                        
+                        // Delete old videos from database
+                        $stmt = $pdo->prepare('DELETE FROM news_videos WHERE news_id = ?');
+                        $stmt->execute([$id]);
+                    }
+                    
+                    // Upload new videos
+                    for ($i = 0; $i < $file_count; $i++) {
+                        if ($files['error'][$i] === UPLOAD_ERR_OK) {
+                            $file_tmp = $files['tmp_name'][$i];
+                            $file_name = basename($files['name'][$i]);
+                            $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+                            
+                            $allowed_ext = ['mp4', 'mov', 'avi', 'webm'];
+                            
+                            if (in_array($file_ext, $allowed_ext)) {
+                                // Upload new video
+                                $new_filename = uniqid('news_video_') . '_' . $i . '.' . $file_ext;
+                                $file_path = $upload_dir . $new_filename;
+                                
+                                if (move_uploaded_file($file_tmp, $file_path)) {
+                                    $uploaded_videos[] = 'assets/media/news/' . $new_filename;
+                                }
+                            }
+                        }
+                    }
+                }
+                
                 $stmt = $pdo->prepare('UPDATE news SET title = ?, content = ?, featured_image = ? WHERE id = ?');
                 $stmt->execute([$title, $content, $featured_image, $id]);
                 
@@ -192,6 +283,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt = $pdo->prepare('INSERT INTO news_images (news_id, image_path, sort_order) VALUES (?, ?, ?)');
                     foreach ($uploaded_images as $index => $image_path) {
                         $stmt->execute([$id, $image_path, $index]);
+                    }
+                }
+                
+                // Insert new videos into news_videos table
+                if (!empty($uploaded_videos)) {
+                    $stmt = $pdo->prepare('INSERT INTO news_videos (news_id, video_path, sort_order) VALUES (?, ?, ?)');
+                    foreach ($uploaded_videos as $index => $video_path) {
+                        $stmt->execute([$id, $video_path, $index]);
                     }
                 }
                 
@@ -231,6 +330,11 @@ foreach ($news_result as &$news_item) {
     $stmt = $pdo->prepare('SELECT image_path FROM news_images WHERE news_id = ? ORDER BY sort_order');
     $stmt->execute([$news_item['id']]);
     $news_item['additional_images'] = $stmt->fetchAll();
+    
+    // Fetch videos for each news item
+    $stmt = $pdo->prepare('SELECT video_path FROM news_videos WHERE news_id = ? ORDER BY sort_order');
+    $stmt->execute([$news_item['id']]);
+    $news_item['videos'] = $stmt->fetchAll();
 }
 unset($news_item); // Break the reference
 
@@ -315,6 +419,11 @@ $contacts_result = $stmt->fetchAll();
                             <?php if (!empty($news['additional_images'])): ?>
                                 <div class="news-meta" style="background-color: #f0f8ff; padding: 8px 16px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #666;">
                                     <span><?php echo count($news['additional_images']); ?> additional image(s)</span>
+                                </div>
+                            <?php endif; ?>
+                            <?php if (!empty($news['videos'])): ?>
+                                <div class="news-meta" style="background-color: #fff0f5; padding: 8px 16px; border-top: 1px solid #e0e0e0; font-size: 12px; color: #666;">
+                                    <span><?php echo count($news['videos']); ?> video(s)</span>
                                 </div>
                             <?php endif; ?>
                         </div>
